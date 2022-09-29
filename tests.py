@@ -1,8 +1,8 @@
-import unittest 
+import unittest
 import main
 
-class TestCase(unittest.TestCase):
 
+class TestCase(unittest.TestCase):
 
     def test1(self):
         expected = True
