@@ -44,8 +44,8 @@ def to_grayscale(image):
 
 
 def pixel_to_ascii(image):
-    """Interprets the intensity of each pixel and assigns an ASCII char 
-        with similar intensity. Concatenates to an array of all ASCII chars.
+    """Interprets the intensity of each pixel and assigns an ASCII char
+    with similar intensity. Concatenates to an array of all ASCII chars.
 
     Args:
         image (PIL Image object): The image to be converted to ASCII characters
@@ -59,11 +59,11 @@ def pixel_to_ascii(image):
 
 
 def main(new_width=100):
-    """Requests a filepath to an image from the user and 
+    """Requests a filepath to an image from the user and
         converts the image to ASCII art.
 
     Args:
-        new_width (int, optional): the desired width of the new image. 
+        new_width (int, optional): the desired width of the new image.
         Defaults to 100.
     """
 
