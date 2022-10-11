@@ -8,14 +8,12 @@ function App() {
     .then( response => console.log("Hello World"))
   }
 
-  render () {
     return (
       <div className='button__container'>
         <button className='button' onClick={handleClick}>
         Click Me</button>
       </div>
     )
-  }
 }
 
 export default App;
