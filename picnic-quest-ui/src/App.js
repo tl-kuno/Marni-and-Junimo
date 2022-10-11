@@ -2,17 +2,8 @@ import './App.css';
 import axios from 'axios'
 
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-       command: ''
-    }
-
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick () {
+function App() {
+  const handleClick = () => {
     axios.get('http://picnic-quest.vercel.app/')
     .then( response => console.log("Hello World"))
   }
@@ -20,7 +11,7 @@ class App extends Component {
   render () {
     return (
       <div className='button__container'>
-        <button className='button' onClick={this.handleClick}>
+        <button className='button' onClick={handleClick}>
         Click Me</button>
       </div>
     )
