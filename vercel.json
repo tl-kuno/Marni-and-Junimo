@@ -1,0 +1,13 @@
+{
+ "routes":[
+    {
+        "src": "/",
+        "dest": "/api/commands.py"
+    },
+    {
+        "src": "/api/commands.py",
+        "methods": ["POST"],
+        "dest": "/api/commands.py"
+    }
+ ]   
+}

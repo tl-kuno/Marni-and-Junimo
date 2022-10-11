@@ -2,7 +2,8 @@ class Room:
     """
     Creates a full room environment
     """
-    def __init__(self, room_id, room_name, long_description, short_description, object_list, directions):
+    def __init__(self, room_id, room_name, long_description,
+                 short_description, object_list, directions):
         self.room_id = room_id
         self.room_name = room_name
         self.long_description = long_description
@@ -44,7 +45,8 @@ class Room:
         """
         Display the name of the room, exits in the room, and items in the room
         """
-        return "\nName: {}, Exits: {}, Items: {}".format(self.room_name, self.directions, self.object_list)
+        return "\nName: {}, Exits: {}, Items: {}".format(
+            self.room_name, self.directions, self.object_list)
 
 
 class Item:
