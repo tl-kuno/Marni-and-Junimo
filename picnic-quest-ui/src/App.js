@@ -11,7 +11,7 @@ function App() {
 
     return (
       <div>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/> 
+
         <div className='button__container'>
           <button className='button' onClick={handleClick}>
           Click Me</button>
