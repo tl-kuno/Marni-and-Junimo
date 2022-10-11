@@ -5,7 +5,7 @@ import axios from 'axios'
 function App() {
   
   const handleClick = () => {
-    axios.get('http://picnic-quest.vercel.app/')
+    axios.get('https://picnic-quest.vercel.app/')
     .then( response => console.log("Hello World"))
   }
 
