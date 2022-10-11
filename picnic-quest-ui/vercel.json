@@ -3,14 +3,6 @@
         {
             "src": "/",
             "dest": "api/commands.js"
-        },
-        {
-            "src": "/api/commands.js",
-            "methods": [
-                "POST",
-                "GET"
-            ],
-            "dest":"api/commands.js"
         }
     ]
 }
