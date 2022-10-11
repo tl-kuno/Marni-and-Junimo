@@ -266,7 +266,7 @@ def main():
 # -----------------------------------------------------
 
     print(room_list)
-
+    print(inventory)
     # current_room = room_list[0]
 
     # # move north
