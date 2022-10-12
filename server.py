@@ -2,14 +2,16 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 import json
+from backend.main import test_function
 
 app = Flask(__name__)
-CORS(app, origins=["https://pinic-quest-ui.vercel.app/"])
+CORS(app)
 
 
 @app.route('/', methods=["GET", "POST"])
 def handle_request():
-    command = str(request.args.get('command'))
+    command = test_function()
+    # command = str(request.args.get('command'))
     output_base = "You have sent the following command: "
     output = output_base + command
 
