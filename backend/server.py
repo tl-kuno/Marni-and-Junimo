@@ -14,3 +14,7 @@ def handle_request():
     data_set = {'output': output}
     json_dump = json.dumps(data_set)
     return json_dump
+
+
+if __name__ == '__main__':
+    app.run_server(debug=False)
