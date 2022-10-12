@@ -1,3 +1,8 @@
+def test_function():
+    sample = "I made it to the other file."
+    return sample
+
+
 class Room:
     """
     Creates a full room environment
