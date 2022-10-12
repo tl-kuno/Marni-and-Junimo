@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app, origins=["https://pinic-quest-ui.vercel.app/"])
 
 
 @app.route('/', methods=["GET", "POST"])
