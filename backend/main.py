@@ -2,11 +2,11 @@ from backend.Room import Room
 from backend.Item import Item
 
 
-def test_function(string):
+def test_function(command):
     num_chars = "odd"
-    output = "Your string has an " + num_chars + "number of characters"
-    if len(string) % 2 == 0:
+    if len(command) % 2 == 0:
         num_chars = "even"
+    output = "Your string has an " + num_chars + " number of characters"
     return output
 
 
