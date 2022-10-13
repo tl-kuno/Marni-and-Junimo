@@ -2,9 +2,12 @@ from backend.Room import Room
 from backend.Item import Item
 
 
-def test_function():
-    sample = "I made it to the other file."
-    return sample
+def test_function(string):
+    num_chars = "odd"
+    output = "Your string has an " + num_chars + "number of characters"
+    if len(string) % 2 == 0:
+        num_chars = "even"
+    return output
 
 
 def main():

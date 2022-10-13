@@ -1,5 +1,5 @@
 from flask import Flask
-# from flask import request
+from flask import request
 from flask_cors import CORS
 import json
 from backend.main import test_function
@@ -10,11 +10,8 @@ CORS(app)
 
 @app.route('/', methods=["GET", "POST"])
 def handle_request():
-    command = test_function()
-    # command = str(request.args.get('command'))
-    output_base = "You have sent the following command: "
-    output = output_base + command
-
+    command = str(request.args.get('command'))
+    output = test_function(command)
     data_set = {'output': output}
     json_dump = json.dumps(data_set)
     return json_dump
