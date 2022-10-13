@@ -309,7 +309,7 @@ def main():
     for room in room_list:
         print(room.long_description)
     print(inventory)
-    
+
     # current_room = room_list[0]
 
     # # move north
