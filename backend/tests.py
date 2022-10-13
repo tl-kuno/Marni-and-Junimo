@@ -5,5 +5,5 @@ import main
 class TestCase(unittest.TestCase):
 
     def test1(self):
-        expected = True
-        self.assertTrue(main.func(), expected)
+        expected = "I made it to the other file."
+        self.assertTrue(main.test_function(), expected)
