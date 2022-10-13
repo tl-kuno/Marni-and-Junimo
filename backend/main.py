@@ -6,6 +6,7 @@ def test_function():
     sample = "I made it to the other file."
     return sample
 
+
 def main():
     """
     Main function

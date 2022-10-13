@@ -13,7 +13,8 @@ class Character:
         self.location = location
 
     def __repr__(self):
-        return f"{self.name}\nLocation: {self.location}\nInventory: {[item for item in self.inventory]}"
+        return f"{self.name}\nLocation: {self.location}\n\
+        Inventory: {[item for item in self.inventory]}"
 
     def add_item(self, item):
         # Adds item to inventory and sends confirmation
@@ -60,7 +61,7 @@ class Character:
         # read temp.json and update class
         with open("./backend/SaveFiles/temp.json", 'r') as f:
             new_char = json.load(f)
-            
+
             # Replace attributes with saved attributes
             self.name = new_char["name"]
             self.inventory = new_char["inventory"]
