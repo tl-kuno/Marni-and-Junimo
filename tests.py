@@ -1,5 +1,5 @@
 import unittest
-import main
+from backend import main
 
 
 class TestCase(unittest.TestCase):
