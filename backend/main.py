@@ -50,7 +50,7 @@ def main():
 
     # Item Name: Letter
     # Can Pick Up: Yes
-    # Can Drop: Yes
+    # Can Drop: No
     letter = Item("Letter", "Description", True, False)
 
     # Item Name: Wooden Spoon
@@ -85,7 +85,7 @@ def main():
     # Room ID: 0
     # Room: Living Room
     # Object List: Flashlight, Letter
-    # Direction: [N: Kitchen, E: None , S: None, W: Basement]
+    # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
     room_list.append(Room(
         0,
         "Living Room",
