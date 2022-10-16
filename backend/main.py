@@ -26,57 +26,126 @@ def main():
     # Item Name: Blueberries
     # Can Pick Up: Yes
     # Can Drop: Yes
-    blueberries = Item("Blueberries", "Description", True, True)
+    blueberries = Item("Blueberries",
+                       "These blueberries were freshly picked yesterday from"
+                       " the Johnson Family Blueberry Orchard. These will make"
+                       " an amazing addition to the picnic!\n",
+                       True,
+                       True)
 
     # Item Name: Mushrooms
     # Can Pick Up: Yes
     # Can Drop: Yes
-    mushrooms = Item("Mushrooms", "Description", True, True)
+    mushrooms = Item("Mushrooms", "These fresh mushrooms must have "
+                     "been growing in the dark cool basement for months. They"
+                     "are almost as large as your head! They will taste "
+                     "amazing at a picnic.\n",
+                     True,
+                     True)
 
     # Item Name: Dog Treats
     # Can Pick Up: Yes
     # Can Drop: Yes
-    dog_treats = Item("Dog Treats", "Description", True, True)
+    dog_treats = Item("Dog Treats", "Groovy Snacks Dog Treats are some "
+                      "of your absolute favorites. These ones are chicken "
+                      "& bacon flavored. They're the perfect crunchy, savory "
+                      "treat for a sunny picnic.\n",
+                      True,
+                      True)
 
     # Item Name: Towel
     # Can Pick Up: Yes
     # Can Drop: Yes
-    towel = Item("Towel", "Description", True, True)
+    towel = Item("Towel",
+                 "This light blue towel is freshly washed, and smells like"
+                 " lemon and lavender. It's the same color as the clear blue"
+                 " sky outside, and would work well as a picnic blanket for "
+                 "today.\n",
+                 True,
+                 True)
 
     # Item Name: Umbrella
     # Can Pick Up: Yes
     # Can Drop: Yes
-    umbrella = Item("Umbrella", "Description", True, True)
+    umbrella = Item("Umbrella",
+                    "This simple yellow umbrella looks like a rubber duck when"
+                    " it's opened. It's cute and lightweight, but will easily "
+                    "keep the sun off of you at a picnic.\n",
+                    True,
+                    True)
 
     # Item Name: Letter
     # Can Pick Up: Yes
     # Can Drop: Yes
-    letter = Item("Letter", "Description", True, False)
+    letter = Item("Letter",
+                  "This letter is written in the familiar handwriting "
+                  "of your best friend, Junimo. It reads \n\"Good morning"
+                  " Marnie! I hope you had a great nap! The day is beautiful "
+                  "outside, and I've decided to throw a picnic! You are "
+                  "cordially invited to join us at Henderson Park this "
+                  "afternoon. Everybody is asked to bring three different"
+                  " snacks, a picnic blanket, and an umbrella. (If you're "
+                  "unable to find everything, that's OK too!)\nYour friend"
+                  ",\nJunimo the cat\n",
+                  True,
+                  True)
 
     # Item Name: Wooden Spoon
     # Can Pick Up: Yes
     # Can Drop: Yes
-    wooden_spoon = Item("Wooden Spoon", "Description", True, True)
+    wooden_spoon = Item("Wooden Spoon",
+                        "This sturdy wooden spoon is rarely used by the "
+                        "humans here. It looks really strong though, "
+                        "and could probably be useful for propping something"
+                        " open.\n",
+                        True,
+                        True)
 
     # Item Name: Football Helmet
     # Can Pick Up: Yes
     # Can Drop: Yes
-    football_helmet = Item("Football Helmet", "Description", True, True)
+    football_helmet = Item("Football Helmet",
+                           "This old, beaten up football helmet is "
+                           "much too small for the humans in the house to "
+                           "wear anymore. It could pretty easily fit on your "
+                           "head though! It would be really helpful to use"
+                           " this to push open a stuck door.\n",
+                           True,
+                           True)
 
     # Item Name: Soap
     # Can Pick Up: Yes
     # Can Drop: Yes
-    soap = Item("Soap", "Description", True, True)
+    soap = Item("Soap",
+                "This bar of handsoap has a bright scent of orange citrus"
+                ". This would be really useful to clean up an animal after"
+                " a day of playing in dirt.\n",
+                True,
+                True)
 
     # Item Name: Flashlight
     # Can Pick Up: Yes
     # Can Drop: Yes
-    flashlight = Item("Flashlight", "Description", True, True)
+    flashlight = Item("Flashlight",
+                      "This old clunky flashlight still works,despite "
+                      "not having been used in many months. The batteries "
+                      "are still in good condition, and the light is bright"
+                      " enough to illuminate any dark spaces around the "
+                      "house.",
+                      True,
+                      True)
 
     # Item Name: Rocking Chair
     # Can Pick Up: No
     # Can Drop: No
-    rocking_chair = Item("Rocking Chair", "Description", False, False)
+    rocking_chair = Item("Rocking Chair",
+                         "This is the human's favorite rocking chair. It has"
+                         " a strong wooden frame and a well worn but "
+                         "comfortable blue cushion. There's a warm wool"
+                         " blanket draped over the back for any chilly "
+                         "evenings.\n",
+                         False,
+                         False)
 
     # -----------------------------------------------------
     # -                     Create Rooms                  -
