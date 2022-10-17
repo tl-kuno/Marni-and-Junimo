@@ -233,12 +233,14 @@ def main():
         "Pantry",
         "You stand in the well-stocked pantry, looking at shelves packed "
         "floor to ceiling with human food. Boxes of Poptarts and other "
-        "processed food sit on the middle shelves, but these are no There"
+        "processed food sit on the middle shelves, but these are no good"
+        " for animals to eat. There"
         " are plenty of dried food in tricky jars and tupperware that would"
-        " be impossible to get into without thumbs. Luckily, there is a bin"
-        " full of yummy kibble situated on the bottom shelf in front of "
-        "you The lid is really heavy, so you will need something strong to "
-        "prop it open in order to stock up on the tasty snacks.\nTo the "
+        " be impossible to get into without thumbs. Luckily, there is a "
+        "cabinet full of yummy kibble situated on the bottom shelf in front "
+        "of you The door is really heavy, and swings closed quickly. You "
+        "will need something strong to prop it open in order to stock up on"
+        " the tasty snacks.\nTo the "
         "South, you can see the kitchen.\n",
         "You stand in the well-stocked pantry, looking at shelves packed floor"
         " to ceiling with human food. There is a bin full of kibble on the "
@@ -366,6 +368,7 @@ def main():
     # Room: Park
     # Object List: ?
     # Direction: [N: None, E: None, S: None, W: None]
+    # TODO: implement a final game state, based on items acquired
     room_list.append(Room(
         9,
         "Park",

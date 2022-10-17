@@ -12,7 +12,7 @@ class Item:
         """
         Fictionally interesting explanation of feature or object
         """
-        print(self.description)
+        return self.description
 
     def __repr__(self):
         return self.item_name
