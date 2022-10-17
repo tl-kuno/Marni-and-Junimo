@@ -1,5 +1,5 @@
-from backend.Room import Room
-from backend.Item import Item
+from Room import Room
+from Item import Item
 
 
 def test_function(command):
@@ -365,15 +365,16 @@ def main():
     #     print(room.long_description)
     # print(inventory)
 
-    # cur_room = room_list[0]
-    # print(cur_room)
-    # while True:
-    #     response = input("Enter instructions: ").lower()
-    #     if "quit" in response:
-    #         print("Thanks for playing. Quitting...\n")
-    #         break
-    #     cur_room = check_and_move(response, cur_room, room_list)
-    #     print(cur_room)
+    room_list = init_room_list_and_items()
+    cur_room = room_list[0]
+    print(cur_room)
+    while True:
+        response = input("Enter instructions: ").lower()
+        if "quit" in response:
+            print("\nThanks for playing. Quitting...\n")
+            break
+        cur_room = check_and_move(response, cur_room, room_list)
+        print(cur_room)
 
 
 if __name__ == "__main__":
