@@ -1,18 +1,18 @@
 from Room import Room
 from Item import Item
-from character import Character
+from Character import Character
 
 
 def test_function(command):
     room_list = init_room_list_and_items()
     player = Character("Player 1", location=room_list[0])
-    output = check_and_move(command, player.location, room_list)
-    
+    resp_object = check_and_move(command, player.location, room_list)
+    output = resp_object.short_description
     # num_chars = "odd"
     # if len(command) % 2 == 0:
     #     num_chars = "even"
     # output = "Your string has an " + num_chars + " number of characters"
-    return output
+    print(output)
 
 
 def move(direction, current_room, room_list):
@@ -370,16 +370,18 @@ def main():
     #     print(room.long_description)
     # print(inventory)
 
-    room_list = init_room_list_and_items()
-    cur_room = room_list[0]
-    print(cur_room)
-    while True:
-        response = input("Enter instructions: ").lower()
-        if "quit" in response:
-            print("\nThanks for playing. Quitting...\n")
-            break
-        cur_room = check_and_move(response, cur_room, room_list)
-        print(cur_room)
+    # room_list = init_room_list_and_items()
+    # cur_room = room_list[0]
+    # print(cur_room)
+    # while True:
+    #     response = input("Enter instructions: ").lower()
+    #     if "quit" in response:
+    #         print("\nThanks for playing. Quitting...\n")
+    #         break
+    #     cur_room = check_and_move(response, cur_room, room_list)
+    #     print(cur_room)
+
+    test_function("move west")
 
 
 if __name__ == "__main__":

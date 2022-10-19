@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import json
 from main import test_function
 
@@ -9,7 +9,6 @@ CORS(app)
 
 
 @app.route('/', methods=["GET", "POST"])
-@cross_origin(origin='*', headers=['Content-Type', 'application/json'])
 def handle_request():
     command = str(request.args.get('command'))
     output = test_function(command)
