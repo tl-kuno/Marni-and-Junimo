@@ -68,11 +68,11 @@ class Character:
     #         self.location = new_char["location"]
 
 
-hank = Character("Hank", ["Keys"], "The Zoo")
-print(hank)
-hank.set_location("Home")
-hank.add_item("Jacket")
-hank.add_item("backpack")
-print(hank)
-hank.load()
-print(hank)
+# hank = Character("Hank", ["Keys"], "The Zoo")
+# print(hank)
+# hank.set_location("Home")
+# hank.add_item("Jacket")
+# hank.add_item("backpack")
+# print(hank)
+# hank.load()
+# print(hank)
