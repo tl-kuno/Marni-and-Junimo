@@ -1,17 +1,17 @@
 from Room import Room
 from Item import Item
-from Character import Character
+# from Character import Character
 
 
 def test_function(command):
-    room_list = init_room_list_and_items()
-    player = Character("Player 1", location=room_list[0])
-    resp_object = check_and_move(command, player.location, room_list)
-    output = resp_object.short_description
-    # num_chars = "odd"
-    # if len(command) % 2 == 0:
-    #     num_chars = "even"
-    # output = "Your string has an " + num_chars + " number of characters"
+    # room_list = init_room_list_and_items()
+    # player = Character("Player 1", location=room_list[0])
+    # resp_object = check_and_move(command, player.location, room_list)
+    # output = resp_object.short_description
+    num_chars = "odd"
+    if len(command) % 2 == 0:
+        num_chars = "even"
+    output = "Your string has an " + num_chars + " number of characters"
     print(output)
 
 
