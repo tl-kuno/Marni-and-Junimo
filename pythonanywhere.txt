@@ -1,0 +1,15 @@
+Information about using PythonAnywhere
+
+Login: tlkuno
+Password: PicnicQuest2022!
+
+To update changes made to this code in the PythonAnywhere hosting
+platform:
+    Login to the site, you will be on the Dashboard
+    Navigate to the Consoles Tab
+    Open a bash console 
+        cd Picnic-Quest
+        git checkout [whatever branch you want to test funcitonality of]
+        git pull
+    Navigate to the Web Tab
+    Click Green reload button
