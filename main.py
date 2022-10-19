@@ -13,6 +13,7 @@ def test_function(command):
         num_chars = "even"
     output = "Your string has an " + num_chars + " number of characters"
     print(output)
+    return output
 
 
 def move(direction, current_room, room_list):
