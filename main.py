@@ -1,7 +1,7 @@
-from room import Room
-from item import Item
+from Room import Room
+from Item import Item
 from character import Character
-from messages import messages
+from Messages import messages
 
 
 def test_function(command):
