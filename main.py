@@ -1,18 +1,18 @@
 from Room import Room
 from Item import Item
-# from Character import Character
+from Character import Character
+from Messages import messages
 
 
 def test_function(command):
-    # room_list = init_room_list_and_items()
-    # player = Character("Player 1", location=room_list[0])
-    # resp_object = check_and_move(command, player.location, room_list)
-    # output = resp_object.short_description
-    num_chars = "odd"
-    if len(command) % 2 == 0:
-        num_chars = "even"
-    output = "Your string has an " + num_chars + " number of characters"
-    print(output)
+    room_list = init_room_list_and_items()
+    player = Character("Player 1", location=room_list[0])
+    resp_object = check_and_move(command, player.location, room_list)
+    output = resp_object.short_description
+    # num_chars = "odd"
+    # if len(command) % 2 == 0:
+    #      num_chars = "even"
+    # output = "Your string has an " + num_chars + " number of characters"
     return output
 
 
@@ -202,9 +202,7 @@ def init_room_list_and_items():
         "These would be perfect for a picnic!\nThe door to the pantry is"
         " ajar to the North of you.\nThe open doorway to the living room "
         "is to the East.\n",
-        "You find yourself in the brightly lit kitchen. \nTo the North, you "
-        "can see the pantry door.\nTo the East, you can see the doorway to "
-        "the living room.\n",
+        messages['kitchen']['short'],
         [wooden_spoon, blueberries],
         [3, 0, None, None]))
 
