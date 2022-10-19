@@ -36,36 +36,36 @@ class Character:
     def set_location(self, location):
         self.location = location
 
-    def save(self):
-        """
-        Creates JSON file of current character.
-        Saves into Character Saves folder
-        Returns True if save was successful, False otherwise
-        TODO - Is there a better way to store a saved character?
-        """
-        # Creats json file of all class features
-        char_save = json.dumps(self.__dict__)
+    # def save(self):
+    #     """
+    #     Creates JSON file of current character.
+    #     Saves into Character Saves folder
+    #     Returns True if save was successful, False otherwise
+    #     TODO - Is there a better way to store a saved character?
+    #     """
+    #     # Creats json file of all class features
+    #     char_save = json.dumps(self.__dict__)
 
-        with open("./backend/SaveFiles/temp.json", 'w') as f:
-            f.write(char_save)
-            return True
+    #     with open("./backend/SaveFiles/temp.json", 'w') as f:
+    #         f.write(char_save)
+    #         return True
 
-    def load(self):
-        """
-        Loads the save file and deletes current state
-        TODO - Implement a confirmation with user before completing the load
-        TODO - Update the copying feature here if we add Character attributes
-        """
-        # First confirm with user. Send a y/n question, maybe?
+    # def load(self):
+    #     """
+    #     Loads the save file and deletes current state
+    #     TODO - Implement a confirmation with user before completing the load
+    #     TODO - Update the copying feature here if we add Character attributes
+    #     """
+    #     # First confirm with user. Send a y/n question, maybe?
 
-        # read temp.json and update class
-        with open("./backend/SaveFiles/temp.json", 'r') as f:
-            new_char = json.load(f)
+    #     # read temp.json and update class
+    #     with open("./backend/SaveFiles/temp.json", 'r') as f:
+    #         new_char = json.load(f)
 
-            # Replace attributes with saved attributes
-            self.name = new_char["name"]
-            self.inventory = new_char["inventory"]
-            self.location = new_char["location"]
+    #         # Replace attributes with saved attributes
+    #         self.name = new_char["name"]
+    #         self.inventory = new_char["inventory"]
+    #         self.location = new_char["location"]
 
 
 hank = Character("Hank", ["Keys"], "The Zoo")
