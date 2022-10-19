@@ -5,6 +5,11 @@ Password: PicnicQuest2022!
 
 To update changes made to this code in the PythonAnywhere hosting
 platform:
+
+    First, make sure that requirements.txt is updated by running the 
+    following in your terminal in this project directory:
+        pip freeze requirements.txt
+
     Login to the site, you will be on the Dashboard
     Navigate to the Consoles Tab
     Open a bash console 
