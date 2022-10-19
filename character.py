@@ -59,7 +59,7 @@ class Character:
         # First confirm with user. Send a y/n question, maybe?
 
         # read temp.json and update class
-        with open("./SaveFiles/temp.json", 'r') as f:
+        with open("./backend/SaveFiles/temp.json", 'r') as f:
             new_char = json.load(f)
 
             # Replace attributes with saved attributes
