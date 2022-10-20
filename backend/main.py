@@ -1,5 +1,5 @@
-from backend.Room import Room
-from backend.Item import Item
+from Room import Room
+from Item import Item
 
 
 def test_function(command):
@@ -10,12 +10,59 @@ def test_function(command):
     return output
 
 
-def main():
-    """
-    Main function
-    """
-    # stores items picked up in inventory
-    inventory = []
+def move(direction, current_room, room_list):
+    direction = direction.lower()
+    if direction == "north":
+        # move north
+        if current_room.north() is None:
+            print("Cannot go north!")
+        else:
+            current_room = room_list[current_room.north()]
+        return current_room
+    elif direction == "east":
+        # move north
+        if current_room.east() is None:
+            print("Cannot go east!")
+        else:
+            current_room = room_list[current_room.east()]
+        return current_room
+    elif direction == "south":
+        # move north
+        if current_room.south() is None:
+            print("Cannot go south!")
+        else:
+            current_room = room_list[current_room.south()]
+        return current_room
+    elif direction == "west":
+        # move north
+        if current_room.west() is None:
+            print("Cannot go west!")
+        else:
+            current_room = room_list[current_room.west()]
+        return current_room
+    print("Invalid direction")
+    return current_room
+
+
+def check_and_move(response, cur_room, room_list):
+    response = response.lower()
+    # finds the first index of the term 'move' if it exists, else -1
+    movement_verb = "move"
+    idx = response.find(movement_verb)
+    if idx != -1:
+        # removes everything in the user input
+        # up to and including the word 'move'
+        direction = response[idx + len(movement_verb):]
+        # removes all words after the direction
+        direction = direction.split()[0]
+        # removes surrounding white space
+        direction = direction.strip()
+        # print("[{}]".format(direction))
+        cur_room = move(direction, cur_room, room_list)
+    return cur_room
+
+
+def init_room_list_and_items():
     # list of all the rooms
     room_list = []
 
@@ -154,7 +201,7 @@ def main():
     # Room ID: 0
     # Room: Living Room
     # Object List: Flashlight, Letter
-    # Direction: [N: Kitchen, E: None , S: None, W: Basement]
+    # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
     room_list.append(Room(
         0,
         "Living Room",
@@ -376,22 +423,30 @@ def main():
         "Short Description",
         [],
         [None, None, None, None]))
+    return room_list
 
-    # -----------------------------------------------------
-    # -                      Test                         -
-    # -----------------------------------------------------
 
-    for room in room_list:
-        print(room.long_description)
-    print(inventory)
+def main():
+    """
+    Main function
+    """
+    # stores items picked up in inventory
+    # inventory = []
 
-    # current_room = room_list[0]
+    # for room in room_list:
+    #     print(room.long_description)
+    # print(inventory)
 
-    # # move north
-    # if current_room.north() is None:
-    #     print("Cannot go north!")
-    # else:
-    #     current_room = room_list[current_room.north()]
+    room_list = init_room_list_and_items()
+    cur_room = room_list[0]
+    print(cur_room)
+    while True:
+        response = input("Enter instructions: ").lower()
+        if "quit" in response:
+            print("\nThanks for playing. Quitting...\n")
+            break
+        cur_room = check_and_move(response, cur_room, room_list)
+        print(cur_room)
 
 
 if __name__ == "__main__":
