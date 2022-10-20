@@ -1,5 +1,6 @@
-from Room import Room
-from Item import Item
+from room import Room
+from item import Item
+from feature import Feature
 
 
 def test_function(command):
@@ -182,17 +183,148 @@ def init_room_list_and_items():
                       True,
                       True)
 
-    # Item Name: Rocking Chair
-    # Can Pick Up: No
-    # Can Drop: No
-    rocking_chair = Item("Rocking Chair",
-                         "This is the human's favorite rocking chair. It has"
-                         " a strong wooden frame and a well worn but "
-                         "comfortable blue cushion. There's a warm wool"
-                         " blanket draped over the back for any chilly "
-                         "evenings.\n",
-                         False,
-                         False)
+    # -----------------------------------------------------
+    # -                      Create Features               -
+    # -----------------------------------------------------
+
+    # Feature Name: Sofa
+    sofa = Feature("Sofa",
+                   "This is sofa is well worn, and covered in a nice floral"
+                   " pattern. There is a sunbeam from a nearby window that "
+                   "is keeping the sofa nice and warm. The gap beneath the s"
+                   "ofa is a great hiding spot, with all sorts of lost tool"
+                   "s and items that tend to roll underneath.\n")
+
+    # Feature Name: TV
+    tv = Feature("TV",
+                 "There is a tv on in the corner of the room. Right now "
+                 "it's showing a nature documentary about lions in sub-"
+                 "Saharan Africa, narrated by David Attenborough.\n")
+
+    # Feature Name: Mouse
+    mouse = Feature("Mouse",
+                    "There is a friendly mouse that lives in the basement"
+                    ", currently scampering around in circles at the foot "
+                    "of the stairs. It looks up at you with a curious tilt "
+                    "of the head, and wrinkles up its nose at you. This mouse "
+                    "is clearly not afraid of bigger animals like yourself.\n")
+
+    # Feature Name: Suitcase
+    suitcase = Feature("Suitcase",
+                       "There is a well worn leather suitcase sitting at the "
+                       "far end of the basement. This case has been all over "
+                       "the globe. The wheels are worn down and the handle "
+                       "has nearly fallen apart.\n")
+
+    # Feature Name: Refrigerator
+    refrigerator = Feature("Refrigerator",
+                           "The refrigerator is mostly stocked with bottled "
+                           "sodas, sports drinks, and leftover pizza slices. "
+                           "This isn't exactly what you had in mind for picnic"
+                           " snacks. Maybe the pantry will have something "
+                           "tastier.\n")
+
+    # Feature Name: Ants
+    ants = Feature("Ants",
+                   "There is a long line of ants leading from the window to a "
+                   "little stain of spilled ketchup on the floor. These "
+                   "humans can be really messy sometimes!\n")
+
+    # Feature Name: shelves
+    shelves = Feature("Shelves",
+                      "Boxes of Poptarts and other processed food sit on "
+                      "the middle shelves, but these are no good for "
+                      "animals to eat. There are plenty of dried food in "
+                      "tricky jars and tupperware that would be impossible "
+                      "to get into without thumbs.\n")
+
+    # Feature Name: Treat bin
+    cleaning_supplies = Feature("Cleaning Supplies",
+                                "At the back of the pantry you can see some "
+                                "lemony scented cleaning supplies. This sure "
+                                "keeps the house clean, but wow it smells so "
+                                "strong!\n")
+
+    # Feature Name: Blanket
+    blanket = Feature("Blanket",
+                      "This green blanket has been around nearly as long as "
+                      "you have! It smells safe and familiar.\n")
+
+    # Feature Name: window
+    window = Feature("Window",
+                     "You peek out of the window and can hear the sound of "
+                     "trees rustling and birds chirping outside.\n")
+
+    # Feature Name: sink
+    sink = Feature("Sink",
+                   "The sink is full of toiletries, toothbrushes, razors, "
+                   "and other things that aren't necessarily good for "
+                   "animals.\n")
+
+    # Feature Name: bathtub
+    bathtub = Feature("Bathtub",
+                      "The humans really adore this clawfoot bathtub. The "
+                      "white porcelain looks so polished, you can "
+                      "practically see your reflection!\n")
+
+    # Feature Name: Rocking Chair
+    rocking_chair = Feature("Rocking Chair",
+                            "This is the human's favorite rocking chair. It "
+                            "has a strong wooden frame and a well worn but "
+                            "comfortable blue cushion. There's a warm wool"
+                            " blanket draped over the back for any chilly "
+                            "evenings.\n")
+
+    # Feature Name: Dirt pile
+    dirt_pile = Feature("Dirt Pile",
+                        "The humans have big plans to set up a garden this "
+                        "autumn. This big pile of dirt has been sitting in "
+                        "front of their front porch for a few weeks, while "
+                        "they get ready to shovel it into planters nearby. "
+                        "It'll be a great source of fresh veggies once they'"
+                        "re done!\n")
+
+    # Feature Name: Raccoon
+    raccoon = Feature("Raccoon",
+                      "This friendly neighborhood raccoon peers out from"
+                      " behind a recycling bin. He appears to be caked in "
+                      "mud, but remains cheerful nonetheless. The raccoon "
+                      "keeps one arm clenched tightly around a bright yello"
+                      "w umbrella, that would be perfect for your picnic. "
+                      "Maybe you can make a trade?\n")
+
+    # Feature Name: Guitar
+    guitar = Feature("Guitar",
+                     "Somebody must have left this old, beaten up guitar "
+                     "back in the alley way many weeks ago. It's been exposed "
+                     "to the elements for quite a while, but still has most of"
+                     " its strings intact.")
+
+    # Feature Name: Birds
+    birds = Feature("Birds",
+                    "The nest at the top of the roof is home to a family of "
+                    "blue jays, which are currently circling overhead. The "
+                    "family looks hungry, and appears to be searching for "
+                    "food in the area. Be careful not to drop any food while "
+                    "on the roof!\n")
+
+    # Feature Name: Neighborhood
+    neighborhood = Feature("Neighborhood",
+                           "From this high up, you can see all over the "
+                           "neighborhood. The park is to the East, and you "
+                           "can see your friends getting everything set up "
+                           "for your picnic. Better hurry!")
+
+    # Feature Name: Neighborhood
+    table = Feature("Table",
+                    "The table is full of different snacks and beverages "
+                    "brought by the guests at the picnic. There's room "
+                    "at the table for all of your inventory as well.")
+
+    # Feature Name: Friends
+    # TODO write a func to give result based on collected items & animals??
+    friends = Feature("Table",
+                      "END GAME! ")
 
     # -----------------------------------------------------
     # -                     Create Rooms                  -
@@ -201,6 +333,7 @@ def init_room_list_and_items():
     # Room ID: 0
     # Room: Living Room
     # Object List: Flashlight, Letter
+    # Feature List: Sofa, TV
     # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
     room_list.append(Room(
         0,
@@ -211,25 +344,28 @@ def init_room_list_and_items():
         "of the trees rustling in the breeze outside. You stretch your "
         "paws and arch your back, slowly waking up from a relaxing nap. "
         "You suddenly realize that a letter has been placed on "
-        "the pillow in front of you.\nTo the North of you, you can see "
-        "the door to the basement.\nTo the East, you can see the closed"
-        " door to the bedroom.\nTo the South, you can see the front door"
-        " that leads to the porch outside.\nTo the West, you see the"
-        " doorway to the kitchen.\n",
+        "the pillow in front of you. In the corner of the room, you can "
+        "hear the TV quietly buzzing as a show plays on the screen.\n"
+        "To the North of you, you can see the door to the basement.\nTo "
+        "the East, you can see the closed door to the bedroom.\nTo the "
+        "South, you can see the front door that leads to the porch outside"
+        ".\nTo the West, you see the doorway to the kitchen.\n",
         "You are in the comfortable living room in the center of the house. "
-        "A large comfortable sofa sits in the center of the room.\n"
+        "A large comfortable sofa sits in the center of the room. "
+        "A quietly buzzing TV sits on a stand at the far corner of the room.\n"
         "To the North of you, you can see the door to the basement."
         "\nTo the East, you can see the closed door to the bedroom."
         "\nTo the South, you can see the front door that leads to "
         "the porch outside.\nTo the West, you see the doorway to "
         "the kitchen.\n",
-        # Add sofa as an object to search and find flashlight?
         [flashlight, letter],
+        [sofa, tv],
         [1, 4, 6, 2]))
 
     # Room ID: 1
     # Room: Basement
     # Object List: Mushrooms
+    # Feature List: Mouse, Suitcase
     # Direction: [N: None, E: None , S: Living Room, W: None]
     room_list.append(Room(
         1,
@@ -238,87 +374,101 @@ def init_room_list_and_items():
         "cold basement. Cobwebs line the handrail as you decend "
         "into the dimly lit room. "
         "The humans clearly don't come down here very often. "
+        "You can see a friendly mouse peering out from under the stairs, "
+        "and an old familiar suitcase lying in a corner against the wall."
         "Beneath the stairs you can smell the distinct scent of ripe, "
         "delicious violet mushrooms. These would be an excellent snack "
         "for your friends at the picnic!\nThe only way out of the basement"
         " is South, which takes you back to the Living Room.\n",
         "The cold, dark basement is eerily quiet. Only a small amount of light"
-        " peeks in from the doorway upstairs. Beneath the stairway a patch "
+        " peeks in from the doorway upstairs. You can see a friendly mouse "
+        "peering out from under the stairs, and an old familiar suitcase "
+        "lying in a corner against the wall. Beneath the stairway a patch "
         "of ripe, tasty mushrooms are growing. \nThe only way out of the "
         "basement is South, back to the living room.\n",
         [mushrooms],
+        [mouse, suitcase],
         [None, None, 0, None]))
 
     # Room ID: 2
     # Room: Kitchen
     # Object List: Wooden Spoon, Blueberries
+    # Feature List: Refrigerator, Ants
     # Direction: [N: Pantry, E: Living Room, S: None, W: None]
     room_list.append(Room(
         2,
         "Kitchen",
         "You stand in the brightly lit kitchen. The white tile floor glistens "
-        "brightly, and rumbling sound of the running dishwasher fills the "
+        "brightly, and rumbling sound of the humming refrigerator fills the "
         "room. The humans must have been clumsy earlier, because a thick "
-        "wooden ladle has rolled under the table in the center of the room."
+        "wooden ladle has rolled under the table in the center of the room. "
+        "Nearby you can see a few ants gathered suspiciously together. "
         " On the sleek marble countertops, you can see the corner of a "
         "plastic container of scrumptious, freshly picked blueberries! "
         "These would be perfect for a picnic!\nThe door to the pantry is"
         " ajar to the North of you.\nThe open doorway to the living room "
         "is to the East.\n",
-        "You find yourself in the brightly lit kitchen. \nTo the North, you "
-        "can see the pantry door.\nTo the East, you can see the doorway to "
-        "the living room.\n",
+        "You find yourself in the brightly lit kitchen. The shiny "
+        "refrigerator is on one end of the room, and a line of ants "
+        "is crawling along the tiled floor. You can see a wooden spoon that "
+        "has rolled under the table, and a carton of blueberries at the edge "
+        "of the counter.\nTo the North, you can see the pantry door.\nTo the "
+        "East, you can see the doorway to the living room.\n",
         [wooden_spoon, blueberries],
+        [refrigerator, ants],
         [3, 0, None, None]))
 
     # Room ID: 3
     # Room: Pantry
     # Object List: Dog Treats
+    # Feature List: Shelves, Cleaning Supplies
     # Direction: [N: None, E: None, S: Kitchen, W: None]
     room_list.append(Room(
         3,
         "Pantry",
         "You stand in the well-stocked pantry, looking at shelves packed "
-        "floor to ceiling with human food. Boxes of Poptarts and other "
-        "processed food sit on the middle shelves, but these are no good"
-        " for animals to eat. There"
-        " are plenty of dried food in tricky jars and tupperware that would"
-        " be impossible to get into without thumbs. Luckily, there is a "
+        "floor to ceiling with human food. Luckily, there is a "
         "cabinet full of yummy kibble situated on the bottom shelf in front "
-        "of you The door is really heavy, and swings closed quickly. You "
+        "of you. The door is really heavy, and swings closed quickly. You "
         "will need something strong to prop it open in order to stock up on"
-        " the tasty snacks.\nTo the "
-        "South, you can see the kitchen.\n",
+        " the tasty snacks. There are some strong smelling cleaning supplies "
+        "to the back of the pantry.\nTo the South, you can see the kitchen.\n",
         "You stand in the well-stocked pantry, looking at shelves packed floor"
         " to ceiling with human food. There is a bin full of kibble on the "
-        "bottom shelf in front of you. \nTo the South, you can see the "
-        "kitchen.\n",
+        "bottom shelf in front of you. There are some strong smelling "
+        "cleaning supplies to the back of the pantry.\nTo the South, you "
+        "can see the kitchen.\n",
         [dog_treats],
+        [shelves, cleaning_supplies],
         [None, None, 2, None]))
 
     # Room ID: 4
     # Room: Bedroom
-    # Object List: Football Helmet
+    # Object List: None
+    # Feature List: Blanket, Window
     # Direction: [N: Bathroom, E: None, S: None, W: Living Room]
     room_list.append(Room(
         4,
         "Bedroom",
         "You stand in the human's bedroom, at the foot of their mattress. "
-        "Framed photos of smiling humans are hung up on each wall. A "
-        "sunbeam cuts through the window, highlighting a tempting "
+        "A sunbeam cuts through the window, highlighting a tempting "
         "napping spot in the balled up, fuzzy green blanket on the "
         "human's bed. You can hear the sound of birds chirping from "
-        "right outside. \nTo the North, you can see the open doorway "
-        "to the bathroom.\n",
-        "You are in the bedroom. A sunny spot on the bed looks like the "
-        "perfect location to take a nice long mid-day nap. To the "
+        "right outside the window. \nTo the North, you can see the open "
+        "doorway to the bathroom.\nTo the West, you can see the living "
+        "room.\n",
+        "You are in the bedroom. The fuzzy green blanket on the bed looks "
+        "like the perfect location to take a nice long mid-day nap. "
+        "The window is cracked slightly, and you can see outside. To the "
         "North, you can see the open doorway to the bathroom.\n",
         [football_helmet],
+        [blanket, window],
         [5, None, None, 0]))
 
     # Room ID: 5
     # Room: Bathroom
     # Object List: Towel, Soap
+    # Feature List: Sink, Bathtub
     # Direction: [N: None, E: None, S: Bedroom, W: None]
     room_list.append(Room(
         5,
@@ -330,16 +480,18 @@ def init_room_list_and_items():
         "a bar of fresh, unscented soap. Hanging on a nearby rack is a "
         "red-and-white checkered towel, which would look amazing as a "
         "picnic blanket!\nTo the South, you can see the bedroom\n",
-        "You stand in the clean bathroom. You can see a bar of soap on the "
-        "side of the bathtub. There is a checkered towel hanging on a rack,"
-        " which would look amazing as a picnic blanket!\nTo the South, "
-        "you can see the bedroom\n",
+        "You stand in the clean bathroom. The crowded sink is visible, and "
+        "you can see a bar of soap on the side of the bathtub. There is a "
+        "checkered towel hanging on a rack, which would look amazing as a "
+        "picnic blanket!\nTo the South, you can see the bedroom\n",
         [towel, soap],
+        [sink, bathtub],
         [None, None, 4, None]))
 
     # Room ID: 6
     # Room: Porch
-    # Object List: Rocking Chair
+    # Object List: None
+    # Feature List: Rocking Chair, Dirt pile
     # Direction: [N: Living Room, E: Park, S: Roof, W: Alley]
     room_list.append(Room(
         6,
@@ -349,25 +501,28 @@ def init_room_list_and_items():
         " on your furry face as you take in the sights around "
         "you. Your favorite rocking chair is next to you on the"
         " porch, with a light grey blanket draped over the back. "
-        "The gentle sound of wind chimes fills the air as a cool "
-        "breeze passes by you. \nTo the West, you can see the alley.\n"
+        "You can see a big dirt pile at the bottom of the porch. "
+        "\nTo the West, you can see the alley.\n"
         "To the East, you can see the park where your friends are "
         "waiting for you.\nTo the North, you can use the Front Door"
         " to go to the living room.\nOn the South side of the porch "
         "is a gutter that you can climb to the roof.\n",
         "You are standing on the front porch, looking out to the "
         "neighborhood in front of you. Your favorite rocking chair "
-        "is next to you.\nTo the West, you can see the alley.\n"
+        "is next to you, and a large pile of dirt is down at the end"
+        " of the steps.\nTo the West, you can see the alley.\n"
         "To the East, you can see the park where your friends are "
         "waiting for you.\nTo the North, you can use the Front Door"
         " to go to the living room.\nOn the South side of the porch "
         "is a gutter that you can climb to the roof.\n",
-        [rocking_chair],
+        [],
+        [rocking_chair, dirt_pile],
         [0, 9, 8, 7]))
 
     # Room ID: 7
     # Room: Alley
-    # Object List: Umbrella
+    # Object List: Umbrella, Football Helmet
+    # Feature List: Raccoon, Guitar
     # Direction: [N: None, E: Porch, S: None, W: None]
     room_list.append(Room(
         7,
@@ -375,23 +530,25 @@ def init_room_list_and_items():
         "You are standing in the dimly lit alley behind the house. The p"
         "ower lines hang above your head, and your paws plod along the "
         "cold pavement. You find yourself next to the trashcan, and find"
-        " a football helmet lying on its side. Behind the recycling bin,"
-        " you can see a small raccoon, covered in dirt. He seems to be "
-        "hiding something behind his back, and offers to make a trade if "
-        "you can help him get cleaned up.\nTo the East, you can see the "
-        "porch\n",
+        " a football helmet lying on its side. There's a guitar sitting"
+        " on the ground, with most of the strings still intact. Behind the "
+        "recycling bin, you can see a small raccoon, covered in dirt. He "
+        "seems to be hiding something behind his back.\nTo the East, you "
+        "can see the porch\n",
         "You are standing in the dimly lit alley behind the house. You find "
         "yourself next to the trashcan, and find a football helmet lying "
         "on its side. Behind the recycling bin, you can see a small "
-        "raccoon, covered in dirt. He seems to be hiding something "
-        "behind his back, and offers to make a trade if you can help him"
-        " get cleaned up.\nTo the East, you can see the porch\n",
+        "raccoon, covered in dirt. There's an old guitar sitting"
+        " on the ground. "
+        "\nTo the East, you can see the porch\n",
         [umbrella],
+        [raccoon, guitar],
         [None, 6, None, None]))
 
     # Room ID: 8
     # Room: Roof
-    # Object List: ?
+    # Object List: None
+    # Feature List: Birds, neighborhood
     # Direction: [N: Porch, E: None, S: None, W: None]
     room_list.append(Room(
         8,
@@ -409,20 +566,31 @@ def init_room_list_and_items():
         "napping spot. \nTo the North, you can climb the gutter back "
         "to the porch.\n",
         [],
+        [birds, neighborhood],
         [6, None, None, None]))
 
     # Room ID: 9
     # Room: Park
     # Object List: ?
-    # Direction: [N: None, E: None, S: None, W: None]
+    # Feature List: Table, Friends
+    # Direction: [N: None, E: None, S: None, W: Porch]
     # TODO: implement a final game state, based on items acquired
     room_list.append(Room(
         9,
         "Park",
-        "Long Description",
-        "Short Description",
+        "You finally made it to Henderson Park, and you can see that everyone "
+        "is already here waiting for you. There is a table where you can place"
+        " your picnic supplies. Once you have everything prepared, you can "
+        "join all of the invited animals that gathered together under a huge "
+        "tree.",
+        "You finally made it to Henderson Park, and you can see that everyone "
+        "is already here waiting for you. There is a table where you can place"
+        " your picnic supplies. Once you have everything prepared, you can "
+        "join all of the invited animals that gathered together under a huge "
+        "tree.",
         [],
-        [None, None, None, None]))
+        [table, friends],
+        [None, None, None, 6]))
     return room_list
 
 
