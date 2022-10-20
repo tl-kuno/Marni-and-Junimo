@@ -14,13 +14,13 @@ class Character:
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
-        Inventory: {[item for item in self.inventory]}"
+        Inventory: {[item.item_name for item in self.inventory]}"
 
     def add_item(self, item):
         # Adds item to inventory and sends confirmation
         # TODO does this response work here?
         self.inventory.append(item)
-        return f"You picked up {item}"
+        return f"You picked up {item.item_name}"
 
     def drop_item(self, item):
         # Drops item in current room, and returns success message
@@ -28,7 +28,8 @@ class Character:
         if item in self.inventory:
             self.inventory.remove(item)
             self.location.object_list.append(item)
-            return f"You dropped the {item} in the {self.location}"
+            return (f"You dropped the {item.item_name} in "
+                    f"the {self.location.room_name}")
 
         else:
             return f"You don't have {item} in your inventory"
