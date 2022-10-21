@@ -1,6 +1,6 @@
 # from Room import Room
 # from Item import Item
-import json
+# import json
 
 
 class Character:
@@ -67,6 +67,7 @@ class Character:
     #         self.name = new_char["name"]
     #         self.inventory = new_char["inventory"]
     #         self.location = new_char["location"]
+
 
 if __name__ == "__main__":
     hank = Character("Hank", ["Keys"], "The Zoo")
