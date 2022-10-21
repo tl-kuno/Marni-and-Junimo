@@ -14,13 +14,13 @@ class Character:
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
-        Inventory: {[item for item in self.inventory]}"
+        Inventory: {[item.item_name for item in self.inventory]}"
 
     def add_item(self, item):
         # Adds item to inventory and sends confirmation
         # TODO does this response work here?
         self.inventory.append(item)
-        return f"You picked up {item}"
+        return f"You picked up {item.item_name}"
 
     def drop_item(self, item):
         # Drops item in current room, and returns success message
@@ -28,7 +28,8 @@ class Character:
         if item in self.inventory:
             self.inventory.remove(item)
             self.location.object_list.append(item)
-            return f"You dropped the {item} in the {self.location}"
+            return (f"You dropped the {item.item_name} in "
+                    f"the {self.location.room_name}")
 
         else:
             return f"You don't have {item} in your inventory"
@@ -67,12 +68,12 @@ class Character:
     #         self.inventory = new_char["inventory"]
     #         self.location = new_char["location"]
 
-
-# hank = Character("Hank", ["Keys"], "The Zoo")
-# print(hank)
-# hank.set_location("Home")
-# hank.add_item("Jacket")
-# hank.add_item("backpack")
-# print(hank)
-# hank.load()
-# print(hank)
+if __name__ == "__main__":
+    hank = Character("Hank", ["Keys"], "The Zoo")
+    print(hank)
+    hank.set_location("Home")
+    hank.add_item("Jacket")
+    hank.add_item("backpack")
+    print(hank)
+    hank.load()
+    print(hank)
