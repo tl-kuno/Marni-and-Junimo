@@ -3,13 +3,14 @@ class Room:
     Creates a full room environment
     """
     def __init__(self, room_id, room_name, long_description,
-                 short_description, object_list, directions):
+        short_description, object_list, feature_list, directions):
         self.room_id = room_id
         self.room_name = room_name
         self.long_description = long_description
         self.short_description = short_description
         self.object_list = object_list
         self.directions = directions  # [North, East, South, West]
+        self.feature_list = feature_list
         self.visited = False        # Show full description only on first visit
 
     def north(self):

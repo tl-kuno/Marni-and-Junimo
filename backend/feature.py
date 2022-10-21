@@ -1,12 +1,10 @@
-class Item:
+class Feature:
     """
-    Creates an item and how that item could be interacted with
+    Creates an feature and how that feature could be interacted with
     """
-    def __init__(self, item_name, description, can_pick_up, can_drop):
-        self.item_name = item_name
+    def __init__(self, feature_name, description):
+        self.feature_name = feature_name
         self.description = description
-        self.can_pick_up = can_pick_up
-        self.can_drop = can_drop
 
     def look_at(self):
         """
