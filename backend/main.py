@@ -4,12 +4,14 @@ from character import Character
 from messages import messages
 from feature import Feature
 
+
 def handle_user_input(command):
     room_list = init_room_list_and_items()
     player = Character("Player 1", location=room_list[0])
     resp_object = check_and_move(command, player.location, room_list)
     output = resp_object.short_description
     return output
+
 
 def move(direction, current_room, room_list):
     direction = direction.lower()
@@ -398,8 +400,8 @@ def init_room_list_and_items():
     room_list.append(Room(
         2,
         "Kitchen",
-        messages["kitchen"]["long"],
-        messages["kitchen"]["short"],
+        messages["kitchen.long"],
+        messages["kitchen.short"],
         [wooden_spoon, blueberries],
         [refrigerator, ants],
         [3, 0, None, None]))
