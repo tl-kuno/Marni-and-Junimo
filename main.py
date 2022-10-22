@@ -84,7 +84,7 @@ def init_room_list_and_items():
     # Item Name: Mushrooms
     # Can Pick Up: Yes
     # Can Drop: Yes
-    mushrooms = Item("Mushrooms", 
+    mushrooms = Item("Mushrooms",
                      messages['mushrooms'],
                      True,
                      True)
@@ -92,7 +92,7 @@ def init_room_list_and_items():
     # Item Name: Dog Treats
     # Can Pick Up: Yes
     # Can Drop: Yes
-    dog_treats = Item("Dog Treats", 
+    dog_treats = Item("Dog Treats",
                       messages['dog_treats'],
                       True,
                       True)
