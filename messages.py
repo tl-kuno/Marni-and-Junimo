@@ -313,5 +313,4 @@ messages = {
         "The table is full of different snacks and beverages "
         "brought by the guests at the picnic. There's room "
         "at the table for all of your inventory as well.\n",
-    
 }
