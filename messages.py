@@ -216,6 +216,7 @@ messages = {
         "are still in good condition, and the light is bright"
         " enough to illuminate any dark spaces around the "
         "house.\n",
+
     # Feature Descriptions
     'sofa':
         "This is sofa is well worn, and covered in a nice floral"
@@ -313,4 +314,100 @@ messages = {
         "The table is full of different snacks and beverages "
         "brought by the guests at the picnic. There's room "
         "at the table for all of your inventory as well.\n",
+    # Verb Descriptions
+    # Eat
+    'blueberries.eat':
+        "You pop a blueberry in your mouth and bite down. "
+        "It's tasty and a little bit tart. Better not eat too many "
+        "before the picnic starts!",
+    'mushrooms.eat':
+        "You take a bite of the mushroom. It's savory "
+        "and delicious. Better not eat too many before the picnic starts!",
+    'dog treats.eat':
+        "You crunch into one of the Groovy Snacks. The amazing bacon flavor "
+        "is almost too good to be true. Better not eat too many before the "
+        "picnic starts!",
+    'soap.eat':
+        "You try and take a bite of the soap, but the citrusy scent is too strong.",
+    'mouse.eat':
+        "You try and eat the mouse, but it scurrys away from you. That's not very "
+        "nice, trying to eat your neighbors!",
+    'ants.eat':
+        "You open your mouth and try to eat one of the ants. It wriggles "
+        "in your mouth, and you spit it back out instinctively. That's not "
+        "very nice, trying to eat your neighbors!",
+    'raccoon.eat':
+        "You try and eat the raccoon, but it scurrys away from you. That's not very "
+        "nice, trying to eat your neighbors!",
+    'birds.eat':
+        "The birds are flying too high up in the air for you to catch them "
+        "and eat them. Besides, it's not very nice to eat your neighbors!",
+    # Read
+    'blueberries.read':
+        "The carton says \"Johnson Family Orchards.\"",
+    'dog treats.read':"The Groovy Snacks are chicken & bacon flavored. "
+        "The back of the box lists a lot of ingredients that you can't "
+        "pronounce.",
+    'letter.read':
+        "The letter reads \n\"Good morning"
+        " Marnie! I hope you had a great nap! The day is beautiful "
+        "outside, and I've decided to throw a picnic! You are "
+        "cordially invited to join us at Henderson Park this "
+        "afternoon. Everybody is asked to bring three different"
+        " snacks, a picnic blanket, and an umbrella. (If you're "
+        "unable to find everything, that's OK too!)\nYour friend"
+        ",\nJunimo the cat\n",
+    'soap.read':
+        "The letters \"SOAP\" are faintly visible on the white "
+        "bar of soap.",
+    'football helmet.read':
+        "The logo for the Wildcats, the local high"
+        " school football team, is printed on the side of the helmet.",
+    'towel.read':
+        "The tag on the towel reads: \"Wash in hot water. Hang"
+        " dry after washing\"",
+    # Nap
+    'towel.nap':
+        "You bundle the towel around you, and hunker down for a short little "
+        "nap. The towel is covered in your fur when you wake up a little "
+        "while later.",
+    'sofa.nap':
+        "You snuggle back into the familiar sofa, curled up near the armrest. "
+        "The warm sunbeam is very relaxing, and you wake up refreshed and "
+        "ready to prepare for the picnic.",
+    'suitcase.nap':
+        "It's cold in the basement, but you're able to undo the latches on the "
+        "suitcase and hunker down where it is a little warmer. Not the best "
+        "napping location, but it will suffice for a quick 10 minute nap.",
+    'refrigerator.nap':
+        "It's chilly in here, but that won't stop a determined animal from "
+        "having a quick nap. You push aside some bottles of gatorade and "
+        "have a quick refreshing snooze.",
+    'shelves.nap':
+        "It's way too crowded here for you to fit comfortably, unfortunately.",
+    'blanket.nap':
+        "This is your human's favorite blanket. Conveniently, it's also your "
+        "favorite blanket. You curl up and nuzzle in, relaxing on the bed "
+        "until you're ready to continue your quest.",
+    'window.nap':
+        "It's too precarious to try and nap on the window. Better find "
+        "somewhere safer to nap.",
+    'sink.nap':
+        "It's too wet in the sink, due to the dripping faucet. Not ideal "
+        "napping conditions, at all.",
+    'bathtub.nap':
+        "There's nothing in the bathtub to keep you warm, and your paws "
+        "slip and slide on the smooth porcelain. You try and get some "
+        "shut-eye, but it's just not working for you here.",
+    'rocking chair.nap':
+        "There's nothing quite like being curled up on a rocking chair, "
+        "feeling the gentle sway as the birds chirp in the trees nearby. "
+        "You wake up later on, refreshed and ready to continue.",
+    'dirt pile.nap':
+        "It's not very stylish, but there's something primal and enjoyable "
+        "about a quick nap in a pile of dirt. Don't tell the humans, though"
+        ", or they might start to look at you funny.",
+    'table.nap':
+        "Why are you napping here? All of your friends are nearby, go have fun with them!",
+    
 }

@@ -2,8 +2,8 @@ class Feature:
     """
     Creates an feature and how that feature could be interacted with
     """
-    def __init__(self, feature_name, description):
-        self.feature_name = feature_name
+    def __init__(self, name, description):
+        self.name = name
         self.description = description
 
     def look_at(self):
