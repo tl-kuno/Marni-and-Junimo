@@ -1,5 +1,5 @@
-# from Room import Room
-# from Item import Item
+from room import Room
+from item import Item
 # import json
 from messages import messages
 
@@ -12,6 +12,9 @@ class Character:
         self.name = name
         self.inventory = inventory
         self.location = location
+        self.helmet = False     # Helmet can push open bedroom door
+        self.light = False      # Flashlight can light up basement   
+        self.invited = []
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
@@ -66,7 +69,74 @@ class Character:
                 if target not in self.location.feature_list:
                     return f"There is no {target} here to nap on."
         return messages.get(f"{target.name}.nap", "You can't nap here, unfortunately.")
-    
+
+    def scratch(self, target):
+        # Error handling
+        if target not in self.inventory:
+            if target not in self.location.object_list:
+                if target not in self.location.feature_list:
+                    return f"There is no {target} here to scratch."
+        return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
+
+    def use(self, target):
+        # Error handling
+        if target not in self.inventory:
+            if target not in self.location.object_list:
+                if target not in self.location.feature_list:
+                    return f"There is no {target} here to use."
+        # Using flashlight
+        if target.name == "flashlight":
+            self.light = True
+            return messages.get("flashlight.use")
+        # Using helmet
+        if target.name == "helmet":
+            self.helmet = True
+            return messages.get("helmet.use")
+        # Using spoon
+        if target.name == "wooden spoon":
+            if self.location.room_name == 'pantry':
+                self.inventory.append(Item("dog treats",
+                                           messages['dog_treats'],
+                                           True,
+                                           True))
+                return messages.get('wooden spoon.use')
+        # Using letter
+        if target.name == 'letter':
+            return messages.get('letter')
+        
+        # Invalid command
+        return f"There is no {target} here to use."
+
+    def invite(self, target):
+        # Error handling
+        if target not in self.inventory:
+            if target not in self.location.object_list:
+                if target not in self.location.feature_list:
+                    return f"There is no {target} here to invite."
+        
+        # Invite the mouse
+        if target.name == 'mouse' and self.location.room_name == 'Basement':
+            self.invited.append('mouse')
+            return messages.get('mouse.invite')
+        
+        # Invite the ants
+        if target.name == 'ants' and self.location.room_name == 'Kitchen':
+            self.invited.append('ants')
+            return messages.get('ants.invite')
+        
+        # Invite the raccoon
+        if target.name == 'raccoon' and self.location.room_name == 'Alley':
+            self.invited.append('raccoon')
+            return messages.get('raccoon.invite')
+        
+        # Invite the birds
+        if target.name == 'birds' and self.location.room_name == 'Roof':
+            self.invited.append('birds')
+            return messages.get('birds.invite')
+        
+        # Invalid
+        return f"There is no {target} here to invite."
+        
     def give(self, target):
         # TODO - do we wanna do a receiver for this? Review this with team...
         # Error handling
@@ -74,22 +144,6 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target} here to give."
-        pass
-    
-    def use(self, target):
-        # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target} here to use."
-        pass
-    
-    def invite(self, target):
-        # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target} here to invite."
         pass
     
     def talk(self, target):
@@ -116,13 +170,7 @@ class Character:
                     return f"There is no {target} here to drop."
         pass
     
-    def scratch(self, target):
-        # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target} here to scratch."
-        pass
+    
     
     # def save(self):
     #     """

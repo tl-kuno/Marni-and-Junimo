@@ -1,6 +1,6 @@
 messages = {
     # Room Descriptions
-    'living_room.long':
+    'living room.long':
         "You are in a warm, cozy living room. Sunlight pours through the "
         "windows, lighting up familiar sofa in the center of the room. "
         "There are no signs of humans around here, just the soft sound "
@@ -13,7 +13,7 @@ messages = {
         "the East, you can see the closed door to the bedroom.\nTo the "
         "South, you can see the front door that leads to the porch outside"
         ".\nTo the West, you see the doorway to the kitchen.\n",
-    'living_room.short':
+    'living room.short':
         "You are in the comfortable living room in the center of the house. "
         "A large comfortable sofa sits in the center of the room. "
         "A quietly buzzing TV sits on a stand at the far corner of the room.\n"
@@ -61,14 +61,14 @@ messages = {
     'pantry.long':
         "You stand in the well-stocked pantry, looking at shelves packed "
         "floor to ceiling with human food. Luckily, there is a "
-        "cabinet full of yummy kibble situated on the bottom shelf in front "
-        "of you. The door is really heavy, and swings closed quickly. You "
-        "will need something strong to prop it open in order to stock up on"
+        "bin full of yummy kibble situated on the bottom shelf in front "
+        "of you. The handle is really heavy, and won't open easily. You "
+        "will need something strong to pop it open in order to stock up on"
         " the tasty snacks. There are some strong smelling cleaning supplies "
         "to the back of the pantry.\nTo the South, you can see the kitchen.\n",
     'pantry.short':
         "You stand in the well-stocked pantry, looking at shelves packed floor"
-        " to ceiling with human food. There is a bin full of kibble on the "
+        " to ceiling with human food. There is a sturdy bin full of kibble on the "
         "bottom shelf in front of you. There are some strong smelling "
         "cleaning supplies to the back of the pantry.\nTo the South, you "
         "can see the kitchen.\n",
@@ -161,6 +161,7 @@ messages = {
         " your picnic supplies. Once you have everything prepared, you can "
         "join all of the invited animals that gathered together under a huge "
         "tree.\n",
+    
     # Item Descriptions
     'blueberries':
         "These blueberries were freshly picked yesterday from"
@@ -171,7 +172,7 @@ messages = {
         "been growing in the dark cool basement for months. They"
         "are almost as large as your head! They will taste "
         "amazing at a picnic.\n",
-    'dog_treats':
+    'dog treats':
         "Groovy Snacks Dog Treats are some "
         "of your absolute favorites. These ones are chicken "
         "& bacon flavored. They're the perfect crunchy, savory "
@@ -195,12 +196,12 @@ messages = {
         " snacks, a picnic blanket, and an umbrella. (If you're "
         "unable to find everything, that's OK too!)\nYour friend"
         ",\nJunimo the cat\n",
-    'wooden_spoon':
+    'wooden spoon':
         "This sturdy wooden spoon is rarely used by the "
         "humans here. It looks really strong though, "
         "and could probably be useful for propping something"
         " open.\n",
-    'football_helmet':
+    'football helmet':
         "This old, beaten up football helmet is "
         "much too small for the humans in the house to "
         "wear anymore. It could pretty easily fit on your "
@@ -255,7 +256,7 @@ messages = {
         "animals to eat. There are plenty of dried food in "
         "tricky jars and tupperware that would be impossible "
         "to get into without thumbs.\n",
-    'cleaning_supplies':
+    'cleaning supplies':
         "At the back of the pantry you can see some "
         "lemony scented cleaning supplies. This sure "
         "keeps the house clean, but wow it smells so "
@@ -274,13 +275,13 @@ messages = {
         "The humans really adore this clawfoot bathtub. The "
         "white porcelain looks so polished, you can "
         "practically see your reflection!\n",
-    'rocking_chair':
+    'rocking chair':
         "This is the human's favorite rocking chair. It "
         "has a strong wooden frame and a well worn but "
         "comfortable blue cushion. There's a warm wool"
         " blanket draped over the back for any chilly "
         "evenings.\n",
-    'dirt_pile':
+    'dirt pile':
         "The humans have big plans to set up a garden this "
         "autumn. This big pile of dirt has been sitting in "
         "front of their front porch for a few weeks, while "
@@ -314,6 +315,7 @@ messages = {
         "The table is full of different snacks and beverages "
         "brought by the guests at the picnic. There's room "
         "at the table for all of your inventory as well.\n",
+    
     # Verb Descriptions
     # Eat
     'blueberries.eat':
@@ -342,6 +344,7 @@ messages = {
     'birds.eat':
         "The birds are flying too high up in the air for you to catch them "
         "and eat them. Besides, it's not very nice to eat your neighbors!",
+    
     # Read
     'blueberries.read':
         "The carton says \"Johnson Family Orchards.\"",
@@ -366,6 +369,7 @@ messages = {
     'towel.read':
         "The tag on the towel reads: \"Wash in hot water. Hang"
         " dry after washing\"",
+    
     # Nap
     'towel.nap':
         "You bundle the towel around you, and hunker down for a short little "
@@ -409,5 +413,51 @@ messages = {
         ", or they might start to look at you funny.",
     'table.nap':
         "Why are you napping here? All of your friends are nearby, go have fun with them!",
+    
+    # Scratch
+    'blueberries.scratch':
+        "You scratch through the carton of blueberries, and now your paw is covered in blueberry juice. Yum! Messy!",
+    'mushrooms.scratch':
+        "Your paw scratches through the mushroom, cutting it into bite sized pieces. It'll be easier to snack on now!",
+    'dog treats.scratch':
+        "You scratch the Groovy Snacks, leaving a few crumbs at your feet. That didn't really help at all.",
+    'towel.scratch':
+        "You dig your paws in and scratch at the big towel. You can tell the humans wouldn't be thrilled if they caught you doing this, but that's what makes it so much fun!",
+    'umbrella.stratch':
+        "Be careful! If you scratch the umbrella, then it might rip!",
+    'letter.scratch':
+        "The letter is written on delicate paper. Better not scratch it.",
+    'soap.scratch':
+        "You scratch the bar of soap, leaving a few pieces at your feet. That didn't really help at all.",
+    'sofa.scratch':
+        "You know the humans wouldn't want you scratching up the sofa, right? Better not...",
+    'mouse.scratch':
+        "You try to scratch the mouse but it scampers away from you. Be careful, your claws are sharp!",
+    'suitcase.scratch':
+        "The worn leather scratches easily against your paws. This suitcase is super old, and already falling apart.",
+    'ants.scratch':
+        "You scratch at one of the ants, crushing it under your paw. That wasn't very nice!",
+    'blanket.scratch':
+        "You know the humans wouldn't be thrilled if they caught you scratching this blanket, but it's your favorite! They won't mind a few small scratches, right?",
+    'dirt pile.scratch':
+        "There's nothing quite as satisfying as digging and scratching around in a big pile of dirt. You could do this all day long, but you really should get back to your quest.",
+    'raccoon.scratch':
+        "You scratch at the raccoon and it growls back at you. You'd better not...",
+    'flashlight.use':
+        "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can see better in dark spaces!",
+    'helmet.use':
+        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.",
+    'wooden spoon.use':
+        "You prop the bin open, revealing the tasty Groovy Snacks inside. You load some of the delicious snacks up into your bag.",
+    
+    # Invite
+    'mouse.invite':
+        "You let the mouse know about the picnic, and they let out a small squeak of delight. They're excited to be included, and will bring some of their aged cheese to snack on.",
+    'ants.invite':
+        "Normally, ants at a picnic is not a wanted thing. But you're being a kind neighnor, and inviting them anyway. The ants wiggle their antennae, which you interperet as accepting the invitation.",
+    'raccoon.invite':
+        "The grimy raccoon nods its head in agreement, and it appears excited to be included in the picnic festivities!",
+    'birds.invite':
+        "The birds let out a chorus of chirps, which sounds like they accept the invitation. The birds are always the life of the party; it's good that you invited them.",
     
 }

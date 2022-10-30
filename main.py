@@ -125,7 +125,7 @@ def init_room_list_and_items():
     # Can Pick Up: Yes
     # Can Drop: Yes
     wooden_spoon = Item("wooden spoon",
-                        messages['wooden_spoon'],
+                        messages['wooden spoon'],
                         True,
                         True)
 
@@ -133,7 +133,7 @@ def init_room_list_and_items():
     # Can Pick Up: Yes
     # Can Drop: Yes
     football_helmet = Item("football helmet",
-                           messages['football_helmet'],
+                           messages['football helmet'],
                            True,
                            True)
 
@@ -179,7 +179,7 @@ def init_room_list_and_items():
     shelves = Feature("shelves", messages['shelves'])
 
     # Feature Name: Treat bin
-    cleaning_supplies = Feature("cleaning supplies", messages['cleaning_supplies'])
+    cleaning_supplies = Feature("cleaning supplies", messages['cleaning supplies'])
 
     # Feature Name: Blanket
     blanket = Feature("blanket", messages['blanket'])
@@ -197,7 +197,7 @@ def init_room_list_and_items():
     rocking_chair = Feature("rocking chair", messages['rocking_chair'])
 
     # Feature Name: Dirt pile
-    dirt_pile = Feature("dirt pile", messages['dirt_pile'])
+    dirt_pile = Feature("dirt pile", messages['dirt pile'])
 
     # Feature Name: Raccoon
     raccoon = Feature("raccoon", messages['raccoon'])
@@ -231,8 +231,8 @@ def init_room_list_and_items():
     room_list.append(Room(
         0,
         "Living Room",
-        messages["living_room.long"],
-        messages["living_room.short"],
+        messages["living room.long"],
+        messages["living room.short"],
         [flashlight, letter],
         [sofa, tv],
         [1, 4, 6, 2]))
