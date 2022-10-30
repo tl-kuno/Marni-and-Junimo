@@ -13,4 +13,4 @@ class Feature:
         return self.description
 
     def __repr__(self):
-        return self.item_name
+        return self.name
