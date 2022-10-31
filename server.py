@@ -18,7 +18,7 @@ def handle_interaction():
 
 @app.route('/save', methods=["POST"])
 def handle_save():
-    data_set = {'confirmation_msg': 'Game Progress Saved'}
+    data_set = {'confirmation': 'Game Progress Saved'}
     json_dump = json.dumps(data_set)
     return json_dump
 
