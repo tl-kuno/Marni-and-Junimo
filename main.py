@@ -187,7 +187,7 @@ def init_room_list_and_items():
 
     # Feature Name: Treat bin
     cleaning_supplies = Feature("Cleaning Supplies",
-                                messages['cleaning_supplies'])
+                                messages['cleaning supplies'])
 
     # Feature Name: Blanket
     blanket = Feature("blanket", messages['blanket'])
@@ -202,7 +202,7 @@ def init_room_list_and_items():
     bathtub = Feature("bathtub", messages['bathtub'])
 
     # Feature Name: Rocking Chair
-    rocking_chair = Feature("rocking chair", messages['rocking_chair'])
+    rocking_chair = Feature("rocking chair", messages['rocking chair'])
 
     # Feature Name: Dirt pile
     dirt_pile = Feature("dirt pile", messages['dirt pile'])
