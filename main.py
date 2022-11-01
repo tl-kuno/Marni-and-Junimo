@@ -5,6 +5,13 @@ from messages import messages
 from feature import Feature
 
 
+def newgame():
+    # this is where we do all of the things!!!
+    # placeholder return statement, but the server
+    # is expecting a returned string
+    return "intro string"
+
+
 def handle_user_input(command):
     room_list = init_room_list_and_items()
     player = Character("Player 1", location=room_list[0])
@@ -179,7 +186,8 @@ def init_room_list_and_items():
     shelves = Feature("shelves", messages['shelves'])
 
     # Feature Name: Treat bin
-    cleaning_supplies = Feature("cleaning supplies", messages['cleaning supplies'])
+    cleaning_supplies = Feature("Cleaning Supplies",
+                                messages['cleaning_supplies'])
 
     # Feature Name: Blanket
     blanket = Feature("blanket", messages['blanket'])
