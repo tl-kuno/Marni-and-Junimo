@@ -13,7 +13,7 @@ class Character:
         self.inventory = inventory
         self.location = location
         self.helmet = False     # Helmet can push open bedroom door
-        self.light = False      # Flashlight can light up basement   
+        self.light = False      # Flashlight can light up basement
         self.invited = []
 
     def __repr__(self):
@@ -26,7 +26,7 @@ class Character:
     # #####################################
     #                VERBS                #
     #  To be used for Features and Items  #
-    # #####################################   
+    # #####################################
 
     def take(self, target):
         # Adds item to inventory and sends confirmation
@@ -61,7 +61,7 @@ class Character:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to read."
         return messages.get(f"{target.name}.read", "There is nothing here to read.")
-    
+
     def nap(self, target):
         # Error handling
         if target not in self.inventory:
@@ -77,7 +77,7 @@ class Character:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to scratch."
         return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
-
+    
     def use(self, target):
         # Error handling
         if target not in self.inventory:
@@ -103,10 +103,7 @@ class Character:
         # Using soap on raccoon
         if target.name == "soap":
             if self.location.room_name == "Alley":
-                self.inventory.append(Item("umbrella",
-                    messages['umbrella'],
-                    True,
-                    True))
+                self.inventory.append(Item("umbrella", messages['umbrella'], True, True))
         # Using letter
         if target.name == 'letter':
             return messages.get('letter')
