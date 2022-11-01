@@ -1,4 +1,41 @@
 messages = {
+    # Intro paragraph
+    'intro':
+        "Welcome to Picnic Quest!"
+        "You are now Marnie, the adorable poodle. You live in a well-loved, "
+        "one-story house in the suburbs with two humans who are off at their "
+        "day jobs. As usual, you took this opportunity to take a nice long "
+        "mid-day nap.\n\nYou slowly awaken in a warm, cozy living room. "
+        "Sunlight pours through the windows, lighting up the familiar sofa "
+        "in the center of the room. There are no signs of humans around here, "
+        "just the soft sound of the trees rustling in the breeze outside. You "
+        "stretch your paws and arch your back, slowly waking up from a relaxing "
+        "nap. You suddenly realize that a letter has been placed on the pillow "
+        "in front of you. In the corner of the room, you can hear the TV quietly "
+        "buzzing as a show plays on the screen. To the North of you, you can "
+        "see the door to the basement. To the East, you can see the closed "
+        "door to the bedroom. To the South, you can see the front door that "
+        "leads to the porch outside. To the West, you see the doorway to the "
+        "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
+        "\nTo look around the living room, try entering \"Look\".\nTo examine the "
+        "sofa, enter \"look sofa\". \nTo move to a different room, type \"Move "
+        "East\".\nTo look at your inventory, type “Inventory”.\nTo see a list "
+        "of helpful commands, type \"help\".\n",
+    'help':
+        "Try these commands:\nLook: Repeat the description of the current room\n"
+        "Look at: Learn more about a nearby item or feature.\n"
+        "Go/Move: Using cardinal directions or room names, move your character "
+        "from room to room.\n"
+        "Take: Pick up an item and put it in your inventory.\n"
+        "Drop: Drop an item where you are.\n"
+        "Use: Use an item in your inventory.\n"
+        "Wear: Put on a piece of clothing or an item.\n"
+        "Inventory: Look at all of your items in your inventory.\n"
+        "savegame: Save the current game state.\n"
+        "loadgame: Load your previously saved game.\n"
+        "Other verbs: Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
+    'inventory':        # TODO write inventory function
+        "This is your inventory:",
     # Room Descriptions
     'living room.long':
         "You are in a warm, cozy living room. Sunlight pours through the "
