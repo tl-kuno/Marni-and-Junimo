@@ -3,6 +3,8 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
+from nav import *
+from verb import VerbClass, verb_dict
 
 
 def newgame():
@@ -13,64 +15,19 @@ def newgame():
 
 
 def handle_user_input(command):
-    room_list = init_room_list_and_items()
-    player = Character("Player 1", location=room_list[0])
-    resp_object = check_and_move(command, player.location, room_list)
-    output = resp_object.short_description
-    return output
-
-
-def move(direction, current_room, room_list):
-    direction = direction.lower()
-    if direction == "north":
-        # move north
-        if current_room.north() is None:
-            print("Cannot go north!")
-        else:
-            current_room = room_list[current_room.north()]
-        return current_room
-    elif direction == "east":
-        # move north
-        if current_room.east() is None:
-            print("Cannot go east!")
-        else:
-            current_room = room_list[current_room.east()]
-        return current_room
-    elif direction == "south":
-        # move north
-        if current_room.south() is None:
-            print("Cannot go south!")
-        else:
-            current_room = room_list[current_room.south()]
-        return current_room
-    elif direction == "west":
-        # move north
-        if current_room.west() is None:
-            print("Cannot go west!")
-        else:
-            current_room = room_list[current_room.west()]
-        return current_room
-    print("Invalid direction")
-    return current_room
-
-
-def check_and_move(response, cur_room, room_list):
-    response = response.lower()
-    # finds the first index of the term 'move' if it exists, else -1
-    movement_verb = "move"
-    idx = response.find(movement_verb)
-    if idx != -1:
-        # removes everything in the user input
-        # up to and including the word 'move'
-        direction = response[idx + len(movement_verb):]
-        # removes all words after the direction
-        direction = direction.split()[0]
-        # removes surrounding white space
-        direction = direction.strip()
-        # print("[{}]".format(direction))
-        cur_room = move(direction, cur_room, room_list)
-    return cur_room
-
+    command = command.strip()
+    # "grab red scarf" --> ["grab", "red scarf"]
+    input_components = command.lower().split(maxsplit=1)
+    verb = input_components[0]
+    if verb not in verb_dict:
+        return "invalid command, try again..."
+    verb_class = verb_dict[verb] # returns verb_class enum
+    if verb_class == VerbClass.move:
+       return clean_and_move(input_components[1], player, room_list)
+    if verb_class == VerbClass.take:
+        # return clean_and_take()
+        pass
+    return "verb [{}] not yet supported...".format(verb)
 
 def init_room_list_and_items():
     # list of all the rooms
@@ -385,17 +342,16 @@ def main():
     #     print(room.long_description)
     # print(inventory)
 
-    room_list = init_room_list_and_items()
-    cur_room = room_list[0]
-    print(cur_room)
     while True:
         response = input("Enter instructions: ").lower()
         if "quit" in response:
             print("\nThanks for playing. Quitting...\n")
             break
-        cur_room = check_and_move(response, cur_room, room_list)
-        print(cur_room)
+        print()
+        print(handle_user_input(response))
 
+room_list = init_room_list_and_items()
+player = Character("Player 1", location=room_list[0])
 
 if __name__ == "__main__":
     main()
