@@ -1,4 +1,4 @@
-from room import Room
+# from room import Room
 from item import Item
 # import json
 from messages import messages
@@ -110,7 +110,6 @@ class Character:
         # Using letter
         if target.name == 'letter':
             return messages.get('letter')
-        
         # Invalid command
         return f"There is no {target.name} here to use."
 
@@ -120,27 +119,27 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to invite."
-        
+
         # Invite the mouse
         if target.name == 'mouse' and self.location.room_name == 'Basement':
             self.invited.append('mouse')
             return messages.get('mouse.invite')
-        
+
         # Invite the ants
         if target.name == 'ants' and self.location.room_name == 'Kitchen':
             self.invited.append('ants')
             return messages.get('ants.invite')
-        
+
         # Invite the raccoon
         if target.name == 'raccoon' and self.location.room_name == 'Alley':
             self.invited.append('raccoon')
             return messages.get('raccoon.invite')
-        
+
         # Invite the birds
         if target.name == 'birds' and self.location.room_name == 'Roof':
             self.invited.append('birds')
             return messages.get('birds.invite')
-        
+
         # Invalid
         return f"There is no {target.name} here to invite."
 
@@ -169,7 +168,7 @@ class Character:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
-    
+
     # def give(self, target):
     #     # TODO - do we wanna do a receiver for this? Review this with team...
     #     # Error handling
@@ -178,7 +177,7 @@ class Character:
     #             if target not in self.location.feature_list:
     #                 return f"There is no {target.name} here to give."
     #     pass
-    
+
     # def save(self):
     #     """
     #     Creates JSON file of current character.
