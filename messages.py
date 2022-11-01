@@ -496,5 +496,14 @@ messages = {
         "The grimy raccoon nods its head in agreement, and it appears excited to be included in the picnic festivities!",
     'birds.invite':
         "The birds let out a chorus of chirps, which sounds like they accept the invitation. The birds are always the life of the party; it's good that you invited them.",
-    
+
+    # Talk
+    'mouse.talk':
+        "The mouse looks up at you and remarks \"Wow, I haven't seen you down here in a while! I hear you and the humans stomping their feet all the time upstairs...do you think you could keep it down a little?\"",
+    'ants.talk':
+        "Ants are not great conversationalists,apparently. The ant in front of you starts describing how great the queen is, how wonderful a leader she is, how powerful her mandibles are...this ant could really use a hobby.",
+    'raccoon.talk':
+        "The raccoon has all of the hot gossip from the alley. You hear all of the details of the rivalry between the squirrels and the chipmunks on either side of the alley. You get all of the salacious details about the star-crossed-love of the owl in the nearby oak tree and the corgi that lives next door. Who knew that the alley could be such a hub for drama!",
+    'birds.talk':
+        "The birds start twittering over each other, trying to be the first to "
 }
