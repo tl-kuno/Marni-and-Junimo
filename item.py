@@ -2,8 +2,8 @@ class Item:
     """
     Creates an item and how that item could be interacted with
     """
-    def __init__(self, item_name, description, can_pick_up, can_drop):
-        self.item_name = item_name
+    def __init__(self, name, description, can_pick_up, can_drop):
+        self.name = name
         self.description = description
         self.can_pick_up = can_pick_up
         self.can_drop = can_drop
@@ -15,4 +15,4 @@ class Item:
         return self.description
 
     def __repr__(self):
-        return self.item_name
+        return self.name
