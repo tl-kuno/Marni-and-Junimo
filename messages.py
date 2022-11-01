@@ -18,9 +18,10 @@ messages = {
         "leads to the porch outside. To the West, you see the doorway to the "
         "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
         "\nTo look around the living room, try entering \"Look\".\nTo examine the "
-        "sofa, enter \"look sofa\". \nTo move to a different room, type \"Move "
-        "East\".\nTo look at your inventory, type “Inventory”.\nTo see a list "
-        "of helpful commands, type \"help\".\n",
+        "sofa, enter \"look sofa\".\nTo read the letter, enter \"read letter\""
+        "\nTo move to a different room, type \"Move East\".\nTo look at your "
+        "inventory, type “Inventory”.\nTo see a list of helpful commands, "
+        "type \"help\".\n",
     'help':
         "Try these commands:\nLook: Repeat the description of the current room\n"
         "Look at: Learn more about a nearby item or feature.\n"
