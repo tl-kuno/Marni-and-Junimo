@@ -202,7 +202,7 @@ messages = {
         " your picnic supplies. Once you have everything prepared, you can "
         "join all of the invited animals that gathered together under a huge "
         "tree.\n",
-    
+
     # Item Descriptions
     'blueberries':
         "These blueberries were freshly picked yesterday from"
@@ -356,7 +356,7 @@ messages = {
         "The table is full of different snacks and beverages "
         "brought by the guests at the picnic. There's room "
         "at the table for all of your inventory as well.\n",
-    
+
     # Verb Descriptions
     # Eat
     'blueberries.eat':
@@ -385,11 +385,12 @@ messages = {
     'birds.eat':
         "The birds are flying too high up in the air for you to catch them "
         "and eat them. Besides, it's not very nice to eat your neighbors!",
-    
+
     # Read
     'blueberries.read':
         "The carton says \"Johnson Family Orchards.\"",
-    'dog treats.read':"The Groovy Snacks are chicken & bacon flavored. "
+    'dog treats.read': 
+        "The Groovy Snacks are chicken & bacon flavored. "
         "The back of the box lists a lot of ingredients that you can't "
         "pronounce.",
     'letter.read':
@@ -410,7 +411,7 @@ messages = {
     'towel.read':
         "The tag on the towel reads: \"Wash in hot water. Hang"
         " dry after washing\"",
-    
+
     # Nap
     'towel.nap':
         "You bundle the towel around you, and hunker down for a short little "
@@ -454,7 +455,7 @@ messages = {
         ", or they might start to look at you funny.",
     'table.nap':
         "Why are you napping here? All of your friends are nearby, go have fun with them!",
-    
+
     # Scratch
     'blueberries.scratch':
         "You scratch through the carton of blueberries, and now your paw is covered in blueberry juice. Yum! Messy!",
@@ -463,7 +464,8 @@ messages = {
     'dog treats.scratch':
         "You scratch the Groovy Snacks, leaving a few crumbs at your feet. That didn't really help at all.",
     'towel.scratch':
-        "You dig your paws in and scratch at the big towel. You can tell the humans wouldn't be thrilled if they caught you doing this, but that's what makes it so much fun!",
+        "You dig your paws in and scratch at the big towel. You can tell the humans wouldn't be thrilled if they "
+        "caught you doing this, but that's what makes it so much fun!",
     'umbrella.stratch':
         "Be careful! If you scratch the umbrella, then it might rip!",
     'letter.scratch':
@@ -479,65 +481,86 @@ messages = {
     'ants.scratch':
         "You scratch at one of the ants, crushing it under your paw. That wasn't very nice!",
     'blanket.scratch':
-        "You know the humans wouldn't be thrilled if they caught you scratching this blanket, but it's your favorite! They won't mind a few small scratches, right?",
+        "You know the humans wouldn't be thrilled if they caught you scratching this blanket, but it's your favorite! "
+        "They won't mind a few small scratches, right?",
     'dirt pile.scratch':
-        "There's nothing quite as satisfying as digging and scratching around in a big pile of dirt. You could do this all day long, but you really should get back to your quest.",
+        "There's nothing quite as satisfying as digging and scratching around in a big pile of dirt. You could do this "
+        "all day long, but you really should get back to your quest.",
     'raccoon.scratch':
         "You scratch at the raccoon and it growls back at you. You'd better not...",
 
     # Use
     'flashlight.use':
-        "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can see better in dark spaces!",
+        "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can "
+        "see better in dark spaces!",
     'helmet.use':
-        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.",
+        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your "
+        "way now.",
     'wooden spoon.use':
-        "You prop the bin open, revealing the tasty Groovy Snacks inside. You load some of the delicious snacks up into your bag.",
+        "You prop the bin open, revealing the tasty Groovy Snacks inside. You load some of the delicious snacks up into "
+        "your bag.",
     'soap.use':
-        "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the umbrella!\n",
+        "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat "
+        "of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the umbrella!\n",
 
     # Invite
     'mouse.invite':
-        "You let the mouse know about the picnic, and they let out a small squeak of delight. They're excited to be included, and will bring some of their aged cheese to snack on.",
+        "You let the mouse know about the picnic, and they let out a small squeak of delight. They're excited to be included, "
+        "and will bring some of their aged cheese to snack on.",
     'ants.invite':
-        "Normally, ants at a picnic is not a wanted thing. But you're being a kind neighnor, and inviting them anyway. The ants wiggle their antennae, which you interperet as accepting the invitation.",
+        "Normally, ants at a picnic is not a wanted thing. But you're being a kind neighnor, and inviting them anyway. The "
+        "ants wiggle their antennae, which you interperet as accepting the invitation.",
     'raccoon.invite':
         "The grimy raccoon nods its head in agreement, and it appears excited to be included in the picnic festivities!",
     'birds.invite':
-        "The birds let out a chorus of chirps, which sounds like they accept the invitation. The birds are always the life of the party; it's good that you invited them.",
+        "The birds let out a chorus of chirps, which sounds like they accept the invitation. The birds are always the life "
+        "of the party; it's good that you invited them.",
 
     # Talk
     'mouse.talk':
-        "The mouse looks up at you and remarks \"Wow, I haven't seen you down here in a while! I hear you and the humans stomping their feet all the time upstairs...do you think you could keep it down a little?\"",
+        "The mouse looks up at you and remarks \"Wow, I haven't seen you down here in a while! I hear you and the humans "
+        "stomping their feet all the time upstairs...do you think you could keep it down a little?\"",
     'ants.talk':
-        "Ants are not great conversationalists,apparently. The ant in front of you starts describing how great the queen is, how wonderful a leader she is, how powerful her mandibles are...this ant could really use a hobby.",
+        "Ants are not great conversationalists,apparently. The ant in front of you starts describing how great the queen "
+        "is, how wonderful a leader she is, how powerful her mandibles are...this ant could really use a hobby.\n",
     'raccoon.talk':
-        "The raccoon has all of the hot gossip from the alley. You hear all of the details of the rivalry between the squirrels and the chipmunks on either side of the alley. You get all of the salacious details about the star-crossed-love of the owl in the nearby oak tree and the corgi that lives next door. Who knew that the alley could be such a hub for drama!",
+        "The raccoon has all of the hot gossip from the alley. You hear all of the details of the rivalry between the "
+        "squirrels and the chipmunks on either side of the alley. You get all of the salacious details about the star-"
+        "crossed-love of the owl in the nearby oak tree and the corgi that lives next door. Who knew that the alley "
+        "could be such a hub for drama!\n",
     'birds.talk':
-        "The birds start twittering ove r each other, trying to be the first to tell you about a shiny pebble they found yesterday.",
-    
+        "The birds start twittering ove r each other, trying to be the first to tell you about a shiny pebble they "
+        "found yesterday.\n",
+
     # Wear
     'towel.wear':
-        "You wrap the towel around your neck and use your teeth and paws to tie it into an awesome cape. You look like a superhero!\n",
+        "You wrap the towel around your neck and use your teeth and paws to tie it into an awesome cape. You "
+        "look like a superhero!\n",
     'umbrella.wear':
-        "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes you look very fashionable.\n",
+        "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes "
+        "you look very fashionable.\n",
     'helmet.wear':
-        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.\n",
+        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in "
+        "your way now.\n",
     'blanket.wear':
         "This blanket is huge, but you somehow wrap yourself up in it. You look like a giant green blob.\n",
 
     # Listen
     'tv.listen':
-        "You can hear the gentle tones of David Attenborough as he describes the hunting behaviors of lions. The soft voiceover is interrupted by a deep, frightening roar from the lion as it pounces on an innocent gazelle.\n",
+        "You can hear the gentle tones of David Attenborough as he describes the hunting behaviors of lions. "
+        "The soft voiceover is interrupted by a deep, frightening roar from the lion as it pounces on an innocent gazelle.\n",
     'mouse.listen':
         "The mouse squeeks quietly from behind a corner, trying to not draw much attention to itself.\n",
     'refrigerator.listen':
         "The refrigerator buzzes it's eternal buzzing sound. It's oddly comforting, in a way.\n",
     'window.listen':
-        "You can hear the birds chirping, and the wind rustling through the trees outside. Cars rarely drive down this road, which means that the natural sounds remain undisturbed.\n",
+        "You can hear the birds chirping, and the wind rustling through the trees outside. Cars rarely drive down this "
+        "road, which means that the natural sounds remain undisturbed.\n",
     'sink.listen':
         "DRIP...DRIP...DRIP... The leaky faucet has been making this sound for weeks.\n",
     'raccoon.listen':
         "You can hear the raccoon chittering to itself.\n",
     "neighborhood.listen":
-        "The soft voices of your friends at the park can be heard from your vantage point. They seem to be setting up for the picnic and laughing together.\n"
+        "The soft voices of your friends at the park can be heard from your vantage point. They seem to be setting "
+        "up for the picnic and laughing together.\n"
 }
