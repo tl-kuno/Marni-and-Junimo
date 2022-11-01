@@ -83,7 +83,7 @@ def init_room_list_and_items():
     # Item Name: Blueberries
     # Can Pick Up: Yes
     # Can Drop: Yes
-    blueberries = Item("Blueberries",
+    blueberries = Item("blueberries",
                        messages['blueberries'],
                        True,
                        True)
@@ -91,7 +91,7 @@ def init_room_list_and_items():
     # Item Name: Mushrooms
     # Can Pick Up: Yes
     # Can Drop: Yes
-    mushrooms = Item("Mushrooms",
+    mushrooms = Item("mushrooms",
                      messages['mushrooms'],
                      True,
                      True)
@@ -99,7 +99,7 @@ def init_room_list_and_items():
     # Item Name: Dog Treats
     # Can Pick Up: Yes
     # Can Drop: Yes
-    dog_treats = Item("Dog Treats",
+    dog_treats = Item("dog treats",
                       messages['dog_treats'],
                       True,
                       True)
@@ -107,7 +107,7 @@ def init_room_list_and_items():
     # Item Name: Towel
     # Can Pick Up: Yes
     # Can Drop: Yes
-    towel = Item("Towel",
+    towel = Item("towel",
                  messages['towel'],
                  True,
                  True)
@@ -115,7 +115,7 @@ def init_room_list_and_items():
     # Item Name: Umbrella
     # Can Pick Up: Yes
     # Can Drop: Yes
-    umbrella = Item("Umbrella",
+    umbrella = Item("umbrella",
                     messages['umbrella'],
                     True,
                     True)
@@ -123,7 +123,7 @@ def init_room_list_and_items():
     # Item Name: Letter
     # Can Pick Up: Yes
     # Can Drop: Yes
-    letter = Item("Letter",
+    letter = Item("letter",
                   messages['letter'],
                   True,
                   True)
@@ -131,23 +131,23 @@ def init_room_list_and_items():
     # Item Name: Wooden Spoon
     # Can Pick Up: Yes
     # Can Drop: Yes
-    wooden_spoon = Item("Wooden Spoon",
-                        messages['wooden_spoon'],
+    wooden_spoon = Item("wooden spoon",
+                        messages['wooden spoon'],
                         True,
                         True)
 
     # Item Name: Football Helmet
     # Can Pick Up: Yes
     # Can Drop: Yes
-    football_helmet = Item("Football Helmet",
-                           messages['football_helmet'],
+    football_helmet = Item("football helmet",
+                           messages['football helmet'],
                            True,
                            True)
 
     # Item Name: Soap
     # Can Pick Up: Yes
     # Can Drop: Yes
-    soap = Item("Soap",
+    soap = Item("soap",
                 messages['soap'],
                 True,
                 True)
@@ -155,7 +155,7 @@ def init_room_list_and_items():
     # Item Name: Flashlight
     # Can Pick Up: Yes
     # Can Drop: Yes
-    flashlight = Item("Flashlight",
+    flashlight = Item("flashlight",
                       messages['flashlight'],
                       True,
                       True)
@@ -165,66 +165,66 @@ def init_room_list_and_items():
     # -----------------------------------------------------
 
     # Feature Name: Sofa
-    sofa = Feature("Sofa", messages['sofa'])
+    sofa = Feature("sofa", messages['sofa'])
 
     # Feature Name: TV
-    tv = Feature("TV", messages['tv'])
+    tv = Feature("tv", messages['tv'])
 
     # Feature Name: Mouse
-    mouse = Feature("Mouse", messages['mouse'])
+    mouse = Feature("mouse", messages['mouse'])
 
     # Feature Name: Suitcase
-    suitcase = Feature("Suitcase", messages['suitcase'])
+    suitcase = Feature("suitcase", messages['suitcase'])
 
     # Feature Name: Refrigerator
-    refrigerator = Feature("Refrigerator", messages['refrigerator'])
+    refrigerator = Feature("refrigerator", messages['refrigerator'])
 
     # Feature Name: Ants
-    ants = Feature("Ants", messages['ants'])
+    ants = Feature("ants", messages['ants'])
 
     # Feature Name: shelves
-    shelves = Feature("Shelves", messages['shelves'])
+    shelves = Feature("shelves", messages['shelves'])
 
     # Feature Name: Treat bin
     cleaning_supplies = Feature("Cleaning Supplies",
                                 messages['cleaning_supplies'])
 
     # Feature Name: Blanket
-    blanket = Feature("Blanket", messages['blanket'])
+    blanket = Feature("blanket", messages['blanket'])
 
     # Feature Name: window
-    window = Feature("Window", messages['window'])
+    window = Feature("window", messages['window'])
 
     # Feature Name: sink
-    sink = Feature("Sink", messages['sink'])
+    sink = Feature("sink", messages['sink'])
 
     # Feature Name: bathtub
-    bathtub = Feature("Bathtub", messages['bathtub'])
+    bathtub = Feature("bathtub", messages['bathtub'])
 
     # Feature Name: Rocking Chair
-    rocking_chair = Feature("Rocking Chair", messages['rocking_chair'])
+    rocking_chair = Feature("rocking chair", messages['rocking_chair'])
 
     # Feature Name: Dirt pile
-    dirt_pile = Feature("Dirt Pile", messages['dirt_pile'])
+    dirt_pile = Feature("dirt pile", messages['dirt pile'])
 
     # Feature Name: Raccoon
-    raccoon = Feature("Raccoon", messages['raccoon'])
+    raccoon = Feature("raccoon", messages['raccoon'])
 
     # Feature Name: Guitar
-    guitar = Feature("Guitar", messages['guitar'])
+    guitar = Feature("guitar", messages['guitar'])
 
     # Feature Name: Birds
-    birds = Feature("Birds", messages['birds'])
+    birds = Feature("birds", messages['birds'])
 
     # Feature Name: Neighborhood
-    neighborhood = Feature("Neighborhood", messages['neighborhood'])
+    neighborhood = Feature("neighborhood", messages['neighborhood'])
 
     # Feature Name: Table
-    table = Feature("Table", messages['table'])
+    table = Feature("table", messages['table'])
 
     # Feature Name: Friends
     # TODO write a func to give result based on collected items & animals??
-    friends = Feature("Table",
+    friends = Feature("friends",
                       "END GAME!")
 
     # -----------------------------------------------------
@@ -239,8 +239,8 @@ def init_room_list_and_items():
     room_list.append(Room(
         0,
         "Living Room",
-        messages["living_room.long"],
-        messages["living_room.short"],
+        messages["living room.long"],
+        messages["living room.short"],
         [flashlight, letter],
         [sofa, tv],
         [1, 4, 6, 2]))
