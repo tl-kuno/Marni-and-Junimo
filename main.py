@@ -100,7 +100,7 @@ def init_room_list_and_items():
     # Can Pick Up: Yes
     # Can Drop: Yes
     dog_treats = Item("dog treats",
-                      messages['dog_treats'],
+                      messages['dog treats'],
                       True,
                       True)
 
