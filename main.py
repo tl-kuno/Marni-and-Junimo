@@ -11,7 +11,7 @@ def newgame():
     # this is where we do all of the things!!!
     # placeholder return statement, but the server
     # is expecting a returned string
-    return "intro string here"
+    return messages['intro']
 
 
 def handle_user_input(command):
