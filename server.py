@@ -19,22 +19,22 @@ def handle_interaction():
 
 @app.route('/new', methods=["POST"])
 def handle_new_game():
-    data_set = {'confirmation': 'New game created'}
+    intro = newgame()
+    data_set = {'intro': intro}
     json_dump = json.dumps(data_set)
     return json_dump
 
 
 @app.route('/save', methods=["POST"])
 def handle_save():
-    data_set = {'startDialogue': ''}
+    data_set = {'confirmation': 'Game Progress Saved'}
     json_dump = json.dumps(data_set)
     return json_dump
 
 
 @app.route('/load', methods=["GET"])
 def handle_load():
-    intro = newgame()
-    data_set = {'intro': intro}
+    data_set = {'confirmation': 'Game Loaded from Last Save'}
     json_dump = json.dumps(data_set)
     return json_dump
 
