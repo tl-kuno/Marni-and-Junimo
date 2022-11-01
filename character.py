@@ -20,24 +20,6 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
-    def add_item(self, item):
-        # Adds item to inventory and sends confirmation
-        # TODO does this response work here?
-        self.inventory.append(item)
-        return f"You picked up {item.name}"
-
-    def drop_item(self, item):
-        # Drops item in current room, and returns success message
-        # If item is not in inventory returns error message
-        if item in self.inventory:
-            self.inventory.remove(item)
-            self.location.object_list.append(item)
-            return (f"You dropped the {item.name} in "
-                    f"the {self.location.room_name}")
-
-        else:
-            return f"You don't have {item.name} in your inventory"
-
     def set_location(self, location):
         self.location = location
 
@@ -45,6 +27,24 @@ class Character:
     #                VERBS                #
     #  To be used for Features and Items  #
     # #####################################   
+
+    def take(self, target):
+        # Adds item to inventory and sends confirmation
+        if target not in self.location.object_list:
+            return f"There is no {target.name} to pick up.\n"
+        self.inventory.append(target)
+        return f"You picked up the {target.name}.\n"
+
+    def drop(self, item):
+        # Drops item in current room, and returns success message
+        # If item is not in inventory returns error message
+        if item in self.inventory:
+            self.inventory.remove(item)
+            self.location.object_list.append(item)
+            return (f"You dropped the {item.name} in "
+                    f"the {self.location.room_name}")
+        else:
+            return f"You don't have {item.name} in your inventory"
 
     def eat(self, target):
         # Error handling
@@ -94,12 +94,19 @@ class Character:
             return messages.get("helmet.use")
         # Using spoon
         if target.name == "wooden spoon":
-            if self.location.room_name == 'pantry':
+            if self.location.room_name == 'Pantry':
                 self.inventory.append(Item("dog treats",
                                            messages['dog_treats'],
                                            True,
                                            True))
                 return messages.get('wooden spoon.use')
+        # Using soap on raccoon
+        if target.name == "soap":
+            if self.location.room_name == "Alley":
+                self.inventory.append(Item("umbrella",
+                    messages['umbrella'],
+                    True,
+                    True))
         # Using letter
         if target.name == 'letter':
             return messages.get('letter')
@@ -145,32 +152,32 @@ class Character:
                     return f"There is no {target.name} here to talk to."
         return messages.get(f"{target.name}.talk", "You can't talk to that, unfortunately.")
 
-    def give(self, target):
-        # TODO - do we wanna do a receiver for this? Review this with team...
-        # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to give."
-        pass
-    
     def wear(self, target):
         # Error handling
         if target not in self.inventory:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to wear."
-        pass
-    
-    def drop(self, target):
+        if target.name == 'football helmet':
+            self.helmet = True
+        return messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
+
+    def listen(self, target):
         # Error handling
         if target not in self.inventory:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to drop."
-        pass
+                    return f"There is no {target.name} here to listen to."
+        return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
     
-    
+    # def give(self, target):
+    #     # TODO - do we wanna do a receiver for this? Review this with team...
+    #     # Error handling
+    #     if target not in self.inventory:
+    #         if target not in self.location.object_list:
+    #             if target not in self.location.feature_list:
+    #                 return f"There is no {target.name} here to give."
+    #     pass
     
     # def save(self):
     #     """

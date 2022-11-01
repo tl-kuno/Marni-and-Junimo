@@ -2,7 +2,9 @@ messages = {
     # Intro paragraph
     'intro':
         "Welcome to Picnic Quest!"
-        "You are now Marnie, the adorable poodle. You live in a well-loved, "
+        "You are now Marnie, the adorable german shepard. Marnie is all bark, "
+        "and no bite. Easily scared, but fierce when it comes to defending your "
+        "crew! You live in a well-loved, "
         "one-story house in the suburbs with two humans who are off at their "
         "day jobs. As usual, you took this opportunity to take a nice long "
         "mid-day nap.\n\nYou slowly awaken in a warm, cozy living room. "
@@ -18,9 +20,10 @@ messages = {
         "leads to the porch outside. To the West, you see the doorway to the "
         "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
         "\nTo look around the living room, try entering \"Look\".\nTo examine the "
-        "sofa, enter \"look sofa\". \nTo move to a different room, type \"Move "
-        "East\".\nTo look at your inventory, type “Inventory”.\nTo see a list "
-        "of helpful commands, type \"help\".\n",
+        "sofa, enter \"look sofa\".\nTo read the letter, type \"read letter\"\n"
+        "To move to a different room, type \"Move East\".\nTo look at your "
+        "inventory, type “Inventory”.\nTo see a list of helpful commands, "
+        "type \"help\".\n",
     'help':
         "Try these commands:\nLook: Repeat the description of the current room\n"
         "Look at: Learn more about a nearby item or feature.\n"
@@ -29,6 +32,7 @@ messages = {
         "Take: Pick up an item and put it in your inventory.\n"
         "Drop: Drop an item where you are.\n"
         "Use: Use an item in your inventory.\n"
+        "Listen: Listen to an object or feature.\n"
         "Wear: Put on a piece of clothing or an item.\n"
         "Inventory: Look at all of your items in your inventory.\n"
         "savegame: Save the current game state.\n"
@@ -480,13 +484,17 @@ messages = {
         "There's nothing quite as satisfying as digging and scratching around in a big pile of dirt. You could do this all day long, but you really should get back to your quest.",
     'raccoon.scratch':
         "You scratch at the raccoon and it growls back at you. You'd better not...",
+
+    # Use
     'flashlight.use':
         "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can see better in dark spaces!",
     'helmet.use':
         "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.",
     'wooden spoon.use':
         "You prop the bin open, revealing the tasty Groovy Snacks inside. You load some of the delicious snacks up into your bag.",
-    
+    'soap.use':
+        "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the umbrella!\n",
+
     # Invite
     'mouse.invite':
         "You let the mouse know about the picnic, and they let out a small squeak of delight. They're excited to be included, and will bring some of their aged cheese to snack on.",
@@ -505,5 +513,31 @@ messages = {
     'raccoon.talk':
         "The raccoon has all of the hot gossip from the alley. You hear all of the details of the rivalry between the squirrels and the chipmunks on either side of the alley. You get all of the salacious details about the star-crossed-love of the owl in the nearby oak tree and the corgi that lives next door. Who knew that the alley could be such a hub for drama!",
     'birds.talk':
-        "The birds start twittering over each other, trying to be the first to "
+        "The birds start twittering ove r each other, trying to be the first to tell you about a shiny pebble they found yesterday.",
+    
+    # Wear
+    'towel.wear':
+        "You wrap the towel around your neck and use your teeth and paws to tie it into an awesome cape. You look like a superhero!\n",
+    'umbrella.wear':
+        "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes you look very fashionable.\n",
+    'helmet.wear':
+        "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.\n",
+    'blanket.wear':
+        "This blanket is huge, but you somehow wrap yourself up in it. You look like a giant green blob.\n",
+
+    # Listen
+    'tv.listen':
+        "You can hear the gentle tones of David Attenborough as he describes the hunting behaviors of lions. The soft voiceover is interrupted by a deep, frightening roar from the lion as it pounces on an innocent gazelle.\n",
+    'mouse.listen':
+        "The mouse squeeks quietly from behind a corner, trying to not draw much attention to itself.\n",
+    'refrigerator.listen':
+        "The refrigerator buzzes it's eternal buzzing sound. It's oddly comforting, in a way.\n",
+    'window.listen':
+        "You can hear the birds chirping, and the wind rustling through the trees outside. Cars rarely drive down this road, which means that the natural sounds remain undisturbed.\n",
+    'sink.listen':
+        "DRIP...DRIP...DRIP... The leaky faucet has been making this sound for weeks.\n",
+    'raccoon.listen':
+        "You can hear the raccoon chittering to itself.\n",
+    "neighborhood.listen":
+        "The soft voices of your friends at the park can be heard from your vantage point. They seem to be setting up for the picnic and laughing together.\n"
 }
