@@ -389,7 +389,7 @@ messages = {
     # Read
     'blueberries.read':
         "The carton says \"Johnson Family Orchards.\"",
-    'dog treats.read': 
+    'dog treats.read':
         "The Groovy Snacks are chicken & bacon flavored. "
         "The back of the box lists a lot of ingredients that you can't "
         "pronounce.",
@@ -501,7 +501,8 @@ messages = {
         "your bag.",
     'soap.use':
         "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat "
-        "of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the umbrella!\n",
+        "of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the "
+        "umbrella!\n",
 
     # Invite
     'mouse.invite':
