@@ -9,7 +9,7 @@ messages = {
         "You suddenly realize that a letter has been placed on "
         "the pillow in front of you. In the corner of the room, you can "
         "hear the TV quietly buzzing as a show plays on the screen.\n"
-        "To the North of you, you can see the door to the basement.\nTo "
+        "To the North of you, you can see the smelly staircase to the basement.\nTo "
         "the East, you can see the closed door to the bedroom.\nTo the "
         "South, you can see the front door that leads to the porch outside"
         ".\nTo the West, you see the doorway to the kitchen.\n",

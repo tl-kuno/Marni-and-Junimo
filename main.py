@@ -8,16 +8,27 @@ from verb import VerbClass, verb_dict
 
 
 def handle_user_input(command):
-    command = command.strip()
+    command = command.strip().lower()
     # "grab red scarf" --> ["grab", "red scarf"]
-    input_components = command.lower().split(maxsplit=1)
+    input_components = command.split(maxsplit=1)
     verb = input_components[0]
+
+    # determine our verb class
+    verb_class = -1
     if verb not in verb_dict:
-        return "invalid command, try again..."
-    verb_class = verb_dict[verb] # returns verb_class enum
-    if verb_class == VerbClass.move:
+        # check if this is one of our exits or directions
+        if command not in player.location.direction_dict:
+            return "invalid command, try again..."
+        verb_class = VerbClass.MOVE_PRIME
+    else:
+        verb_class = verb_dict[verb] # returns verb_class enum
+    
+    # handle each verb class
+    if verb_class == VerbClass.MOVE:
        return clean_and_move(input_components[1], player, room_list)
-    if verb_class == VerbClass.take:
+    if verb_class == VerbClass.MOVE_PRIME:
+        return clean_and_move(command, player, room_list)
+    if verb_class == VerbClass.TAKE:
         # return clean_and_take()
         pass
     return "verb [{}] not yet supported...".format(verb)
@@ -185,6 +196,7 @@ def init_room_list_and_items():
     # Object List: Flashlight, Letter
     # Feature List: Sofa, TV
     # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
+    # Custom Exit: smelly staircase
     room_list.append(Room(
         0,
         "Living Room",
@@ -192,7 +204,11 @@ def init_room_list_and_items():
         messages["living_room.short"],
         [flashlight, letter],
         [sofa, tv],
-        [1, 4, 6, 2]))
+        [1, 4, 6, 2],
+        {
+            "smelly staircase": Direction.NORTH,
+            "staircase": Direction.NORTH
+        }))
 
     # Room ID: 1
     # Room: Basement
@@ -206,7 +222,11 @@ def init_room_list_and_items():
         messages["basement.short"],
         [mushrooms],
         [mouse, suitcase],
-        [None, None, 0, None]))
+        [None, None, 0, None],
+        {
+            "smelly staircase": Direction.SOUTH,
+            "staircase": Direction.SOUTH
+        }))
 
     # Room ID: 2
     # Room: Kitchen

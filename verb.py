@@ -1,27 +1,28 @@
 from enum import Enum
 
 class VerbClass(Enum):
-  move = 0
-  take = 1
-  Eat = 2
-  read = 3
-  nap = 4
-  scratch = 5
-  give = 6
-  use = 7
-  invite = 8
-  talk = 9
-  wear = 10
-  drop = 11
+  MOVE = 0
+  TAKE = 1
+  EAT = 2
+  READ = 3
+  NAP = 4
+  SCRATCH = 5
+  GIVE = 6
+  USE = 7
+  INVITE = 8
+  TALK = 9
+  WEAR = 10
+  DROP = 11
+  MOVE_PRIME = 12
 
 
 verb_dict = {
-  'move':VerbClass.move,
-  'run': VerbClass.move,
-  'go': VerbClass.move,
-  'navigate': VerbClass.move,
-  'take': VerbClass.take,
-  'pick': VerbClass.take,
-  'grab': VerbClass.take,
-  'select': VerbClass.take
+  'move':VerbClass.MOVE,
+  'run': VerbClass.MOVE,
+  'go': VerbClass.MOVE,
+  'navigate': VerbClass.MOVE,
+  'take': VerbClass.TAKE,
+  'pick': VerbClass.TAKE,
+  'grab': VerbClass.TAKE,
+  'select': VerbClass.TAKE
 }
