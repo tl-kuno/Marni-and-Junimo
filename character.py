@@ -1,5 +1,6 @@
-# from room import Room
+from room import Room
 from item import Item
+from feature import Feature
 # import json
 from messages import messages
 
@@ -8,7 +9,7 @@ class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, name, inventory=None, location=None):
+    def __init__(self, name, inventory=[], location=None):
         self.name = name
         self.inventory = inventory
         self.location = location
@@ -166,6 +167,16 @@ class Character:
                     return f"There is no {target.name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
+    # Handle endgame
+    def endgame(self):
+        num_items = len(self.inventory)
+        num_guests = len(self.invited)
+        msg =  f"You make your way to the park, where all of your friends are there waiting for you.\n\
+                Congratulations! You've completed Picnic Quest!\nYou have brought {num_items} out of 5 \
+                picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
+                Type in newgame to start again",
+        return msg
+
     # def give(self, target):
     #     # TODO - do we wanna do a receiver for this? Review this with team...
     #     # Error handling
@@ -208,11 +219,32 @@ class Character:
 
 
 if __name__ == "__main__":
-    hank = Character("Hank", ["Keys"], "The Zoo")
+    jacket = Item('Jacket', "A Jacket", True, True)
+    backpack = Item("Backpack", "a backpack", True, True)
+    mouse = Feature('mouse', 'hes a mouse')
+    zoo = Room(
+        9,
+        "Basement",
+        messages["park.long"],
+        messages["park.short"],
+        object_list=[jacket, backpack],
+        feature_list=[mouse],
+        directions=[None, None, None, 6])
+    home = Room(
+        1,
+        "home",
+        messages["park.long"],
+        messages["park.short"],
+        [],
+        [],
+        [None, None, None, 6])
+    hank = Character("Hank", [], zoo)
     print(hank)
-    hank.set_location("Home")
-    hank.add_item("Jacket")
-    hank.add_item("backpack")
+    print("SSSS")
+    # hank.set_location(home)
+    hank.take(jacket)
+    hank.take(backpack)
+    hank.invite(mouse)
     print(hank)
-    hank.load()
-    print(hank)
+    #hank.load()
+    hank.endgame()
