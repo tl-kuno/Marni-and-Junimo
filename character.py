@@ -96,7 +96,7 @@ class Character:
                     return f"There is no {target.name} here to scratch."
         return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
 
-    def use(self, target):
+    def use(self, target):  # noqa: C901
         # Error handling
         if target not in self.inventory:
             if target not in self.location.object_list:
