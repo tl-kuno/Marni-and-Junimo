@@ -3,7 +3,7 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
-from nav import move, clean_and_move
+from nav import clean_and_move
 from verb import VerbClass, verb_dict
 
 
