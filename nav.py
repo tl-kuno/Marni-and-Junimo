@@ -26,6 +26,7 @@ def move(direction, player, room_list):
         return player.location.short_description
     return "invalid direction..."
 
+
 def clean_and_move(response, player, room_list):
     # removes all words after the direction
     direction = response.split()[0]

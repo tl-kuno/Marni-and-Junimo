@@ -3,7 +3,7 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
-from nav import *
+from nav import move, clean_and_move
 from verb import VerbClass, verb_dict
 
 
@@ -21,13 +21,14 @@ def handle_user_input(command):
     verb = input_components[0]
     if verb not in verb_dict:
         return "invalid command, try again..."
-    verb_class = verb_dict[verb] # returns verb_class enum
+    verb_class = verb_dict[verb]    # returns verb_class enum
     if verb_class == VerbClass.move:
-       return clean_and_move(input_components[1], player, room_list)
+        return clean_and_move(input_components[1], player, room_list)
     if verb_class == VerbClass.take:
         # return clean_and_take()
         pass
     return "verb [{}] not yet supported...".format(verb)
+
 
 def init_room_list_and_items():
     # list of all the rooms
@@ -349,6 +350,7 @@ def main():
             break
         print()
         print(handle_user_input(response))
+
 
 room_list = init_room_list_and_items()
 player = Character("Player 1", location=room_list[0])
