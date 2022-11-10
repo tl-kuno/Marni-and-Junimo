@@ -50,7 +50,7 @@ messages = {
         "You suddenly realize that a letter has been placed on "
         "the pillow in front of you. In the corner of the room, you can "
         "hear the TV quietly buzzing as a show plays on the screen.\n"
-        "To the North of you, you can see the smelly staircase to the basement.\nTo "
+        "To the North of you, you can see the creaky wooden stairs to the basement.\nTo "
         "the East, you can see the closed door to the bedroom.\nTo the "
         "South, you can see the front door that leads to the porch outside"
         ".\nTo the West, you see the doorway to the kitchen.\n",
@@ -58,7 +58,7 @@ messages = {
         "You are in the comfortable living room in the center of the house. "
         "A large comfortable sofa sits in the center of the room. "
         "A quietly buzzing TV sits on a stand at the far corner of the room.\n"
-        "To the North of you, you can see the door to the basement."
+        "To the North of you, you can see the creaky wooden stairs to the basement."
         "\nTo the East, you can see the closed door to the bedroom."
         "\nTo the South, you can see the front door that leads to "
         "the porch outside.\nTo the West, you see the doorway to "

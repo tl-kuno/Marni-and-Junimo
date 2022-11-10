@@ -3,7 +3,7 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
-from nav import clean_and_move
+from nav import clean_and_move, Direction
 from verb import VerbClass, verb_dict
 
 
@@ -215,7 +215,13 @@ def init_room_list_and_items():
         [sofa, tv],
         [1, 4, 6, 2],
         {
-            "smelly staircase": Direction.NORTH,
+            "creaky wooden stairs": Direction.NORTH,
+            "creaky stairs": Direction.NORTH,
+            "wooden stairs": Direction.NORTH,
+            "stairs": Direction.NORTH,
+            "creaky wooden staircase": Direction.NORTH,
+            "creaky staircase": Direction.NORTH,
+            "wooden staircase": Direction.NORTH,
             "staircase": Direction.NORTH
         }))
 
@@ -233,7 +239,13 @@ def init_room_list_and_items():
         [mouse, suitcase],
         [None, None, 0, None],
         {
-            "smelly staircase": Direction.SOUTH,
+            "creaky wooden stairs": Direction.SOUTH,
+            "creaky stairs": Direction.SOUTH,
+            "wooden stairs": Direction.SOUTH,
+            "stairs": Direction.SOUTH,
+            "creaky wooden staircase": Direction.SOUTH,
+            "creaky staircase": Direction.SOUTH,
+            "wooden staircase": Direction.SOUTH,
             "staircase": Direction.SOUTH
         }))
 
