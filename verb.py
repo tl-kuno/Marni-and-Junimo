@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class VerbClass(Enum):
   MOVE = 0
   TAKE = 1

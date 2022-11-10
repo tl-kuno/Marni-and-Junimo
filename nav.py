@@ -35,6 +35,7 @@ def move(direction, player, room_list):
         return "invalid direction enum, bad config"
     return "Cannot go to the {}!".format(direction)
 
+
 def clean_and_move(response, player, room_list):
     # removes surrounding white space
     direction = response.strip()
