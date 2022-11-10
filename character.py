@@ -11,11 +11,11 @@ class Character:
     """
     def __init__(self, name, inventory=[], location=None):
         self.name = name
-        self.inventory = inventory
-        self.location = location
+        self.inventory = inventory  # Holds objects of items in inventory
+        self.location = location    # Object of current location
         self.helmet = False     # Helmet can push open bedroom door
         self.light = False      # Flashlight can light up basement
-        self.invited = []
+        self.invited = []       # Holds names of invited animals
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
@@ -24,6 +24,23 @@ class Character:
     def set_location(self, location):
         self.location = location
 
+    def show_inventory(self):
+        res = "Inventory: "
+        if len(self.inventory) == 0:
+            res += "None"
+        else:
+            for item in self.inventory:
+                res += item.name + "\n"
+        return res
+    
+    def show_guests(self):
+        res = "Guest List: "
+        if len(self.invited) == 0:
+            res += "None"
+        else:
+            for invite in self.invited:
+                res += invite + "\n"
+        return res
     # #####################################
     #                VERBS                #
     #  To be used for Features and Items  #
@@ -240,11 +257,14 @@ if __name__ == "__main__":
         [None, None, None, 6])
     hank = Character("Hank", [], zoo)
     print(hank)
-    print("SSSS")
+    hank.show_inventory()
     # hank.set_location(home)
     hank.take(jacket)
     hank.take(backpack)
+    hank.show_inventory()
+    hank.show_guests()
     hank.invite(mouse)
+    hank.show_guests()
     print(hank)
     #hank.load()
-    hank.endgame()
+    # hank.endgame()
