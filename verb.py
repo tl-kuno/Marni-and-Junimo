@@ -18,36 +18,36 @@ class VerbClass(Enum):
 
 
 verb_dict = {
-  'move':VerbClass.MOVE,
-  'run': VerbClass.MOVE,
-  'go': VerbClass.MOVE,
-  'navigate': VerbClass.MOVE,
+    'move': VerbClass.MOVE,
+    'run': VerbClass.MOVE,
+    'go': VerbClass.MOVE,
+    'navigate': VerbClass.MOVE,
 
-  'take': VerbClass.TAKE,
-  'pick': VerbClass.TAKE,
-  'grab': VerbClass.TAKE,
-  'select': VerbClass.TAKE,
+    'take': VerbClass.TAKE,
+    'pick': VerbClass.TAKE,
+    'grab': VerbClass.TAKE,
+    'select': VerbClass.TAKE,
 
-  'drop': VerbClass.DROP,
-  'delete': VerbClass.DROP,
-  'discard': VerbClass.DROP,
+    'drop': VerbClass.DROP,
+    'delete': VerbClass.DROP,
+    'discard': VerbClass.DROP,
 
-  'eat': VerbClass.EAT,
+    'eat': VerbClass.EAT,
 
-  'read': VerbClass.READ,
+    'read': VerbClass.READ,
 
-  'nap': VerbClass.NAP,
+    'nap': VerbClass.NAP,
 
-  'scratch': VerbClass.SCRATCH,
+    'scratch': VerbClass.SCRATCH,
 
-  'use': VerbClass.USE,
+    'use': VerbClass.USE,
 
-  'invite': VerbClass.INVITE,
+    'invite': VerbClass.INVITE,
 
-  'talk': VerbClass.TALK,
+    'talk': VerbClass.TALK,
 
-  'wear': VerbClass.WEAR,
+    'wear': VerbClass.WEAR,
 
-  'listen': VerbClass.LISTEN
+    'listen': VerbClass.LISTEN
 
 }

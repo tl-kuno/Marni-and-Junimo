@@ -14,7 +14,7 @@ def newgame():
     return messages['intro']
 
 
-def handle_user_input(command):
+def handle_user_input(command): # noqa: C901
     command = command.strip().lower()
     if command == "inv":
         return player.show_inventory()
@@ -32,11 +32,11 @@ def handle_user_input(command):
             return "invalid command, try again..."
         verb_class = VerbClass.MOVE_PRIME
     else:
-        verb_class = verb_dict[verb] # returns verb_class enum
-    
+        verb_class = verb_dict[verb]    # returns verb_class enum
+
     # handle each verb class
     if verb_class == VerbClass.MOVE:
-       return player.move(noun, room_list)
+        return player.move(noun, room_list)
     if verb_class == VerbClass.MOVE_PRIME:
         return player.move(command, room_list)
     if verb_class == VerbClass.TAKE:

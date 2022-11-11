@@ -1,5 +1,6 @@
 from nav import Direction
 
+
 class Room:
     """
     Creates a full room environment
@@ -21,7 +22,8 @@ class Room:
             "west": Direction.WEST
         }
         self.direction_dict.update(custom_exits)
-        
+
+
     def north(self):
         """
         Direction to the north, use in search for an entrance/exit
