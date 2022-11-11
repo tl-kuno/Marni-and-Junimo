@@ -25,16 +25,23 @@ def handle_new_game():
     return json_dump
 
 
+@app.route('/quit', methods=["POST"])
+def handle_quit_game():
+    data_set = {'output': 'Game Over'}
+    json_dump = json.dumps(data_set)
+    return json_dump
+
+
 @app.route('/save', methods=["POST"])
 def handle_save():
-    data_set = {'confirmation': 'Game Progress Saved'}
+    data_set = {'output': 'Game Progress Saved'}
     json_dump = json.dumps(data_set)
     return json_dump
 
 
 @app.route('/load', methods=["GET"])
 def handle_load():
-    data_set = {'confirmation': 'Game Loaded from Last Save'}
+    data_set = {'output': 'Game Loaded from Last Save'}
     json_dump = json.dumps(data_set)
     return json_dump
 
