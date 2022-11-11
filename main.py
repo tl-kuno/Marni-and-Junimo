@@ -3,7 +3,7 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
-from nav import *
+from nav import Direction
 from verb import VerbClass, verb_dict
 
 
@@ -14,20 +14,64 @@ def newgame():
     return messages['intro']
 
 
-def handle_user_input(command):
-    command = command.strip()
+def handle_user_input(command):     # noqa: C901
+    command = command.strip().lower()
+    if command == "inv":
+        return player.show_inventory()
     # "grab red scarf" --> ["grab", "red scarf"]
-    input_components = command.lower().split(maxsplit=1)
+    input_components = command.split(maxsplit=1)
     verb = input_components[0]
+    if len(input_components) > 1:
+        noun = input_components[1].strip()
+
+    # determine our verb class
+    verb_class = -1
     if verb not in verb_dict:
-        return "invalid command, try again..."
-    verb_class = verb_dict[verb] # returns verb_class enum
-    if verb_class == VerbClass.move:
-       return clean_and_move(input_components[1], player, room_list)
-    if verb_class == VerbClass.take:
-        # return clean_and_take()
+        # check if this is one of our exits or directions
+        if command not in player.location.direction_dict:
+            return "invalid command, try again..."
+        verb_class = VerbClass.MOVE_PRIME
+    else:
+        verb_class = verb_dict[verb]    # returns verb_class enum
+
+    # handle each verb class
+    if verb_class == VerbClass.MOVE:
+        return player.move(noun, room_list)
+    if verb_class == VerbClass.MOVE_PRIME:
+        return player.move(command, room_list)
+    if verb_class == VerbClass.TAKE:
+        return player.take(noun)
+    if verb_class == VerbClass.DROP:
+        return player.drop(noun)
+    if verb_class == VerbClass.EAT:
+        # return player.eat(noun)
         pass
+    if verb_class == VerbClass.READ:
+        # return player.read(noun)
+        pass
+    if verb_class == VerbClass.NAP:
+        # return player.nap(noun)
+        pass
+    if verb_class == VerbClass.SCRATCH:
+        # return player.scratch(noun)
+        pass
+    if verb_class == VerbClass.USE:
+        return player.use(noun)
+    if verb_class == VerbClass.INVITE:
+        # return player.invite(noun)
+        pass
+    if verb_class == VerbClass.TALK:
+        # return player.talk(noun)
+        pass
+    if verb_class == VerbClass.WEAR:
+        # return player.wear(noun)
+        pass
+    if verb_class == VerbClass.LISTEN:
+        # return player.listen(noun)
+        pass
+
     return "verb [{}] not yet supported...".format(verb)
+
 
 def init_room_list_and_items():
     # list of all the rooms
@@ -193,6 +237,7 @@ def init_room_list_and_items():
     # Object List: Flashlight, Letter
     # Feature List: Sofa, TV
     # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
+    # Custom Exit: smelly staircase
     room_list.append(Room(
         0,
         "Living Room",
@@ -200,7 +245,17 @@ def init_room_list_and_items():
         messages["living room.short"],
         [flashlight, letter],
         [sofa, tv],
-        [1, 4, 6, 2]))
+        [1, 4, 6, 2],
+        {
+            "creaky wooden stairs": Direction.NORTH,
+            "creaky stairs": Direction.NORTH,
+            "wooden stairs": Direction.NORTH,
+            "stairs": Direction.NORTH,
+            "creaky wooden staircase": Direction.NORTH,
+            "creaky staircase": Direction.NORTH,
+            "wooden staircase": Direction.NORTH,
+            "staircase": Direction.NORTH
+        }))
 
     # Room ID: 1
     # Room: Basement
@@ -214,7 +269,17 @@ def init_room_list_and_items():
         messages["basement.short"],
         [mushrooms],
         [mouse, suitcase],
-        [None, None, 0, None]))
+        [None, None, 0, None],
+        {
+            "creaky wooden stairs": Direction.SOUTH,
+            "creaky stairs": Direction.SOUTH,
+            "wooden stairs": Direction.SOUTH,
+            "stairs": Direction.SOUTH,
+            "creaky wooden staircase": Direction.SOUTH,
+            "creaky staircase": Direction.SOUTH,
+            "wooden staircase": Direction.SOUTH,
+            "staircase": Direction.SOUTH
+        }))
 
     # Room ID: 2
     # Room: Kitchen
@@ -349,6 +414,7 @@ def main():
             break
         print()
         print(handle_user_input(response))
+
 
 room_list = init_room_list_and_items()
 player = Character("Player 1", location=room_list[0])

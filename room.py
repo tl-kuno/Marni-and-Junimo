@@ -1,9 +1,12 @@
+from nav import Direction
+
+
 class Room:
     """
     Creates a full room environment
     """
     def __init__(self, room_id, room_name, long_description,
-                 short_description, object_list, feature_list, directions):
+                 short_description, object_list, feature_list, directions, custom_exits={}):
         self.room_id = room_id
         self.room_name = room_name
         self.long_description = long_description
@@ -12,6 +15,13 @@ class Room:
         self.directions = directions  # [North, East, South, West]
         self.feature_list = feature_list
         self.visited = False        # Show full description only on first visit
+        self.direction_dict = {
+            "north": Direction.NORTH,
+            "east": Direction.EAST,
+            "south": Direction.SOUTH,
+            "west": Direction.WEST
+        }
+        self.direction_dict.update(custom_exits)
 
     def north(self):
         """

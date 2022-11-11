@@ -54,3 +54,4 @@ docs/_build/
 
 # Linting
 ./.vscode
+myenv/pyvenv.cfg

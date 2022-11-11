@@ -1,20 +1,22 @@
-# from room import Room
+from room import Room
 from item import Item
+from feature import Feature
 # import json
 from messages import messages
+from nav import Direction
 
 
 class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, name, inventory=None, location=None):
+    def __init__(self, name, inventory=[], location=None):
         self.name = name
-        self.inventory = inventory
-        self.location = location
+        self.inventory = inventory  # Holds objects of items in inventory
+        self.location = location    # Object of current location
         self.helmet = False     # Helmet can push open bedroom door
         self.light = False      # Flashlight can light up basement
-        self.invited = []
+        self.invited = []       # Holds names of invited animals
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
@@ -23,35 +25,124 @@ class Character:
     def set_location(self, location):
         self.location = location
 
+    def show_inventory(self):
+        res = "Inventory: "
+        if len(self.inventory) == 0:
+            res += "None"
+        else:
+            for item in self.inventory:
+                res += item.name + "\n"
+        return res
+
+    def show_guests(self):
+        res = "Guest List: "
+        if len(self.invited) == 0:
+            res += "None"
+        else:
+            for invite in self.invited:
+                res += invite + "\n"
+        return res
+
+    def in_object_list(self, o_list, target_name):
+        o_idx = -1
+        for i in range(len(o_list)):
+            if target_name.lower() == o_list[i].name.lower():
+                o_idx = i
+                break
+        return o_idx
+
+    def retrieve_object_from_game(self, target_name):
+        """
+        Searches and retrieves (but does not remove) an item from player's inventory,
+        the current room's object list, or the current rooms feature list with the
+        name 'target_name' exists
+        """
+        target = None
+        # check if in inventory
+        object_idx = self.in_object_list(self.inventory, target_name)
+        # not in inventory
+        if object_idx == -1:
+            # check if in room
+            object_idx = self.in_object_list(self.location.object_list, target_name)
+            # not in room
+            if object_idx == -1:
+                # check if in feature list
+                object_idx = self.in_object_list(self.location.feature_list, target_name)
+                if object_idx != -1:
+                    # found in feature list
+                    target = self.location.feature_list[object_idx]
+            else:
+                # found in room
+                target = self.location.object_list[object_idx]
+        else:
+            # found in inventory
+            target = self.inventory[object_idx]
+        return target
+
     # #####################################
     #                VERBS                #
     #  To be used for Features and Items  #
     # #####################################
 
+    def move(self, direction, room_list):
+        direction = direction.lower()
+        if direction not in self.location.direction_dict:
+            return "No Exit: {}".format(direction)
+        direction_category = self.location.direction_dict[direction]
+        if direction_category == Direction.NORTH:
+            # move north
+            if self.location.north() is not None:
+                self.location = room_list[self.location.north()]
+                return self.location.short_description
+        elif direction_category == Direction.EAST:
+            # move east
+            if self.location.east() is not None:
+                self.location = room_list[self.location.east()]
+                return self.location.short_description
+        elif direction_category == Direction.SOUTH:
+            # move south
+            if self.location.south() is not None:
+                self.location = room_list[self.location.south()]
+                return self.location.short_description
+        elif direction_category == Direction.WEST:
+            # move west
+            if self.location.west() is not None:
+                self.location = room_list[self.location.west()]
+                return self.location.short_description
+        else:
+            return "invalid direction enum, bad config"
+        return "Cannot go to the {}!".format(direction)
+
     def take(self, target):
-        # Adds item to inventory and sends confirmation
-        if target not in self.location.object_list:
-            return f"There is no {target.name} to pick up.\n"
-        self.inventory.append(target)
-        return f"You picked up the {target.name}.\n"
+        # Retrieves object if item in room exists with the name 'target'
+        object_idx = self.in_object_list(self.location.object_list, target)
+        # check if we found a valid item
+        if object_idx == -1:
+            return f"There is no {target} to pick up.\n"
+        # remove object from room
+        target_object = self.location.object_list.pop(object_idx)
+        # add item to inventory
+        self.inventory.append(target_object)
+        return f"You picked up the {target_object.name}.\n"
 
     def drop(self, item):
-        # Drops item in current room, and returns success message
-        # If item is not in inventory returns error message
-        if item in self.inventory:
-            self.inventory.remove(item)
-            self.location.object_list.append(item)
-            return (f"You dropped the {item.name} in "
-                    f"the {self.location.room_name}")
-        else:
-            return f"You don't have {item.name} in your inventory"
+        # check if item in inventory with requested name
+        object_idx = self.in_object_list(self.inventory, item)
+        # check if we found the valid item
+        if object_idx == -1:
+            return f"You don't have {item} in your inventory"
+        # remove item from inventory
+        item_object = self.inventory.pop(object_idx)
+        # put item in current room
+        self.location.object_list.append(item_object)
+        return (f"You dropped the {item_object.name} in "
+                f"the {self.location.room_name}")
 
-    def eat(self, target):
+    def eat(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to eat."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name.name} here to eat."
         return messages.get(f"{target.name}.eat", "You can't eat that, sorry.")
 
     def read(self, target):
@@ -77,13 +168,12 @@ class Character:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to scratch."
         return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
-    
-    def use(self, target):
+
+    def use(self, target_name):  # noqa: C901
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to use."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to use."
         # Using flashlight
         if target.name == "flashlight":
             self.light = True
@@ -166,6 +256,16 @@ class Character:
                     return f"There is no {target.name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
+    # Handle endgame
+    def endgame(self):
+        num_items = len(self.inventory)
+        num_guests = len(self.invited)
+        msg = f"You make your way to the park, where all of your friends are there waiting for you.\n\
+                Congratulations! You've completed Picnic Quest!\nYou have brought {num_items} out of 5 \
+                picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
+                Type in newgame to start again",
+        return msg
+
     # def give(self, target):
     #     # TODO - do we wanna do a receiver for this? Review this with team...
     #     # Error handling
@@ -208,11 +308,35 @@ class Character:
 
 
 if __name__ == "__main__":
-    hank = Character("Hank", ["Keys"], "The Zoo")
+    jacket = Item('Jacket', "A Jacket", True, True)
+    backpack = Item("Backpack", "a backpack", True, True)
+    mouse = Feature('mouse', 'hes a mouse')
+    zoo = Room(
+        9,
+        "Basement",
+        messages["park.long"],
+        messages["park.short"],
+        object_list=[jacket, backpack],
+        feature_list=[mouse],
+        directions=[None, None, None, 6])
+    home = Room(
+        1,
+        "home",
+        messages["park.long"],
+        messages["park.short"],
+        [],
+        [],
+        [None, None, None, 6])
+    hank = Character("Hank", [], zoo)
     print(hank)
-    hank.set_location("Home")
-    hank.add_item("Jacket")
-    hank.add_item("backpack")
+    hank.show_inventory()
+    # hank.set_location(home)
+    hank.take(jacket)
+    hank.take(backpack)
+    hank.show_inventory()
+    hank.show_guests()
+    hank.invite(mouse)
+    hank.show_guests()
     print(hank)
-    hank.load()
-    print(hank)
+    # hank.load()
+    # hank.endgame()
