@@ -22,8 +22,32 @@ verb_dict = {
   'run': VerbClass.MOVE,
   'go': VerbClass.MOVE,
   'navigate': VerbClass.MOVE,
+
   'take': VerbClass.TAKE,
   'pick': VerbClass.TAKE,
   'grab': VerbClass.TAKE,
-  'select': VerbClass.TAKE
+  'select': VerbClass.TAKE,
+
+  'drop': VerbClass.DROP,
+  'delete': VerbClass.DROP,
+  'discard': VerbClass.DROP,
+
+  'eat': VerbClass.EAT,
+
+  'read': VerbClass.READ,
+
+  'nap': VerbClass.NAP,
+
+  'scratch': VerbClass.SCRATCH,
+
+  'use': VerbClass.USE,
+
+  'invite': VerbClass.INVITE,
+
+  'talk': VerbClass.TALK,
+
+  'wear': VerbClass.WEAR,
+
+  'listen': VerbClass.LISTEN
+
 }

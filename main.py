@@ -3,7 +3,7 @@ from item import Item
 from character import Character
 from messages import messages
 from feature import Feature
-from nav import clean_and_move, Direction
+from nav import Direction
 from verb import VerbClass, verb_dict
 
 
@@ -16,9 +16,13 @@ def newgame():
 
 def handle_user_input(command):
     command = command.strip().lower()
+    if command == "inv":
+        return player.show_inventory()
     # "grab red scarf" --> ["grab", "red scarf"]
     input_components = command.split(maxsplit=1)
     verb = input_components[0]
+    if len(input_components) > 1:
+        noun = input_components[1].strip()
 
     # determine our verb class
     verb_class = -1
@@ -32,12 +36,40 @@ def handle_user_input(command):
     
     # handle each verb class
     if verb_class == VerbClass.MOVE:
-       return clean_and_move(input_components[1], player, room_list)
+       return player.move(noun, room_list)
     if verb_class == VerbClass.MOVE_PRIME:
-        return clean_and_move(command, player, room_list)
+        return player.move(command, room_list)
     if verb_class == VerbClass.TAKE:
-        # return clean_and_take()
+        return player.take(noun)
+    if verb_class == VerbClass.DROP:
+        return player.drop(noun)
+    if verb_class == VerbClass.EAT:
+        # return player.eat(noun)
         pass
+    if verb_class == VerbClass.READ:
+        # return player.read(noun)
+        pass
+    if verb_class == VerbClass.NAP:
+        # return player.nap(noun)
+        pass
+    if verb_class == VerbClass.SCRATCH:
+        # return player.scratch(noun)
+        pass
+    if verb_class == VerbClass.USE:
+        return player.use(noun)
+    if verb_class == VerbClass.INVITE:
+        # return player.invite(noun)
+        pass
+    if verb_class == VerbClass.TALK:
+        # return player.talk(noun)
+        pass
+    if verb_class == VerbClass.WEAR:
+        # return player.wear(noun)
+        pass
+    if verb_class == VerbClass.LISTEN:
+        # return player.listen(noun)
+        pass
+
     return "verb [{}] not yet supported...".format(verb)
 
 
