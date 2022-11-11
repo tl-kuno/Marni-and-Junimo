@@ -14,7 +14,7 @@ def newgame():
     return messages['intro']
 
 
-def handle_user_input(command): # noqa: C901
+def handle_user_input(command):     # noqa: C901
     command = command.strip().lower()
     if command == "inv":
         return player.show_inventory()

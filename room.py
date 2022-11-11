@@ -23,7 +23,6 @@ class Room:
         }
         self.direction_dict.update(custom_exits)
 
-
     def north(self):
         """
         Direction to the north, use in search for an entrance/exit

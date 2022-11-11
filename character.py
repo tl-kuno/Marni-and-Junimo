@@ -53,8 +53,8 @@ class Character:
 
     def retrieve_object_from_game(self, target_name):
         """
-        Searches and retrieves (but does not remove) an item from player's inventory, 
-        the current room's object list, or the current rooms feature list with the 
+        Searches and retrieves (but does not remove) an item from player's inventory,
+        the current room's object list, or the current rooms feature list with the
         name 'target_name' exists
         """
         target = None
