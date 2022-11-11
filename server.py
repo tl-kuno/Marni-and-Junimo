@@ -20,7 +20,7 @@ def handle_interaction():
 @app.route('/new', methods=["POST"])
 def handle_new_game():
     intro = newgame()
-    data_set = {'intro': intro}
+    data_set = {'output': intro}
     json_dump = json.dumps(data_set)
     return json_dump
 
