@@ -1,8 +1,8 @@
 messages = {
     # Intro paragraph
     'intro':
-        "Welcome to Picnic Quest!"
-        "You are now Marnie, the adorable german shepard. Marnie is all bark, "
+        "Welcome to Picnic Quest!\n"
+        "You are now Marni, the adorable german shepard. You are all bark, "
         "and no bite. Easily scared, but fierce when it comes to defending your "
         "crew! You live in a well-loved, "
         "one-story house in the suburbs with two humans who are off at their "
@@ -14,16 +14,16 @@ messages = {
         "stretch your paws and arch your back, slowly waking up from a relaxing "
         "nap. You suddenly realize that a letter has been placed on the pillow "
         "in front of you. In the corner of the room, you can hear the TV quietly "
-        "buzzing as a show plays on the screen. To the North of you, you can "
-        "see the door to the basement. To the East, you can see the closed "
-        "door to the bedroom. To the South, you can see the front door that "
-        "leads to the porch outside. To the West, you see the doorway to the "
+        "buzzing as a show plays on the screen.\n\nTo the North you can "
+        "see the door to the basement. To the East you can see the closed "
+        "door to the bedroom. To the South you can see the front door that "
+        "leads to the porch outside. To the West you see the doorway to the "
         "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
-        "\nTo look around the living room, try entering \"Look\".\nTo examine the "
-        "sofa, enter \"look sofa\".\nTo read the letter, type \"read letter\"\n"
-        "To move to a different room, type \"Move East\".\nTo look at your "
-        "inventory, type “Inventory”.\nTo see a list of helpful commands, "
-        "type \"help\".\n",
+        "\nTo look around the living room, try typing Look.\nTo examine the "
+        "sofa, enter Look sofa.\nTo read the letter, type Read letter\n"
+        "To move to a different room, type Move East.\nTo look at your "
+        "inventory, type Inventory.\nTo see a list of helpful commands, "
+        "type help.\n",
     'help':
         "Try these commands:\nLook: Repeat the description of the current room\n"
         "Look at: Learn more about a nearby item or feature.\n"
@@ -43,25 +43,27 @@ messages = {
     # Room Descriptions
     'living room.long':
         "You are in a warm, cozy living room. Sunlight pours through the "
-        "windows, lighting up familiar sofa in the center of the room. "
+        "curtains, lighting up familiar sofa in the center of the room. "
         "There are no signs of humans around here, just the soft sound "
         "of the trees rustling in the breeze outside. You stretch your "
         "paws and arch your back, slowly waking up from a relaxing nap. "
         "You suddenly realize that a letter has been placed on "
         "the pillow in front of you. In the corner of the room, you can "
-        "hear the TV quietly buzzing as a show plays on the screen.\n"
-        "To the North of you, you can see the creaky wooden stairs to the basement.\nTo "
-        "the East, you can see the closed door to the bedroom.\nTo the "
-        "South, you can see the front door that leads to the porch outside"
-        ".\nTo the West, you see the doorway to the kitchen.\n",
+        "hear the TV quietly buzzing as a show plays on the screen. "
+        "There is a flashlight sticking out from the corner of the sofa.\n\n"
+        "To the North you can see the creaky wooden stairs to the basement.\nTo "
+        "the East you can see the door to the bedroom.\nTo the "
+        "South you can see the front door that leads to the porch outside"
+        ".\nTo the West you see the doorway to the kitchen.\n",
     'living room.short':
-        "You are in the comfortable living room in the center of the house. "
-        "A large comfortable sofa sits in the center of the room. "
-        "A quietly buzzing TV sits on a stand at the far corner of the room.\n"
-        "To the North of you, you can see the creaky wooden stairs to the basement."
-        "\nTo the East, you can see the closed door to the bedroom."
-        "\nTo the South, you can see the front door that leads to "
-        "the porch outside.\nTo the West, you see the doorway to "
+        "You are in the comfy living room in the center of the house. "
+        "A large comfy sofa sits in the center of the room. "
+        "There is a flashlight sticking out from the corner of the sofa. "
+        "A quietly buzzing TV sits on a stand at the far corner of the room.\n\n"
+        "To the North you can see the creaky wooden stairs to the basement."
+        "\nTo the East you can see the closed door to the bedroom."
+        "\nTo the South you can see the front door that leads to "
+        "the porch outside.\nTo the West you see the doorway to "
         "the kitchen.\n",
     'basement.long':
         "You make your way down the creaky wooden stairs into the "
@@ -72,92 +74,92 @@ messages = {
         "and an old familiar suitcase lying in a corner against the wall."
         "Beneath the stairs you can smell the distinct scent of ripe, "
         "delicious violet mushrooms. These would be an excellent snack "
-        "for your friends at the picnic!\nThe only way out of the basement"
-        " is South, which takes you back to the Living Room.\n",
+        "for your friends at the picnic!\n\nThe only way out of the basement"
+        " is South which takes you back to the Living Room.\n",
     'basement.short':
         "The cold, dark basement is eerily quiet. Only a small amount of light"
         " peeks in from the doorway upstairs. You can see a friendly mouse "
         "peering out from under the stairs, and an old familiar suitcase "
         "lying in a corner against the wall. Beneath the stairway a patch "
-        "of ripe, tasty mushrooms are growing. \nThe only way out of the "
-        "basement is South, back to the living room.\n",
+        "of ripe, tasty mushrooms are growing.\n\nThe only way out of the "
+        "basement is South back to the living room.\n",
     'kitchen.long':
         "You stand in the brightly lit kitchen. The white tile floor glistens "
         "brightly, and rumbling sound of the humming refrigerator fills the "
         "room. The humans must have been clumsy earlier, because a thick "
         "wooden ladle has rolled under the table in the center of the room. "
         "Nearby you can see a few ants gathered suspiciously together. "
-        " On the sleek marble countertops, you can see the corner of a "
+        "On the sleek marble countertops, you can see the corner of a "
         "plastic container of scrumptious, freshly picked blueberries! "
-        "These would be perfect for a picnic!\nThe door to the pantry is"
-        " ajar to the North of you.\nThe open doorway to the living room "
-        "is to the East.\n",
+        "These would be perfect for a picnic!\n\nTo the North you can see the pantry."
+        "\nTo the East you can see the living room.\n",
     'kitchen.short':
         "You find yourself in the brightly lit kitchen. The shiny "
         "refrigerator is on one end of the room, and a line of ants "
         "is crawling along the tiled floor. You can see a wooden spoon that "
         "has rolled under the table, and a carton of blueberries at the edge "
-        "of the counter.\nTo the North, you can see the pantry door.\nTo the "
-        "East, you can see the doorway to the living room.\n",
+        "of the counter.\n\nTo the North you can see the pantry.\nTo the "
+        "East you can see the doorway to the living room.\n",
     'pantry.long':
         "You stand in the well-stocked pantry, looking at shelves packed "
         "floor to ceiling with human food. Luckily, there is a "
-        "bin full of yummy kibble situated on the bottom shelf in front "
+        "bin full of yummy dog treats situated on the bottom shelf in front "
         "of you. The handle is really heavy, and won't open easily. You "
         "will need something strong to pop it open in order to stock up on"
         " the tasty snacks. There are some strong smelling cleaning supplies "
-        "to the back of the pantry.\nTo the South, you can see the kitchen.\n",
+        "to the back of the pantry.\n\nTo the South you can see the kitchen.\n",
     'pantry.short':
         "You stand in the well-stocked pantry, looking at shelves packed floor"
-        " to ceiling with human food. There is a sturdy bin full of kibble on the "
+        " to ceiling with human food. There is a sturdy bin full of dog treats on the "
         "bottom shelf in front of you. There are some strong smelling "
-        "cleaning supplies to the back of the pantry.\nTo the South, you "
+        "cleaning supplies to the back of the pantry.\n\nTo the South you "
         "can see the kitchen.\n",
     'bedroom.long':
         "You stand in the human's bedroom, at the foot of their mattress. "
         "A sunbeam cuts through the window, highlighting a tempting "
         "napping spot in the balled up, fuzzy green blanket on the "
-        "human's bed. You can hear the sound of birds chirping from "
-        "right outside the window. \nTo the North, you can see the open "
-        "doorway to the bathroom.\nTo the West, you can see the living "
+        "human's bed. You can hear the sound of wind blowing from "
+        "just outside.\n\nTo the North you can see the open "
+        "doorway to the bathroom.\nTo the West you can see the living "
         "room.\n",
     'bedroom.short':
         "You are in the bedroom. The fuzzy green blanket on the bed looks "
         "like the perfect location to take a nice long mid-day nap. "
-        "The window is cracked slightly, and you can see outside. To the "
-        "North, you can see the open doorway to the bathroom.\n",
+        "The window is cracked slightly, and you can see outside.\n\nTo the "
+        "North you can see the open doorway to the bathroom.\n"
+        "To the West you can see the living room.\n",
     'bathroom.long':
         "You stand in the well-maintained bathroom. Blue and green tiles line"
         " the floor, and you can smell citrus-scented cleaners that the "
         "humans used this morning. The drip-drip-drip sound of the sink "
-        "echos in the small room. On the side of the bathtub you can see "
+        "echoes in the small room. On the side of the bathtub you can see "
         "a bar of fresh, unscented soap. Hanging on a nearby rack is a "
-        "red-and-white checkered towel, which would look amazing as a "
-        "picnic blanket!\nTo the South, you can see the bedroom.\n",
+        "red-and-white checkered towel, which would look amazing for the "
+        "picnic!\n\nTo the South you can see the bedroom.\n",
     'bathroom.short':
         "You stand in the clean bathroom. The crowded sink is visible, and "
         "you can see a bar of soap on the side of the bathtub. There is a "
-        "checkered towel hanging on a rack, which would look amazing as a "
-        "picnic blanket!\nTo the South, you can see the bedroom.\n",
+        "checkered towel hanging on a rack, which would be perfect for the "
+        "picnic!\n\nTo the South you can see the bedroom.\n",
     'porch.long':
         "You are standing on the front porch, looking out to the "
-        "neighborhood in front of you. The fresh air feels good"
+        "area in front of you. The fresh air feels good"
         " on your furry face as you take in the sights around "
         "you. Your favorite rocking chair is next to you on the"
         " porch, with a light grey blanket draped over the back. "
         "You can see a big dirt pile at the bottom of the porch. "
-        "\nTo the West, you can see the alley.\n"
-        "To the East, you can see the park where your friends are "
-        "waiting for you.\nTo the North, you can use the Front Door"
+        "\n\nTo the West you can see the alley.\n"
+        "To the East you can see the park where your friends are "
+        "waiting for you.\nTo the North you can use the front door"
         " to go to the living room.\nOn the South side of the porch "
         "is a gutter that you can climb to the roof.\n",
     'porch.short':
         "You are standing on the front porch, looking out to the "
-        "neighborhood in front of you. Your favorite rocking chair "
-        "is next to you, and a large pile of dirt is down at the end"
-        " of the steps.\nTo the West, you can see the alley.\n"
-        "To the East, you can see the park where your friends are "
-        "waiting for you.\nTo the North, you can use the Front Door"
+        "lawn in front of you. Your favorite rocking chair "
+        "is next to you, and a large dirt pile is down at the end"
+        " of the steps.\n\nTo the West you can see the alley.\n"
+        "To the East you can see the park where your friends are "
+        "waiting for you.\nTo the North you can use the Front Door"
         " to go to the living room.\nOn the South side of the porch "
         "is a gutter that you can climb to the roof.\n",
     'alley.long':
@@ -166,41 +168,39 @@ messages = {
         "cold pavement. You find yourself next to the trashcan, and find"
         " a football helmet lying on its side. There's a guitar sitting"
         " on the ground, with most of the strings still intact. Behind the "
-        "recycling bin, you can see a small raccoon, covered in dirt. He "
-        "seems to be hiding something behind his back.\nTo the East, you "
-        "can see the porch\n",
+        "recycling bin, you can see a small raccoon, covered in dirt."
+        "\n\nTo the East you can see the porch\n",
     'alley.short':
         "You are standing in the dimly lit alley behind the house. You find "
         "yourself next to the trashcan, and find a football helmet lying "
         "on its side. Behind the recycling bin, you can see a small "
         "raccoon, covered in dirt. There's an old guitar sitting"
-        " on the ground. "
-        "\nTo the East, you can see the porch\n",
+        " on the ground."
+        "\n\nTo the East you can see the porch\n",
     'roof.long':
         "You find yourself standing on the roof of your one-story "
         "house. You can see a pair of squirrels chasing each other"
         " in the nearby branches. A small flock of hungry looking "
-        "birds circles overhead. Their simple nest is perched right"
-        " at the edge of the roof, looking comfortable enough for a "
-        "napping spot. \nTo the North, you can climb the gutter back "
+        "birds circles overhead. You can see out to view the whole"
+        " neighborhood from here."
+        "\n\nTo the North you can climb the gutter back "
         "to the porch.\n",
     'roof.short':
         "You find yourself standing on the roof of your one-story "
-        "house. A simple nest is perched right"
-        " at the edge of the roof, looking comfortable enough for a "
-        "napping spot. \nTo the North, you can climb the gutter back "
-        "to the porch.\n",
+        "house. A family of birds circles overhead. "
+        "You can see out to view the whole neighborhood from here."
+        "\n\nTo the North you can climb the gutter back to the porch.\n",
     'park.long':
         "You finally made it to Henderson Park, and you can see that everyone "
-        "is already here waiting for you. There is a table where you can place"
-        " your picnic supplies. Once you have everything prepared, you can "
-        "join all of the invited animals that gathered together under a huge "
+        "is already here waiting for you. There is a table where all of the party"
+        " supplies are set up. Once you're ready you can "
+        "join all of the invited animal friends that gathered together under a huge "
         "tree.\n",
     'park.short':
         "You finally made it to Henderson Park, and you can see that everyone "
-        "is already here waiting for you. There is a table where you can place"
-        " your picnic supplies. Once you have everything prepared, you can "
-        "join all of the invited animals that gathered together under a huge "
+        "is already here waiting for you. There is a table where all of the "
+        "party supplies are set up. Once you're ready, you can "
+        "join all of the invited animal friends that gathered together under a huge "
         "tree.\n",
 
     # Item Descriptions
@@ -230,7 +230,7 @@ messages = {
     'letter':
         "This letter is written in the familiar handwriting "
         "of your best friend, Junimo. It reads \n\"Good morning"
-        " Marnie! I hope you had a great nap! The day is beautiful "
+        " Marni! I hope you had a great nap! The day is beautiful "
         "outside, and I've decided to throw a picnic! You are "
         "cordially invited to join us at Henderson Park this "
         "afternoon. Everybody is asked to bring three different"
@@ -319,7 +319,7 @@ messages = {
     'rocking chair':
         "This is the human's favorite rocking chair. It "
         "has a strong wooden frame and a well worn but "
-        "comfortable blue cushion. There's a warm wool"
+        "comfy blue cushion. There's a warm wool"
         " blanket draped over the back for any chilly "
         "evenings.\n",
     'dirt pile':
@@ -349,7 +349,7 @@ messages = {
         "on the roof!\n",
     'neighborhood':
         "From this high up, you can see all over the "
-        "neighborhood. The park is to the East, and you "
+        "neighborhood. The park is to the East and you "
         "can see your friends getting everything set up "
         "for your picnic. Better hurry!\n",
     'table':
@@ -395,7 +395,7 @@ messages = {
         "pronounce.",
     'letter.read':
         "The letter reads \n\"Good morning"
-        " Marnie! I hope you had a great nap! The day is beautiful "
+        " Marni! I hope you had a great nap! The day is beautiful "
         "outside, and I've decided to throw a picnic! You are "
         "cordially invited to join us at Henderson Park this "
         "afternoon. Everybody is asked to bring three different"
