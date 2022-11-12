@@ -128,7 +128,7 @@ class Character:
     def look_at(self, target):
         print(f"Target: {target}")
         # Retrieves object if item in room exists with the name 'target'
-        
+
         # Checks room's object list
         object_idx = self.in_object_list(self.location.object_list, target)
 
@@ -144,7 +144,6 @@ class Character:
         if object_idx != -1:
             return messages.get(target)
         return "Invalid selection"
-        
 
     def drop(self, item):
         # check if item in inventory with requested name
