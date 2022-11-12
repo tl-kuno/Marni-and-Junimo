@@ -16,12 +16,20 @@ def newgame():
 
 def handle_user_input(command):     # noqa: C901
     command = command.strip().lower()
-    if command == "inv":
+    if command == "inventory":
         return player.show_inventory()
-    # "grab red scarf" --> ["grab", "red scarf"]
-    input_components = command.split(maxsplit=1)
+
+    # Changed maxsplit to 2 to handle 'look at'
+    input_components = command.split(maxsplit=2)
     verb = input_components[0]
-    if len(input_components) > 1:
+
+    # Allow 'look at' to identify correct verb
+    if verb == 'look' and len(input_components) > 1:
+        if input_components[1] == 'at':
+            noun = input_components[2].strip()
+            verb = 'look at'
+    # For one word verb commands
+    elif len(input_components) > 1:
         noun = input_components[1].strip()
 
     # determine our verb class
@@ -71,6 +79,8 @@ def handle_user_input(command):     # noqa: C901
         pass
     if verb_class == VerbClass.LOOK:
         return player.location.long_description
+    if verb_class == VerbClass.LOOK_AT:
+        return player.look_at(noun)
 
     return "verb [{}] not yet supported...".format(verb)
 

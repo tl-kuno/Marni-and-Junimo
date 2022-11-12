@@ -125,6 +125,27 @@ class Character:
         self.inventory.append(target_object)
         return f"You picked up the {target_object.name}.\n"
 
+    def look_at(self, target):
+        print(f"Target: {target}")
+        # Retrieves object if item in room exists with the name 'target'
+        
+        # Checks room's object list
+        object_idx = self.in_object_list(self.location.object_list, target)
+
+        # check if we found a valid item
+        if object_idx == -1:    # check inventory
+            object_idx = self.in_object_list(self.inventory, target)
+
+        if object_idx == -1:        # Check room's features
+            print(self.location.feature_list)
+            object_idx = self.in_object_list(self.location.feature_list, target)
+
+        # If found, return message
+        if object_idx != -1:
+            return messages.get(target)
+        return "Invalid selection"
+        
+
     def drop(self, item):
         # check if item in inventory with requested name
         object_idx = self.in_object_list(self.inventory, item)

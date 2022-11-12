@@ -16,6 +16,7 @@ class VerbClass(Enum):
     LISTEN = 11
     MOVE_PRIME = 12
     LOOK = 13
+    LOOK_AT = 14
 
 
 verb_dict = {
@@ -51,6 +52,8 @@ verb_dict = {
 
     'listen': VerbClass.LISTEN,
 
-    'look': VerbClass.LOOK
+    'look': VerbClass.LOOK,
+
+    'look at': VerbClass.LOOK_AT
 
 }
