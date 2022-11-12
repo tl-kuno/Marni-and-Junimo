@@ -69,6 +69,8 @@ def handle_user_input(command):     # noqa: C901
     if verb_class == VerbClass.LISTEN:
         # return player.listen(noun)
         pass
+    if verb_class == VerbClass.LOOK:
+        return player.location.long_description
 
     return "verb [{}] not yet supported...".format(verb)
 

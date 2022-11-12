@@ -15,6 +15,7 @@ class VerbClass(Enum):
     WEAR = 10
     LISTEN = 11
     MOVE_PRIME = 12
+    LOOK = 13
 
 
 verb_dict = {
@@ -48,6 +49,8 @@ verb_dict = {
 
     'wear': VerbClass.WEAR,
 
-    'listen': VerbClass.LISTEN
+    'listen': VerbClass.LISTEN,
+
+    'look': VerbClass.LOOK
 
 }
