@@ -8,7 +8,7 @@ messages = {
         "one-story house in the suburbs with two humans who are off at their "
         "day jobs. As usual, you took this opportunity to take a nice long "
         "mid-day nap.\n\nYou slowly awaken in a warm, cozy living room. "
-        "Sunlight pours through the windows, lighting up the familiar sofa "
+        "Sunlight pours through the curtains, lighting up the familiar sofa "
         "in the center of the room. There are no signs of humans around here, "
         "just the soft sound of the trees rustling in the breeze outside. You "
         "stretch your paws and arch your back, slowly waking up from a relaxing "
@@ -87,7 +87,7 @@ messages = {
         "You stand in the brightly lit kitchen. The white tile floor glistens "
         "brightly, and rumbling sound of the humming refrigerator fills the "
         "room. The humans must have been clumsy earlier, because a thick "
-        "wooden ladle has rolled under the table in the center of the room. "
+        "wooden ladle has rolled under a chair in the center of the room. "
         "Nearby you can see a few ants gathered suspiciously together. "
         "On the sleek marble countertops, you can see the corner of a "
         "plastic container of scrumptious, freshly picked blueberries! "
@@ -262,7 +262,7 @@ messages = {
     # Feature Descriptions
     'sofa':
         "This is sofa is well worn, and covered in a nice floral"
-        " pattern. There is a sunbeam from a nearby window that "
+        " pattern. There is a sunbeam cutting through the room that "
         "is keeping the sofa nice and warm. The gap beneath the s"
         "ofa is a great hiding spot, with all sorts of lost tool"
         "s and items that tend to roll underneath.\n",
@@ -288,7 +288,7 @@ messages = {
         " snacks. Maybe the pantry will have something "
         "tastier.\n",
     'ants':
-        "There is a long  line of ants leading from the window to a "
+        "There is a long  line of ants leading from outside to a "
         "little stain of spilled ketchup on the floor. These "
         "humans can be really messy sometimes!\n",
     'shelves':
@@ -385,6 +385,8 @@ messages = {
     'birds.eat':
         "The birds are flying too high up in the air for you to catch them "
         "and eat them. Besides, it's not very nice to eat your neighbors!",
+    'table.eat':
+        "Wait for your friends before you start snacking! I'm sure they're hungry too.",
 
     # Read
     'blueberries.read':
@@ -488,6 +490,8 @@ messages = {
         "all day long, but you really should get back to your quest.",
     'raccoon.scratch':
         "You scratch at the raccoon and it growls back at you. You'd better not...",
+    'table.scratch':
+        "You take a paw and scratch your name into the wood of the table. You're such a renegade!",
 
     # Use
     'flashlight.use':
@@ -503,6 +507,8 @@ messages = {
         "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat "
         "of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the "
         "umbrella!\n",
+    'table.use':
+        "You set up all of your snacks and party supplies on the table. Everyone will be so excited for what you brought!",
 
     # Invite
     'mouse.invite':
