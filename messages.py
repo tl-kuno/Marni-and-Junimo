@@ -385,6 +385,8 @@ messages = {
     'birds.eat':
         "The birds are flying too high up in the air for you to catch them "
         "and eat them. Besides, it's not very nice to eat your neighbors!",
+    'table.eat':
+        "Wait for your friends before you start snacking! I'm sure they're hungry too.",
 
     # Read
     'blueberries.read':
@@ -488,6 +490,8 @@ messages = {
         "all day long, but you really should get back to your quest.",
     'raccoon.scratch':
         "You scratch at the raccoon and it growls back at you. You'd better not...",
+    'table.scratch':
+        "You take a paw and scratch your name into the wood of the table. You're such a renegade!",
 
     # Use
     'flashlight.use':
@@ -503,6 +507,8 @@ messages = {
         "You hand the bar of soap to the raccoon, and he eagerly begins washing himself off. Soon enough, the muddy coat "
         "of fur is shimmering and luxurious. The raccoon coiffes its hair back, gives you a wink, and hands you the "
         "umbrella!\n",
+    'table.use':
+        "You set up all of your snacks and party supplies on the table. Everyone will be so excited for what you brought!",
 
     # Invite
     'mouse.invite':
