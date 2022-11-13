@@ -1,9 +1,11 @@
 from room import Room
 from item import Item
 from feature import Feature
-# import json
 from messages import messages
 from nav import Direction
+from roomlist import init_room_list_and_items
+from verb import VerbClass, verb_dict
+from copy import deepcopy
 
 
 class Character:
@@ -13,14 +15,130 @@ class Character:
     def __init__(self, name, inventory=[], location=None):
         self.name = name
         self.inventory = inventory  # Holds objects of items in inventory
-        self.location = location    # Object of current location
+        self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
+        self._save_helmet = False
         self.light = False      # Flashlight can light up basement
+        self._save_light = False
         self.invited = []       # Holds names of invited animals
+        self._save_invited = []
+
+        self.room_list = init_room_list_and_items()
+        self._save_room_list = init_room_list_and_items()
+
+        self.location = self.room_list[0]    # Object of current location
+        self._save_location_id = 0
+
+        self.savegame()
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
+
+
+    def handle_user_input(self, command):     # noqa: C901
+        command = command.strip().lower()
+        if command == "inventory":
+            return self.show_inventory()
+
+        # Changed maxsplit to 2 to handle 'look at'
+        input_components = command.split(maxsplit=2)
+        verb = input_components[0]
+
+        # Allow 'look at' to identify correct verb
+        if verb == 'look' and len(input_components) > 1:
+            if input_components[1] == 'at':
+                noun = input_components[2].strip()
+                verb = 'look at'
+        # For one word verb commands
+        elif len(input_components) > 1:
+            noun = input_components[1].strip()
+
+        # determine our verb class
+        verb_class = -1
+        if verb not in verb_dict:
+            # check if this is one of our exits or directions
+            if command not in self.location.direction_dict:
+                return "invalid command, try again..."
+            verb_class = VerbClass.MOVE_PRIME
+        else:
+            verb_class = verb_dict[verb]    # returns verb_class enum
+
+        # handle each verb class
+        if verb_class == VerbClass.MOVE:
+            return self.move(noun, self.room_list)
+        if verb_class == VerbClass.MOVE_PRIME:
+            return self.move(command, self.room_list)
+        if verb_class == VerbClass.TAKE:
+            return self.take(noun)
+        if verb_class == VerbClass.DROP:
+            return self.drop(noun)
+        if verb_class == VerbClass.EAT:
+            # return self.eat(noun)
+            pass
+        if verb_class == VerbClass.READ:
+            # return self.read(noun)
+            pass
+        if verb_class == VerbClass.NAP:
+            # return self.nap(noun)
+            pass
+        if verb_class == VerbClass.SCRATCH:
+            # return self.scratch(noun)
+            pass
+        if verb_class == VerbClass.USE:
+            return self.use(noun)
+        if verb_class == VerbClass.INVITE:
+            # return self.invite(noun)
+            pass
+        if verb_class == VerbClass.TALK:
+            # return self.talk(noun)
+            pass
+        if verb_class == VerbClass.WEAR:
+            # return self.wear(noun)
+            pass
+        if verb_class == VerbClass.LISTEN:
+            # return self.listen(noun)
+            pass
+        if verb_class == VerbClass.LOOK:
+            return self.location.long_description
+        if verb_class == VerbClass.LOOK_AT:
+            return self.look_at(noun)
+        if verb_class == VerbClass.SAVE:
+            return self.savegame()
+        if verb_class == VerbClass.LOAD:
+            # Need to send a confirmation prompt?
+            return self.loadgame()
+
+        return "verb [{}] not yet supported...".format(verb)
+
+
+
+
+    def savegame(self):
+        # Saves current character stats to private values
+        self._save_inventory = self.inventory[:]
+        self._save_invited = self.invited[:]
+        self._save_helmet = self.helmet
+        self._save_light = self.light
+
+        self._save_room_list = deepcopy(self.room_list)
+        self._save_location_id = self.room_list.index(self.location)
+        print(self._save_location_id)
+        print(self.room_list[self._save_location_id])
+        
+        return "Saved your game!"
+
+    def loadgame(self):
+        # swaps current stats with saved stats
+        self.inventory = self._save_inventory[:]
+        self.helmet = self._save_helmet
+        self.light = self._save_light
+        self.invited = self._save_invited[:]
+        # Flip this?
+        self.room_list = deepcopy(self._save_room_list)
+        self.location = self.room_list[self._save_location_id]
+        
+        return "Loaded your game!"
 
     def set_location(self, location):
         self.location = location
@@ -285,46 +403,6 @@ class Character:
                 picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
                 Type in newgame to start again",
         return msg
-
-    # def give(self, target):
-    #     # TODO - do we wanna do a receiver for this? Review this with team...
-    #     # Error handling
-    #     if target not in self.inventory:
-    #         if target not in self.location.object_list:
-    #             if target not in self.location.feature_list:
-    #                 return f"There is no {target.name} here to give."
-    #     pass
-
-    # def save(self):
-    #     """
-    #     Creates JSON file of current character.
-    #     Saves into Character Saves folder
-    #     Returns True if save was successful, False otherwise
-    #     TODO - Is there a better way to store a saved character?
-    #     """
-    #     # Creats json file of all class features
-    #     char_save = json.dumps(self.__dict__)
-
-    #     with open("./backend/SaveFiles/temp.json", 'w') as f:
-    #         f.write(char_save)
-    #         return True
-
-    # def load(self):
-    #     """
-    #     Loads the save file and deletes current state
-    #     TODO - Implement a confirmation with user before completing the load
-    #     TODO - Update the copying feature here if we add Character attributes
-    #     """
-    #     # First confirm with user. Send a y/n question, maybe?
-
-    #     # read temp.json and update class
-    #     with open("./backend/SaveFiles/temp.json", 'r') as f:
-    #         new_char = json.load(f)
-
-    #         # Replace attributes with saved attributes
-    #         self.name = new_char["name"]
-    #         self.inventory = new_char["inventory"]
-    #         self.location = new_char["location"]
 
 
 if __name__ == "__main__":

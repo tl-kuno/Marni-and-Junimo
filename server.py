@@ -2,7 +2,8 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 import json
-from main import handle_user_input, newgame
+from main import newgame
+from character import handle_user_input
 
 app = Flask(__name__)
 CORS(app)
