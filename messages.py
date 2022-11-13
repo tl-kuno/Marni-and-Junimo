@@ -65,6 +65,10 @@ messages = {
         "\nTo the South you can see the front door that leads to "
         "the porch outside.\nTo the West you see the doorway to "
         "the kitchen.\n",
+    'basement.block':
+        "It's much too dark to see down there. It wouldn't be safe for you to go"
+        " down to the basement without a light of some kind. Maybe there's "
+        "something nearby that you can use to light up the stairs.\n",
     'basement.long':
         "You make your way down the creaky wooden stairs into the "
         "cold basement. Cobwebs line the handrail as you decend "
@@ -114,6 +118,10 @@ messages = {
         "bottom shelf in front of you. There are some strong smelling "
         "cleaning supplies to the back of the pantry.\n\nTo the South you "
         "can see the kitchen.\n",
+    'bedroom.block':
+        "The door is jammed tight. Maybe there's something pushing it closed from the "
+        "other side? You could probably force your way through, but you'll need something "
+        "to protect your head first. Maybe there's something lying around that can help.\n",
     'bedroom.long':
         "You stand in the human's bedroom, at the foot of their mattress. "
         "A sunbeam cuts through the window, highlighting a tempting "

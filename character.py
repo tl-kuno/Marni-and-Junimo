@@ -90,11 +90,19 @@ class Character:
             return "No Exit: {}".format(direction)
         direction_category = self.location.direction_dict[direction]
         if direction_category == Direction.NORTH:
+            # Check for basement block
+            if self.location.room_name == 'Living Room':
+                if not self.light:
+                    return messages['basement.block']
             # move north
             if self.location.north() is not None:
                 self.location = room_list[self.location.north()]
                 return self.location.short_description
         elif direction_category == Direction.EAST:
+            # Check for bedroom block
+            if self.location.room_name == 'Living Room':
+                if not self.helmet:
+                    return messages['bedroom.block']
             # move east
             if self.location.east() is not None:
                 self.location = room_list[self.location.east()]
@@ -126,7 +134,6 @@ class Character:
         return f"You picked up the {target_object.name}.\n"
 
     def look_at(self, target):
-        print(f"Target: {target}")
         # Retrieves object if item in room exists with the name 'target'
 
         # Checks room's object list
@@ -137,7 +144,6 @@ class Character:
             object_idx = self.in_object_list(self.inventory, target)
 
         if object_idx == -1:        # Check room's features
-            print(self.location.feature_list)
             object_idx = self.in_object_list(self.location.feature_list, target)
 
         # If found, return message
@@ -214,6 +220,7 @@ class Character:
         if target.name == "soap":
             if self.location.room_name == "Alley":
                 self.inventory.append(Item("umbrella", messages['umbrella'], True, True))
+                return messages.get('soap.use')
         # Using letter
         if target.name == 'letter':
             return messages.get('letter')
