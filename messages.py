@@ -22,12 +22,7 @@ messages = {
         "see the door to the basement. To the East you can see the closed "
         "door to the bedroom. To the South you can see the front door that "
         "leads to the porch outside. To the West you see the doorway to the "
-        "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
-        "\nTo look around the living room, try typing Look.\nTo examine the "
-        "sofa, enter Look sofa.\nTo read the letter, type Read letter\n"
-        "To move to a different room, type Move East.\nTo look at your "
-        "inventory, type Inventory.\nTo see a list of helpful commands, "
-        "type help.\n",
+        "kitchen.\n",
     'help':
         "Try these commands:\nLook: Repeat the description of the current room\n"
         "Look at: Learn more about a nearby item or feature.\n"
