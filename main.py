@@ -7,7 +7,7 @@ from nav import *
 from verb import VerbClass, verb_dict
 
 
-def newgame():
+def newgame(ip_address):
     # this is where we do all of the things!!!
     # placeholder return statement, but the server
     # is expecting a returned string
@@ -28,6 +28,7 @@ def handle_user_input(command):
         # return clean_and_take()
         pass
     return "verb [{}] not yet supported...".format(verb)
+
 
 def init_room_list_and_items():
     # list of all the rooms
