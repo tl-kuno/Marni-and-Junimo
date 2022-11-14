@@ -2,7 +2,8 @@ from room import Room
 from item import Item
 from feature import Feature
 from nav import Direction
-from messages import *
+from messages import messages
+
 
 def init_room_list_and_items():
     # list of all the rooms

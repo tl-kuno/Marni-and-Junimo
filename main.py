@@ -1,10 +1,10 @@
-from room import Room
-from item import Item
+# from room import Room
+# from item import Item
 from character import Character
 from messages import messages
-from feature import Feature
-from nav import Direction
-from verb import VerbClass, verb_dict
+# from feature import Feature
+# from nav import Direction
+# from verb import VerbClass, verb_dict
 
 
 def newgame(ip_address):
@@ -12,13 +12,6 @@ def newgame(ip_address):
     # placeholder return statement, but the server
     # is expecting a returned string
     return messages['intro']
-
-
-
-
-
-
-
 
 def main():
     """
@@ -37,7 +30,7 @@ def main():
             print("\nThanks for playing. Quitting...\n")
             break
         print()
-        print(player.handle_user_input( response))
+        print(player.handle_user_input(response))
 
 
 # room_list = init_room_list_and_items()

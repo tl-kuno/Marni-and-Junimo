@@ -58,8 +58,8 @@ verb_dict = {
 
     'look at': VerbClass.LOOK_AT,
 
-    'savegame':VerbClass.SAVE,
+    'savegame': VerbClass.SAVE,
 
-    'loadgame':VerbClass.LOAD
+    'loadgame': VerbClass.LOAD
 
 }
