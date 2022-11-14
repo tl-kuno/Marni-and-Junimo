@@ -9,6 +9,7 @@ app = Flask(__name__)
 CORS(app)
 player = Character('Marni')
 
+
 @app.route('/', methods=["GET", "POST"])
 def handle_interaction():
     command = str(request.args.get('command'))
@@ -35,7 +36,7 @@ def handle_quit_game():
 
 @app.route('/save', methods=["POST"])
 def handle_save():
-    output = player.savegame()
+    # output = player.savegame()
     data_set = {'output': 'Game Progress Saved'}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -43,7 +44,7 @@ def handle_save():
 
 @app.route('/load', methods=["GET"])
 def handle_load():
-    output = player.loadgame()
+    # output = player.loadgame()
     data_set = {'output': 'Game Loaded from Last Save'}
     json_dump = json.dumps(data_set)
     return json_dump

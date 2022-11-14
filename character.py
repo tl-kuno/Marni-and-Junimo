@@ -35,7 +35,6 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
-
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
         if command == "inventory":
@@ -111,9 +110,6 @@ class Character:
 
         return "verb [{}] not yet supported...".format(verb)
 
-
-
-
     def savegame(self):
         # Saves current character stats to private values
         self._save_inventory = self.inventory[:]
@@ -125,7 +121,7 @@ class Character:
         self._save_location_id = self.room_list.index(self.location)
         print(self._save_location_id)
         print(self.room_list[self._save_location_id])
-        
+
         return "Saved your game!"
 
     def loadgame(self):
@@ -137,7 +133,7 @@ class Character:
         # Flip this?
         self.room_list = deepcopy(self._save_room_list)
         self.location = self.room_list[self._save_location_id]
-        
+
         return "Loaded your game!"
 
     def set_location(self, location):
