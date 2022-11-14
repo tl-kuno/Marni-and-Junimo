@@ -19,8 +19,9 @@ def handle_interaction():
 
 @app.route('/new', methods=["POST"])
 def handle_new_game():
-    intro = newgame()
-    data_set = {'output': intro}
+    # intro = newgame()
+    ip_address = "New Game Started at " + str(app.request.remote_addr)
+    data_set = {'output': ip_address}
     json_dump = json.dumps(data_set)
     return json_dump
 
