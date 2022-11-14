@@ -13,6 +13,7 @@ def newgame(ip_address):
     # is expecting a returned string
     return messages['intro']
 
+
 def main():
     """
     Main function
