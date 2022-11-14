@@ -1,17 +1,10 @@
 # from room import Room
 # from item import Item
 from character import Character
-from messages import messages
+# from messages import messages
 # from feature import Feature
 # from nav import Direction
 # from verb import VerbClass, verb_dict
-
-
-def newgame(ip_address):
-    # this is where we do all of the things!!!
-    # placeholder return statement, but the server
-    # is expecting a returned string
-    return messages['intro']
 
 
 def main():

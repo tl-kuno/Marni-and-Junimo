@@ -14,6 +14,7 @@ class Character:
     """
     def __init__(self, name, inventory=[], location=None):
         self.name = name
+        self.ip = 0
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
@@ -34,6 +35,19 @@ class Character:
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
+
+    def newgame(self, ip_address):
+        # this is where we do all of the things!!!
+        self.inventory = []
+        self.ip = ip_address
+        self.invited = []
+        self.light = False
+        self.helmet = False
+
+        self.room_list = init_room_list_and_items()
+        self.location = self.room_list[0]
+
+        return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
