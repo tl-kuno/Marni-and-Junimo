@@ -7,13 +7,6 @@ from messages import messages
 # from verb import VerbClass, verb_dict
 
 
-def newgame(ip_address):
-    # this is where we do all of the things!!!
-    # placeholder return statement, but the server
-    # is expecting a returned string
-    return messages['intro']
-
-
 def main():
     """
     Main function

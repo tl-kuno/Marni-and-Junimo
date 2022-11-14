@@ -2,7 +2,6 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 import json
-from main import newgame
 from character import Character
 
 app = Flask(__name__)
@@ -22,7 +21,7 @@ def handle_interaction():
 @app.route('/new', methods=["POST"])
 def handle_new_game():
     ip_address = str(request.remote_addr)
-    intro = newgame(ip_address)
+    intro = player.newgame(ip_address)
     data_set = {'output': intro}
     json_dump = json.dumps(data_set)
     return json_dump
