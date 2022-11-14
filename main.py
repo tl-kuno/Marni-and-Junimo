@@ -13,6 +13,7 @@ def newgame():
     # is expecting a returned string
     return messages['intro']
 
+
 def main():
     """
     Main function
