@@ -17,6 +17,8 @@ class VerbClass(Enum):
     MOVE_PRIME = 12
     LOOK = 13
     LOOK_AT = 14
+    SAVE = 15
+    LOAD = 16
 
 
 verb_dict = {
@@ -54,6 +56,10 @@ verb_dict = {
 
     'look': VerbClass.LOOK,
 
-    'look at': VerbClass.LOOK_AT
+    'look at': VerbClass.LOOK_AT,
+
+    'savegame': VerbClass.SAVE,
+
+    'loadgame': VerbClass.LOAD
 
 }
