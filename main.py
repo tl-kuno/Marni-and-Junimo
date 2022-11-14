@@ -7,7 +7,7 @@ from nav import Direction
 from verb import VerbClass, verb_dict
 
 
-def newgame():
+def newgame(ip_address):
     # this is where we do all of the things!!!
     # placeholder return statement, but the server
     # is expecting a returned string
