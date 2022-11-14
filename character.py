@@ -84,7 +84,7 @@ class Character:
     #  To be used for Features and Items  #
     # #####################################
 
-    def move(self, direction, room_list):
+    def move(self, direction, room_list):   # noqa: C901
         direction = direction.lower()
         if direction not in self.location.direction_dict:
             return "No Exit: {}".format(direction)

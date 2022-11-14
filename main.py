@@ -373,7 +373,7 @@ def init_room_list_and_items():
         "Alley",
         messages["alley.long"],
         messages["alley.short"],
-        [football_helmet],
+        [football_helmet, umbrella],
         [raccoon, guitar],
         [None, 6, None, None]))
 
