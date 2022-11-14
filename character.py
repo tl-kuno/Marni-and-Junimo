@@ -46,7 +46,7 @@ class Character:
 
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
-        
+
         return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901

@@ -1,7 +1,7 @@
 # from room import Room
 # from item import Item
 from character import Character
-from messages import messages
+# from messages import messages
 # from feature import Feature
 # from nav import Direction
 # from verb import VerbClass, verb_dict
