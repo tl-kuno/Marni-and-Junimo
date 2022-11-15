@@ -202,13 +202,13 @@ messages = {
         "is already here waiting for you. There is a table where all of the party"
         " supplies are set up. Once you're ready you can "
         "join all of the invited animal friends that gathered together under a huge "
-        "tree.\n",
+        "tree by typing \"look at friends\".\n",
     'park.short':
         "You finally made it to Henderson Park, and you can see that everyone "
         "is already here waiting for you. There is a table where all of the "
         "party supplies are set up. Once you're ready, you can "
         "join all of the invited animal friends that gathered together under a huge "
-        "tree.\n",
+        "tree by typing \"look at friends\".\n",
 
     # Item Descriptions
     'blueberries':

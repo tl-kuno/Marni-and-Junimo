@@ -276,7 +276,9 @@ class Character:
 
         # If found, return message
         if object_idx != -1:
-            return messages.get(target)
+            if target == 'friends':
+                return self.endgame()
+            return messages.get(target, 'Invalid selection.')
         return "Invalid selection"
 
     def drop(self, item):
