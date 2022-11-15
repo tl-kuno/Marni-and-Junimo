@@ -14,6 +14,7 @@ class Character:
     """
     def __init__(self, name, inventory=[], location=None):
         self.name = name
+        self.ip = 0
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
@@ -34,6 +35,19 @@ class Character:
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
+
+    def newgame(self, ip_address):
+        # this is where we do all of the things!!!
+        self.inventory = []
+        self.ip = ip_address
+        self.invited = []
+        self.light = False
+        self.helmet = False
+
+        self.room_list = init_room_list_and_items()
+        self.location = self.room_list[0]
+
+        return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
@@ -198,17 +212,25 @@ class Character:
     #  To be used for Features and Items  #
     # #####################################
 
-    def move(self, direction, room_list):
+    def move(self, direction, room_list):   # noqa: C901
         direction = direction.lower()
         if direction not in self.location.direction_dict:
             return "No Exit: {}".format(direction)
         direction_category = self.location.direction_dict[direction]
         if direction_category == Direction.NORTH:
+            # Check for basement block
+            if self.location.room_name == 'Living Room':
+                if not self.light:
+                    return messages['basement.block']
             # move north
             if self.location.north() is not None:
                 self.location = room_list[self.location.north()]
                 return self.location.short_description
         elif direction_category == Direction.EAST:
+            # Check for bedroom block
+            if self.location.room_name == 'Living Room':
+                if not self.helmet:
+                    return messages['bedroom.block']
             # move east
             if self.location.east() is not None:
                 self.location = room_list[self.location.east()]
@@ -240,7 +262,6 @@ class Character:
         return f"You picked up the {target_object.name}.\n"
 
     def look_at(self, target):
-        print(f"Target: {target}")
         # Retrieves object if item in room exists with the name 'target'
 
         # Checks room's object list
@@ -251,12 +272,21 @@ class Character:
             object_idx = self.in_object_list(self.inventory, target)
 
         if object_idx == -1:        # Check room's features
-            print(self.location.feature_list)
             object_idx = self.in_object_list(self.location.feature_list, target)
 
         # If found, return message
         if object_idx != -1:
-            return messages.get(target)
+            if target == 'friends':
+                self.num_items = len(self.inventory)
+                self.num_guests = len(self.invited)
+                msg = "You make your way to the park, where all of your friends are "\
+                      "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
+                msg += str(self.num_items)
+                msg += " out of 5 picnic items.\nYou have invited "
+                msg += str(self.num_guests)
+                msg += " out of 4 guests to the picnic. Well done!\n"
+                return msg
+            return messages.get(target, 'Invalid selection.')
         return "Invalid selection"
 
     def drop(self, item):
@@ -328,6 +358,7 @@ class Character:
         if target.name == "soap":
             if self.location.room_name == "Alley":
                 self.inventory.append(Item("umbrella", messages['umbrella'], True, True))
+                return messages.get('soap.use')
         # Using letter
         if target.name == 'letter':
             return messages.get('letter')

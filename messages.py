@@ -1,13 +1,17 @@
 messages = {
-    # Intro paragraph
-    'intro':
-        "Welcome to Picnic Quest!\n"
+    # Welcome paragraph
+    'welcome':
+        "Welcome to Picnic Quest!\nI'm Junimo the cat, and it's so good that you're here!\n"
         "You are now Marni, the adorable german shepard. You are all bark, "
-        "and no bite. Easily scared, but fierce when it comes to defending your "
-        "crew! You live in a well-loved, "
+        "and no bite, easily scared, but fierce when it comes to defending your "
+        "crew! We live in a well-loved, "
         "one-story house in the suburbs with two humans who are off at their "
         "day jobs. As usual, you took this opportunity to take a nice long "
-        "mid-day nap.\n\nYou slowly awaken in a warm, cozy living room. "
+        "mid-day nap. I left you a letter, please read it when you wake up!\n"
+        "Click on New Game to begin!\n",
+    # Intro paragraph
+    'intro':
+        "You slowly awaken in a warm, cozy living room. "
         "Sunlight pours through the curtains, lighting up the familiar sofa "
         "in the center of the room. There are no signs of humans around here, "
         "just the soft sound of the trees rustling in the breeze outside. You "
@@ -18,12 +22,7 @@ messages = {
         "see the door to the basement. To the East you can see the closed "
         "door to the bedroom. To the South you can see the front door that "
         "leads to the porch outside. To the West you see the doorway to the "
-        "kitchen.\n\nPlease type what you'd like to do in the text field below.\n"
-        "\nTo look around the living room, try typing Look.\nTo examine the "
-        "sofa, enter Look sofa.\nTo read the letter, type Read letter\n"
-        "To move to a different room, type Move East.\nTo look at your "
-        "inventory, type Inventory.\nTo see a list of helpful commands, "
-        "type help.\n",
+        "kitchen.\n",
     'help':
         "Try these commands:\nLook: Repeat the description of the current room\n"
         "Look at: Learn more about a nearby item or feature.\n"
@@ -203,13 +202,13 @@ messages = {
         "is already here waiting for you. There is a table where all of the party"
         " supplies are set up. Once you're ready you can "
         "join all of the invited animal friends that gathered together under a huge "
-        "tree.\n",
+        "tree by typing \"look at friends\".\n",
     'park.short':
         "You finally made it to Henderson Park, and you can see that everyone "
         "is already here waiting for you. There is a table where all of the "
         "party supplies are set up. Once you're ready, you can "
         "join all of the invited animal friends that gathered together under a huge "
-        "tree.\n",
+        "tree by typing \"look at friends\".\n",
 
     # Item Descriptions
     'blueberries':
