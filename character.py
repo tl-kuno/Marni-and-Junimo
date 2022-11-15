@@ -276,7 +276,17 @@ class Character:
 
         # If found, return message
         if object_idx != -1:
-            return messages.get(target)
+            if target == 'friends':
+                self.num_items = len(self.inventory)
+                self.num_guests = len(self.invited)
+                msg = "You make your way to the park, where all of your friends are "\
+                      "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
+                msg += str(self.num_items)
+                msg += " out of 5 picnic items.\nYou have invited "
+                msg += str(self.num_guests)
+                msg += " out of 4 guests to the picnic. Well done!\n"
+                return msg
+            return messages.get(target, 'Invalid selection.')
         return "Invalid selection"
 
     def drop(self, item):
