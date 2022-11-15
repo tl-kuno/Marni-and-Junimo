@@ -279,7 +279,7 @@ class Character:
             if target == 'friends':
                 self.num_items = len(self.inventory)
                 self.num_guests = len(self.invited)
-                msg = f"You make your way to the park, where all of your friends are there waiting for you.\n"
+                msg = "You make your way to the park, where all of your friends are there waiting for you.\n"
                 "Congratulations! You've completed Picnic Quest!\nYou have brought " + str(self.num_items) + " out of 5 "
                 "picnic items.\nYou have invited " + str(self.num_guests) +" out of 4 guests to the picnic. Well done!\n"
                 return msg
