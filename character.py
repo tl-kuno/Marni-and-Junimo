@@ -277,12 +277,11 @@ class Character:
         # If found, return message
         if object_idx != -1:
             if target == 'friends':
-                num_items = len(self.inventory)
-                num_guests = len(self.invited)
-                msg = f"You make your way to the park, where all of your friends are there waiting for you.\n\
-                Congratulations! You've completed Picnic Quest!\nYou have brought {num_items} out of 5 \
-                picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
-                Type in newgame to start again"
+                self.num_items = len(self.inventory)
+                self.num_guests = len(self.invited)
+                msg = f"You make your way to the park, where all of your friends are there waiting for you.\n"
+                "Congratulations! You've completed Picnic Quest!\nYou have brought " + str(self.num_items) + " out of 5 "
+                "picnic items.\nYou have invited " + str(self.num_guests) +" out of 4 guests to the picnic. Well done!\n"
                 return msg
             return messages.get(target, 'Invalid selection.')
         return "Invalid selection"
