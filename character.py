@@ -80,7 +80,9 @@ class Character:
         else:
             verb_class = verb_dict[verb]    # returns verb_class enum
             if verb_class != VerbClass.LOOK and len(input_components) == 1:
-                return f"{verb} requires a noun argument"
+                if verb_class != VerbClass.SAVE and len(input_components) == 1:
+                    if verb_class != VerbClass.LOAD and len(input_components) == 1:
+                        return f"{verb} requires a noun argument"
 
         # handle each verb class
         if verb_class == VerbClass.MOVE:
