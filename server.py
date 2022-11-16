@@ -46,7 +46,7 @@ def handle_new_game():
 # When a user sends a command,
 @app.route('/', methods=["GET", "POST"])
 def handle_interaction():
-    key = request.key
+    key = request.args.get('key')
     player = game_instances[key]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
@@ -56,9 +56,9 @@ def handle_interaction():
     return json_dump
 
 
-@app.route('/quit', methods=["POST"])
+@app.route('/quit', methods=["GET", "POST"])
 def handle_quit_game():
-    key = request.key
+    key = request.args.get('key')
     player = game_instances[key]
     data_set = {'output': 'Game Over',
                 'location': player.location.room_name}
@@ -67,9 +67,9 @@ def handle_quit_game():
     return json_dump
 
 
-@app.route('/save', methods=["POST"])
+@app.route('/save', methods=["GET", "POST"])
 def handle_save():
-    key = request.key
+    key = request.args.get('key')
     player = game_instances[key]
     # output = player.savegame()
     data_set = {'output': 'Game Progress Saved',
@@ -78,9 +78,9 @@ def handle_save():
     return json_dump
 
 
-@app.route('/load', methods=["GET"])
+@app.route('/load', methods=["GET", "POST"])
 def handle_load():
-    key = request.key
+    key = request.args.get('key')
     player = game_instances[key]
     # output = player.loadgame()
     data_set = {'output': 'Game Loaded from Last Save',
