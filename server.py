@@ -11,6 +11,7 @@ CORS(app)
 
 game_instances = {}
 
+
 # When a user lands on the page, the welcome message is sent
 @app.route('/start', methods=["POST"])
 def handle_start():
@@ -24,13 +25,14 @@ def handle_start():
 @app.route('/new', methods=["POST"])
 def handle_new_game():
     ip_address = str(request.remote_addr)
-    player = Character('Marni')
+    player = Character(ip_address)
     game_instances[ip_address] = player
     intro = game_instances[ip_address].newgame(ip_address)
     data_set = {'output': intro,
                 'location': game_instances[ip_address].location.room_name}
     json_dump = json.dumps(data_set)
     return json_dump
+
 
 # When a user sends a command, 
 @app.route('/', methods=["GET", "POST"])
