@@ -37,22 +37,37 @@ verb_dict = {
     'discard': VerbClass.DROP,
 
     'eat': VerbClass.EAT,
+    'consume': VerbClass.EAT,
+    'devour': VerbClass.EAT,
+    'gobble': VerbClass.EAT,
 
     'read': VerbClass.READ,
+    'scan': VerbClass.READ,
+    'skim': VerbClass.READ,
 
     'nap': VerbClass.NAP,
+    'sleep': VerbClass.NAP,
+    'rest': VerbClass.NAP,
+    'chill': VerbClass.NAP,
 
     'scratch': VerbClass.SCRATCH,
+    'itch': VerbClass.SCRATCH,
+    'scrape': VerbClass.SCRATCH,
 
     'use': VerbClass.USE,
 
     'invite': VerbClass.INVITE,
 
     'talk': VerbClass.TALK,
+    'chat': VerbClass.TALK,
+    'whisper': VerbClass.TALK,
+    'speak': VerbClass.TALK,
+    'yell': VerbClass.TALK,
 
     'wear': VerbClass.WEAR,
 
     'listen': VerbClass.LISTEN,
+    'hear': VerbClass.LISTEN,
 
     'look': VerbClass.LOOK,
 

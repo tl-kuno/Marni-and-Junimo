@@ -147,7 +147,10 @@ def init_room_list_and_items():
             "creaky staircase": Direction.NORTH,
             "wooden staircase": Direction.NORTH,
             "staircase": Direction.NORTH,
-            "kitchen": Direction.WEST
+            "kitchen": Direction.WEST,
+            "bedroom": Direction.EAST,
+            "basement": Direction.NORTH,
+            "porch": Direction.SOUTH
         }))
 
     # Room ID: 1
@@ -171,7 +174,8 @@ def init_room_list_and_items():
             "creaky wooden staircase": Direction.SOUTH,
             "creaky staircase": Direction.SOUTH,
             "wooden staircase": Direction.SOUTH,
-            "staircase": Direction.SOUTH
+            "staircase": Direction.SOUTH,
+            "living room": Direction.SOUTH
         }))
 
     # Room ID: 2
@@ -186,7 +190,11 @@ def init_room_list_and_items():
         messages["kitchen.short"],
         [wooden_spoon, blueberries],
         [refrigerator, ants],
-        [3, 0, None, None]))
+        [3, 0, None, None],
+        {
+            "pantry": Direction.NORTH,
+            "living room": Direction.EAST
+        }))
 
     # Room ID: 3
     # Room: Pantry
@@ -200,7 +208,10 @@ def init_room_list_and_items():
         messages["pantry.short"],
         [dog_treats],
         [shelves, cleaning_supplies],
-        [None, None, 2, None]))
+        [None, None, 2, None],
+        {
+            "kitchen": Direction.SOUTH
+        }))
 
     # Room ID: 4
     # Room: Bedroom
@@ -214,7 +225,11 @@ def init_room_list_and_items():
         messages["bedroom.short"],
         [],
         [blanket, window],
-        [5, None, None, 0]))
+        [5, None, None, 0],
+        {
+            "living room": Direction.WEST,
+            "bathroom": Direction.NORTH
+        }))
 
     # Room ID: 5
     # Room: Bathroom
@@ -228,7 +243,10 @@ def init_room_list_and_items():
         messages["bathroom.short"],
         [towel, soap],
         [sink, bathtub],
-        [None, None, 4, None]))
+        [None, None, 4, None],
+        {
+            "bedroom": Direction.SOUTH
+        }))
 
     # Room ID: 6
     # Room: Porch
@@ -242,7 +260,13 @@ def init_room_list_and_items():
         messages["porch.short"],
         [],
         [rocking_chair, dirt_pile],
-        [0, 9, 8, 7]))
+        [0, 9, 8, 7],
+        {
+            "living room": Direction.NORTH,
+            "park": Direction.EAST,
+            "roof": Direction.SOUTH,
+            "alley": Direction.WEST
+        }))
 
     # Room ID: 7
     # Room: Alley
@@ -256,7 +280,10 @@ def init_room_list_and_items():
         messages["alley.short"],
         [umbrella, football_helmet],
         [raccoon, guitar],
-        [None, 6, None, None]))
+        [None, 6, None, None],
+        {
+            "porch": Direction.EAST
+        }))
 
     # Room ID: 8
     # Room: Roof
@@ -270,7 +297,10 @@ def init_room_list_and_items():
         messages["roof.short"],
         [],
         [birds, neighborhood],
-        [6, None, None, None]))
+        [6, None, None, None],
+        {
+            "porch": Direction.NORTH
+        }))
 
     # Room ID: 9
     # Room: Park
