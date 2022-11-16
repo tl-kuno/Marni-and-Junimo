@@ -14,7 +14,6 @@ class Character:
     """
     def __init__(self, name, inventory=[], location=None):
         self.name = name
-        self.ip = 0
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
@@ -36,10 +35,9 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
-    def newgame(self, ip_address):
+    def newgame(self, key):
         # this is where we do all of the things!!!
         self.inventory = []
-        self.ip = ip_address
         self.invited = []
         self.light = False
         self.helmet = False
