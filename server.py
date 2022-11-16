@@ -3,6 +3,8 @@ from flask import request
 from flask_cors import CORS
 import json
 from character import Character
+from messages import messages
+
 
 app = Flask(__name__)
 CORS(app)
@@ -14,6 +16,13 @@ def handle_interaction():
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
     data_set = {'output': output, 'location': player.location.room_name}
+    json_dump = json.dumps(data_set)
+    return json_dump
+
+
+@app.route('/start', methods=["POST"])
+def handle_start():
+    data_set = {'output': messages["welcome"]}
     json_dump = json.dumps(data_set)
     return json_dump
 
