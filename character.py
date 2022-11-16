@@ -35,7 +35,7 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
-    def newgame(self, key):
+    def newgame(self):
         # this is where we do all of the things!!!
         self.inventory = []
         self.invited = []
