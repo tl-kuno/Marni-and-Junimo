@@ -1,6 +1,6 @@
 from nav import Direction
 
-
+# flake8: noqa: C901
 class Room:
     """
     Creates a full room environment

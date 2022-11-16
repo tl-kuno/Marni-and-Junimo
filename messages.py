@@ -1,3 +1,4 @@
+# flake8: noqa: C901
 messages = {
     # Welcome paragraph
     'welcome':

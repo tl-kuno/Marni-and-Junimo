@@ -57,7 +57,6 @@ class Character:
         if command == "help":
             return messages.get("help")
 
-
         # Changed maxsplit to 2 to handle 'look at'
         input_components = command.split(maxsplit=2)
         verb = input_components[0]
@@ -177,6 +176,7 @@ class Character:
                 break
         return o_idx
 
+    # flake8: noqa: C901
     def retrieve_object_from_game(self, target_name):
         """
         Searches and retrieves (but does not remove) an item from player's inventory,
