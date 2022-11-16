@@ -23,6 +23,9 @@ class Room:
         }
         self.direction_dict.update(custom_exits)
 
+    def get_description(self):
+        return self.short_description if self.visited else self.long_description
+
     def north(self):
         """
         Direction to the north, use in search for an entrance/exit

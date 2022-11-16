@@ -14,84 +14,44 @@ def init_room_list_and_items():
     # -----------------------------------------------------
 
     # Item Name: Blueberries
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     blueberries = Item("blueberries",
-                       messages['blueberries'],
-                       True,
-                       True)
+                       messages['blueberries'])
 
     # Item Name: Mushrooms
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     mushrooms = Item("mushrooms",
-                     messages['mushrooms'],
-                     True,
-                     True)
+                     messages['mushrooms'])
 
     # Item Name: Dog Treats
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     dog_treats = Item("dog treats",
-                      messages['dog treats'],
-                      True,
-                      True)
+                      messages['dog treats'])
 
     # Item Name: Towel
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     towel = Item("towel",
-                 messages['towel'],
-                 True,
-                 True)
+                 messages['towel'])
 
     # Item Name: Umbrella
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     umbrella = Item("umbrella",
-                    messages['umbrella'],
-                    True,
-                    True)
+                    messages['umbrella'])
 
     # Item Name: Letter
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     letter = Item("letter",
-                  messages['letter'],
-                  True,
-                  True)
+                  messages['letter'])
 
     # Item Name: Wooden Spoon
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     wooden_spoon = Item("wooden spoon",
-                        messages['wooden spoon'],
-                        True,
-                        True)
+                        messages['wooden spoon'])
 
     # Item Name: Football Helmet
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     football_helmet = Item("football helmet",
-                           messages['football helmet'],
-                           True,
-                           True)
+                           messages['football helmet'])
 
     # Item Name: Soap
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     soap = Item("soap",
-                messages['soap'],
-                True,
-                True)
+                messages['soap'])
 
     # Item Name: Flashlight
-    # Can Pick Up: Yes
-    # Can Drop: Yes
     flashlight = Item("flashlight",
-                      messages['flashlight'],
-                      True,
-                      True)
+                      messages['flashlight'])
 
     # -----------------------------------------------------
     # -                      Create Features               -
@@ -186,7 +146,8 @@ def init_room_list_and_items():
             "creaky wooden staircase": Direction.NORTH,
             "creaky staircase": Direction.NORTH,
             "wooden staircase": Direction.NORTH,
-            "staircase": Direction.NORTH
+            "staircase": Direction.NORTH,
+            "kitchen": Direction.WEST
         }))
 
     # Room ID: 1

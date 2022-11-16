@@ -36,7 +36,7 @@ messages = {
         "Inventory: Look at all of your items in your inventory.\n"
         "savegame: Save the current game state.\n"
         "loadgame: Load your previously saved game.\n"
-        "Other verbs: Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
+        "Other verbs: Look, Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
     'inventory':        # TODO write inventory function
         "This is your inventory:",
     # Room Descriptions

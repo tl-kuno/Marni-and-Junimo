@@ -54,18 +54,22 @@ class Character:
         if command == "inventory":
             return self.show_inventory()
 
+        if command == "help":
+            return messages.get("help")
+
+
         # Changed maxsplit to 2 to handle 'look at'
         input_components = command.split(maxsplit=2)
         verb = input_components[0]
 
         # Allow 'look at' to identify correct verb
-        if verb == 'look' and len(input_components) > 1:
+        if verb == 'look' and len(input_components) > 2:
             if input_components[1] == 'at':
                 noun = input_components[2].strip()
                 verb = 'look at'
         # For one word verb commands
         elif len(input_components) > 1:
-            noun = input_components[1].strip()
+            noun = command.split(maxsplit=1)[1].strip()
 
         # determine our verb class
         verb_class = -1
@@ -76,6 +80,8 @@ class Character:
             verb_class = VerbClass.MOVE_PRIME
         else:
             verb_class = verb_dict[verb]    # returns verb_class enum
+            if verb_class != VerbClass.LOOK and len(input_components) == 1:
+                return f"{verb} requires a noun argument"
 
         # handle each verb class
         if verb_class == VerbClass.MOVE:
@@ -87,31 +93,23 @@ class Character:
         if verb_class == VerbClass.DROP:
             return self.drop(noun)
         if verb_class == VerbClass.EAT:
-            # return self.eat(noun)
-            pass
+            return self.eat(noun)
         if verb_class == VerbClass.READ:
-            # return self.read(noun)
-            pass
+            return self.read(noun)
         if verb_class == VerbClass.NAP:
-            # return self.nap(noun)
-            pass
+            return self.nap(noun)
         if verb_class == VerbClass.SCRATCH:
-            # return self.scratch(noun)
-            pass
+            return self.scratch(noun)
         if verb_class == VerbClass.USE:
             return self.use(noun)
         if verb_class == VerbClass.INVITE:
-            # return self.invite(noun)
-            pass
+            return self.invite(noun)
         if verb_class == VerbClass.TALK:
-            # return self.talk(noun)
-            pass
+            return self.talk(noun)
         if verb_class == VerbClass.WEAR:
-            # return self.wear(noun)
-            pass
+            return self.wear(noun)
         if verb_class == VerbClass.LISTEN:
-            # return self.listen(noun)
-            pass
+            return self.listen(noun)
         if verb_class == VerbClass.LOOK:
             return self.location.long_description
         if verb_class == VerbClass.LOOK_AT:
@@ -224,8 +222,9 @@ class Character:
                     return messages['basement.block']
             # move north
             if self.location.north() is not None:
+                self.location.visited = True
                 self.location = room_list[self.location.north()]
-                return self.location.short_description
+                return self.location.get_description()
         elif direction_category == Direction.EAST:
             # Check for bedroom block
             if self.location.room_name == 'Living Room':
@@ -233,18 +232,21 @@ class Character:
                     return messages['bedroom.block']
             # move east
             if self.location.east() is not None:
+                self.location.visited = True
                 self.location = room_list[self.location.east()]
-                return self.location.short_description
+                return self.location.get_description()
         elif direction_category == Direction.SOUTH:
             # move south
             if self.location.south() is not None:
+                self.location.visited = True
                 self.location = room_list[self.location.south()]
-                return self.location.short_description
+                return self.location.get_description()
         elif direction_category == Direction.WEST:
             # move west
             if self.location.west() is not None:
+                self.location.visited = True
                 self.location = room_list[self.location.west()]
-                return self.location.short_description
+                return self.location.get_description()
         else:
             return "invalid direction enum, bad config"
         return "Cannot go to the {}!".format(direction)
@@ -261,22 +263,13 @@ class Character:
         self.inventory.append(target_object)
         return f"You picked up the {target_object.name}.\n"
 
-    def look_at(self, target):
+    def look_at(self, target_name):
         # Retrieves object if item in room exists with the name 'target'
-
-        # Checks room's object list
-        object_idx = self.in_object_list(self.location.object_list, target)
-
-        # check if we found a valid item
-        if object_idx == -1:    # check inventory
-            object_idx = self.in_object_list(self.inventory, target)
-
-        if object_idx == -1:        # Check room's features
-            object_idx = self.in_object_list(self.location.feature_list, target)
+        target = self.retrieve_object_from_game(target_name)
 
         # If found, return message
-        if object_idx != -1:
-            if target == 'friends':
+        if target is not None:
+            if target.name == 'friends':
                 self.num_items = len(self.inventory)
                 self.num_guests = len(self.invited)
                 msg = "You make your way to the park, where all of your friends are "\
@@ -286,8 +279,8 @@ class Character:
                 msg += str(self.num_guests)
                 msg += " out of 4 guests to the picnic. Well done!\n"
                 return msg
-            return messages.get(target, 'Invalid selection.')
-        return "Invalid selection"
+            return messages.get(target.name, f'cant look at {target.name}')
+        return f"cant find {target_name}"
 
     def drop(self, item):
         # check if item in inventory with requested name
@@ -306,31 +299,28 @@ class Character:
         # Error handling
         target = self.retrieve_object_from_game(target_name)
         if target is None:
-            return f"There is no {target_name.name} here to eat."
+            return f"There is no {target_name} here to eat."
         return messages.get(f"{target.name}.eat", "You can't eat that, sorry.")
 
-    def read(self, target):
+    def read(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to read."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to read."
         return messages.get(f"{target.name}.read", "There is nothing here to read.")
 
-    def nap(self, target):
+    def nap(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to nap on."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to nap on."
         return messages.get(f"{target.name}.nap", "You can't nap here, unfortunately.")
 
-    def scratch(self, target):
+    def scratch(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to scratch."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to scratch."
         return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
 
     def use(self, target_name):  # noqa: C901
@@ -365,12 +355,11 @@ class Character:
         # Invalid command
         return f"There is no {target.name} here to use."
 
-    def invite(self, target):
+    def invite(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to invite."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to invite."
 
         # Invite the mouse
         if target.name == 'mouse' and self.location.room_name == 'Basement':
@@ -395,30 +384,27 @@ class Character:
         # Invalid
         return f"There is no {target.name} here to invite."
 
-    def talk(self, target):
+    def talk(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to talk to."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to talk to."
         return messages.get(f"{target.name}.talk", "You can't talk to that, unfortunately.")
 
-    def wear(self, target):
+    def wear(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to wear."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to wear."
         if target.name == 'football helmet':
             self.helmet = True
         return messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
 
-    def listen(self, target):
+    def listen(self, target_name):
         # Error handling
-        if target not in self.inventory:
-            if target not in self.location.object_list:
-                if target not in self.location.feature_list:
-                    return f"There is no {target.name} here to listen to."
+        target = self.retrieve_object_from_game(target_name)
+        if target is None:
+            return f"There is no {target_name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
     # Handle endgame
@@ -433,8 +419,8 @@ class Character:
 
 
 if __name__ == "__main__":
-    jacket = Item('Jacket', "A Jacket", True, True)
-    backpack = Item("Backpack", "a backpack", True, True)
+    jacket = Item('Jacket', "A Jacket")
+    backpack = Item("Backpack", "a backpack")
     mouse = Feature('mouse', 'hes a mouse')
     zoo = Room(
         9,
