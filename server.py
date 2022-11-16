@@ -30,7 +30,7 @@ def handle_start():
 
 # When a new game is started, create a game instance and store it in the dict
 # return the current room and intro message
-@app.route('/new', methods=["POST"])
+@app.route('/new', methods=["GET", "POST"])
 def handle_new_game():
     key = new_key()
     player = Character("Marni")
