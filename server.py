@@ -15,7 +15,7 @@ game_instances = {}
 
 def new_key():
     key = random.randrange(101)
-    while key in dict.game_instances:
+    while key in game_instances:
         key = random.randrange(101)
     return key
 
