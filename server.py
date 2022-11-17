@@ -115,8 +115,8 @@ def handle_save():
     Returns:
         output: Junimo's response to the end of game
     """
-    key = request.args.get('key')
-    player = game_instances[key]
+    # key = request.args.get('key')
+    # player = game_instances[key]
     # output = player.savegame()
     data_set = {'output': 'Game Progress Saved'}
     json_dump = json.dumps(data_set)
