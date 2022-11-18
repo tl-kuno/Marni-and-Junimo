@@ -51,6 +51,9 @@ class Character:
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
+        if len(command) == 0:
+            return "You didnt say anything!"
+
         if command == "inventory":
             return self.show_inventory()
 
@@ -71,8 +74,13 @@ class Character:
             if input_components[1] == 'on':
                 noun = input_components[2].strip()
                 verb = 'nap on'
+        # Allow 'pick up' to identify correct verb
+        if verb == 'pick' and len(input_components) > 2:
+            if input_components[1] == 'up':
+                noun = input_components[2].strip()
+                verb = 'pick up'
         # For one word verb commands
-        elif len(input_components) > 1:
+        elif len(input_components) > 1 and verb != 'look at':
             noun = command.split(maxsplit=1)[1].strip()
 
         # determine our verb class
@@ -340,21 +348,18 @@ class Character:
             self.light = True
             return messages.get("flashlight.use")
         # Using helmet
-        if target.name == "helmet":
+        if target.name == "football helmet":
             self.helmet = True
-            return messages.get("helmet.use")
+            return messages.get("football helmet.use")
         # Using spoon
         if target.name == "wooden spoon":
-            if self.location.room_name == 'Pantry':
-                self.inventory.append(Item("dog treats",
-                                           messages['dog_treats'],
-                                           True,
-                                           True))
+            treats = self.retrieve_object_from_game('dog treats')
+            if treats is not None:
                 return messages.get('wooden spoon.use')
         # Using soap on raccoon
         if target.name == "soap":
             if self.location.room_name == "Alley":
-                self.inventory.append(Item("umbrella", messages['umbrella'], True, True))
+                self.inventory.append(Item("umbrella", messages['umbrella']))
                 return messages.get('soap.use')
         # Using letter
         if target.name == 'letter':

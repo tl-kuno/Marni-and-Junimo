@@ -31,6 +31,7 @@ verb_dict = {
     'pick': VerbClass.TAKE,
     'grab': VerbClass.TAKE,
     'select': VerbClass.TAKE,
+    'pick up': VerbClass.TAKE,
 
     'drop': VerbClass.DROP,
     'delete': VerbClass.DROP,
