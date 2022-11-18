@@ -66,6 +66,11 @@ class Character:
             if input_components[1] == 'at':
                 noun = input_components[2].strip()
                 verb = 'look at'
+        # Allow 'nap on' to identify correct verb
+        if verb == 'nap' and len(input_components) > 2:
+            if input_components[1] == 'on':
+                noun = input_components[2].strip()
+                verb = 'nap on'
         # For one word verb commands
         elif len(input_components) > 1:
             noun = command.split(maxsplit=1)[1].strip()

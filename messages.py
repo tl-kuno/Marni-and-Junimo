@@ -505,7 +505,7 @@ messages = {
     'flashlight.use':
         "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can "
         "see better in dark spaces!",
-    'helmet.use':
+    'football helmet.use':
         "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your "
         "way now.",
     'wooden spoon.use':
@@ -554,7 +554,7 @@ messages = {
     'umbrella.wear':
         "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes "
         "you look very fashionable.\n",
-    'helmet.wear':
+    'football helmet.wear':
         "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in "
         "your way now.\n",
     'blanket.wear':

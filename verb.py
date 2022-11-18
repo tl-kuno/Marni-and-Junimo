@@ -49,6 +49,7 @@ verb_dict = {
     'sleep': VerbClass.NAP,
     'rest': VerbClass.NAP,
     'chill': VerbClass.NAP,
+    'nap on': VerbClass.NAP,
 
     'scratch': VerbClass.SCRATCH,
     'itch': VerbClass.SCRATCH,
