@@ -39,15 +39,15 @@ def handle_new_game():
         output: Starting room introduction/description
         location: the current room that the player is located in
     """
-    player = Character("Marni")
+    ip_address = request.args.get('ip_address')
+    player = Character("Marni", ip_address)
     key = request.args.get('key')
     game_instances[key] = player
-    ip_address = request.remote_addr
     intro = (game_instances[key]).newgame()
     data_set = {'output': intro,
                 'location': game_instances[key].location.room_name,
                 'key': key,
-                'ip': ip_address
+                'ip_address': ip_address
                 }
     json_dump = json.dumps(data_set)
     return json_dump
@@ -68,13 +68,12 @@ def handle_interaction():
     """
 
     key = request.args.get('key')
-    ip_address = request.remote_addr
     player = game_instances[key]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
     data_set = {'output': output,
                 'location': player.location.room_name,
-                'ip': ip_address}
+                'ip_address': player.ip_address}
     json_dump = json.dumps(data_set)
     return json_dump
 
