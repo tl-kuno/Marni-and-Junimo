@@ -321,6 +321,7 @@ def init_room_list_and_items():
 
     filehandler = open("rooms/living_room.p", "wb")
     filehandler = open("rooms/basement.p", "wb")
+    filehandler = open("rooms/kitchen.p", "wb")
     filehandler = open("rooms/pantry.p", "wb")
     filehandler = open("rooms/bedroom.p", "wb")
     filehandler = open("rooms/bathroom.p", "wb")
@@ -331,6 +332,7 @@ def init_room_list_and_items():
 
     pickle.dump(living_room, filehandler)
     pickle.dump(basement, filehandler)
+    pickle.dump(kitchen, filehandler)
     pickle.dump(pantry, filehandler)
     pickle.dump(bedroom, filehandler)
     pickle.dump(bathroom, filehandler)
@@ -343,6 +345,7 @@ def init_room_list_and_items():
 
     file = open("rooms/living_room.p",'rb')
     file = open("rooms/basement.p",'rb')
+    file = open("rooms/kitchen.p", "rb")
     file = open("rooms/pantry.p", "rb")
     file = open("rooms/bedroom.p", "rb")
     file = open("rooms/bathroom.p", "rb")
@@ -353,6 +356,7 @@ def init_room_list_and_items():
 
     unpickled_living_room = pickle.load(file)
     unpickled_basement = pickle.load(file)
+    unpickled_kitchen = pickle.load(file)
     unpicked_pantry = pickle.load(file)
     unpickled_bedroom = pickle.load(file)
     unpickled_bathroom = pickle.load(file)
@@ -365,6 +369,7 @@ def init_room_list_and_items():
 
     room_list.append(unpickled_living_room)
     room_list.append(unpickled_basement)
+    room_list.append(unpickled_kitchen)
     room_list.append(unpicked_pantry)
     room_list.append(unpickled_bedroom)
     room_list.append(unpickled_bathroom)
