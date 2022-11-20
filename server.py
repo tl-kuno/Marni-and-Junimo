@@ -132,12 +132,15 @@ def handle_save():
     Returns:
         output: Junimo's response to the end of game
     """
-    # key = request.args.get('key')
-    # player = game_instances[key]
+    key = request.args.get('key')
+    player = game_instances[key]
+    player_save_data = json.dumps(player)
+    pq_data.update(player_save_data)
+
     # output = player.savegame()
-    data_set = {'output': 'Game Progress Saved'}
-    json_dump = json.dumps(data_set)
-    return json_dump
+    # data_set = {'output': 'Game Progress Saved'}
+    # json_dump = json.dumps(data_set)
+    # return json_dump
 
 
 # TODO, need to think about the reverse of save
