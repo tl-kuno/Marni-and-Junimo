@@ -134,6 +134,9 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
+    room_array = []
+    for room in player.room_list:
+        room_array.append(json.dumps(room))
     player_save_data = {
         "helmet": player.helmet,
         "inventory": player.inventory,
@@ -142,7 +145,7 @@ def handle_save():
         "key": player.key,
         "light": player.light,
         "location": player.location,
-        "room_list": player.room_list,
+        "room_list": room_array,
     }
     pq_data.update(json.dumps(player_save_data))
 
