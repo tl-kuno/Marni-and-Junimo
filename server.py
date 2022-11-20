@@ -1,4 +1,5 @@
 import json
+import os
 from flask import Flask
 from flask import request
 from flask_cors import CORS
@@ -9,7 +10,10 @@ from messages import messages
 app = Flask(__name__)
 CORS(app)
 
-game_instances = open('/home/tlkuno/PicnicQuest/users', "r+")
+
+my_dir = os.path.dirname(__file__)
+file_path = os.path.join(my_dir, "users.json")
+game_instances = open(file_path, "r+")
 pq_data = json.load(game_instances)
 users = pq_data["active_games"]
 
