@@ -175,14 +175,17 @@ messages = {
         "cold pavement. You find yourself next to the trashcan, and find"
         " a football helmet lying on its side. There's a guitar sitting"
         " on the ground, with most of the strings still intact. Behind the "
-        "recycling bin, you can see a small raccoon, covered in dirt."
+        "recycling bin, you can see a small raccoon, covered in dirt. "
+        "The raccoon seems be bothered by his dirt covered coat. Maybe he "
+        "could use something to help clean up?"
         "\n\nTo the East you can see the porch\n",
     'alley.short':
         "You are standing in the dimly lit alley behind the house. You find "
         "yourself next to the trashcan, and find a football helmet lying "
-        "on its side. Behind the recycling bin, you can see a small "
-        "raccoon, covered in dirt. There's an old guitar sitting"
-        " on the ground."
+        "on its side. There's an old guitar sitting"
+        " on the ground. Behind the recycling bin, you can see a small "
+        "raccoon, covered in dirt. The raccoon seems be bothered by his filthy coat. Maybe he "
+        "could use something to help clean up?"
         "\n\nTo the East you can see the porch\n",
     'roof.long':
         "You find yourself standing on the roof of your one-story "
@@ -573,7 +576,8 @@ messages = {
     'sink.listen':
         "DRIP...DRIP...DRIP... The leaky faucet has been making this sound for weeks.\n",
     'raccoon.listen':
-        "You can hear the raccoon chittering to itself.\n",
+        "You can hear the raccoon chittering to itself. He sounds a bit grumpy, especially since he's covered in dirt "
+        "and grime. Maybe he could use some soap to help clean up?\n",
     "neighborhood.listen":
         "The soft voices of your friends at the park can be heard from your vantage point. They seem to be setting "
         "up for the picnic and laughing together.\n"
