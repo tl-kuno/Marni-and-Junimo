@@ -12,8 +12,8 @@ class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, name, ip_address, inventory=[], location=None):
-        self.name = name
+    def __init__(self, key, ip_address, inventory=[], location=None):
+        self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door

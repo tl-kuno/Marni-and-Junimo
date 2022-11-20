@@ -1,20 +1,23 @@
+import json
 from flask import Flask
 from flask import request
 from flask_cors import CORS
-import json
 from character import Character
-from game_environment import picnic_quest
 from messages import messages
 
-game_instances = picnic_quest.saved_games
+
 app = Flask(__name__)
 CORS(app)
+
+game_instances = open('./game_data/users/users.json')
+pq_data = json.load(game_instances)
+users = pq_data["active_games"]
 
 
 def create_load_game_array(ip_address):
     load_games = []
-    for name in game_instances:
-        char = game_instances[name]
+    for key in users:
+        char = users[key]
         if char.ip_address == ip_address:
             load_games.append(char.name)
     return load_games
@@ -150,4 +153,5 @@ def handle_load():
 
 
 if __name__ == '__main__':
+    print(game_instances)
     app.run_server(debug=False)
