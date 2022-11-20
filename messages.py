@@ -153,7 +153,7 @@ messages = {
         "area in front of you. The fresh air feels good"
         " on your furry face as you take in the sights around "
         "you. Your favorite rocking chair is next to you on the"
-        " porch, with a light grey blanket draped over the back. "
+        " porch, with a light grey shawl draped over the back. "
         "You can see a big dirt pile at the bottom of the porch. "
         "\n\nTo the West you can see the alley.\n"
         "To the East you can see the park where your friends are "
@@ -175,14 +175,17 @@ messages = {
         "cold pavement. You find yourself next to the trashcan, and find"
         " a football helmet lying on its side. There's a guitar sitting"
         " on the ground, with most of the strings still intact. Behind the "
-        "recycling bin, you can see a small raccoon, covered in dirt."
+        "recycling bin, you can see a small raccoon, covered in dirt. "
+        "The raccoon seems be bothered by his dirt covered coat. Maybe he "
+        "could use something to help clean up?"
         "\n\nTo the East you can see the porch\n",
     'alley.short':
         "You are standing in the dimly lit alley behind the house. You find "
         "yourself next to the trashcan, and find a football helmet lying "
-        "on its side. Behind the recycling bin, you can see a small "
-        "raccoon, covered in dirt. There's an old guitar sitting"
-        " on the ground."
+        "on its side. There's an old guitar sitting"
+        " on the ground. Behind the recycling bin, you can see a small "
+        "raccoon, covered in dirt. The raccoon seems be bothered by his filthy coat. Maybe he "
+        "could use something to help clean up?"
         "\n\nTo the East you can see the porch\n",
     'roof.long':
         "You find yourself standing on the roof of your one-story "
@@ -327,7 +330,7 @@ messages = {
         "This is the human's favorite rocking chair. It "
         "has a strong wooden frame and a well worn but "
         "comfy blue cushion. There's a warm wool"
-        " blanket draped over the back for any chilly "
+        " sweater draped over the back for any chilly "
         "evenings.\n",
     'dirt pile':
         "The humans have big plans to set up a garden this "
@@ -573,7 +576,8 @@ messages = {
     'sink.listen':
         "DRIP...DRIP...DRIP... The leaky faucet has been making this sound for weeks.\n",
     'raccoon.listen':
-        "You can hear the raccoon chittering to itself.\n",
+        "You can hear the raccoon chittering to itself. He sounds a bit grumpy, especially since he's covered in dirt "
+        "and grime. Maybe he could use some soap to help clean up?\n",
     "neighborhood.listen":
         "The soft voices of your friends at the park can be heard from your vantage point. They seem to be setting "
         "up for the picnic and laughing together.\n"
