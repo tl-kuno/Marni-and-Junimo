@@ -29,8 +29,8 @@ def handle_start():
         output: Junimo's welcome message to the user
     """
     ip_address = request.args.get('ip_address')
-    load_games = load_games()
-    data_set = {'output': messages["welcome"], "loadGames": game_instances}
+    load_games = create_load_game_array(ip_address)
+    data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
 
