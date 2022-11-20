@@ -13,12 +13,13 @@ CORS(app)
 
 my_dir = os.path.dirname(__file__)
 file_path = os.path.join(my_dir, "game_data/users.json")
-game_instances = open(file_path, "r+")
-pq_data = json.load(game_instances)
-users = pq_data["active_games"]
+source_data = open(file_path, "r+")
+pq_data = json.load(source_data)
+users = pq_data["saved_games"]
+game_instances = {}
 
 
-def create_load_game_array(ip_address):
+def create_load_name_array(ip_address):
     load_games = []
     print(users)
     for user in users:
@@ -39,7 +40,7 @@ def handle_start():
         output: Junimo's welcome message to the user
     """
     ip_address = request.args.get('ip_address')
-    load_games = create_load_game_array(ip_address)
+    load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -116,6 +117,7 @@ def handle_quit_game():
     json_dump = json.dumps(data_set)
     del game_instances[key]
     return json_dump
+
 
 
 # TODO what information (if any) do you need from me to be able to save
