@@ -12,7 +12,15 @@ CORS(app)
 game_instances = {}
 
 
-@app.route('/start', methods=["POST"])
+def create_load_game_array(ip_address):
+    load_games = []
+    for char in game_instances:
+        if char.ip_address == ip_address:
+            load_games.push(char.name)
+    return load_games
+
+
+@app.route('/start', methods=["GET"])
 def handle_start():
     """
     Summary:
@@ -20,6 +28,8 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
+    ip_address = request.args.get('ip_address')
+    load_games = load_games()
     data_set = {'output': messages["welcome"], "loadGames": game_instances}
     json_dump = json.dumps(data_set)
     return json_dump
