@@ -12,7 +12,7 @@ CORS(app)
 
 
 my_dir = os.path.dirname(__file__)
-file_path = os.path.join(my_dir, "users.json")
+file_path = os.path.join(my_dir, "/game_data/users.json")
 game_instances = open(file_path, "r+")
 pq_data = json.load(game_instances)
 users = pq_data["active_games"]
