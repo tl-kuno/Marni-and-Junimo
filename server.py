@@ -3,19 +3,18 @@ from flask import request
 from flask_cors import CORS
 import json
 from character import Character
+from game_environment import picnic_quest
 from messages import messages
 
-
+game_instances = picnic_quest.saved_games
 app = Flask(__name__)
 CORS(app)
-
-game_instances = {}
 
 
 def create_load_game_array(ip_address):
     load_games = []
     for name in game_instances:
-        char = game_instances[name] 
+        char = game_instances[name]
         if char.ip_address == ip_address:
             load_games.append(char.name)
     return load_games
