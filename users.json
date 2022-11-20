@@ -1,13 +1,13 @@
 {
     "active_games": [
         {"name": "Taylor",
-        "ip": "67.3.2.54"
+        "ip_address": "67.3.2.54"
         },
         {"name": "Taylor2",
-        "ip": "67.3.2.54"
+        "ip_address": "67.3.2.54"
         },
         {"name": "Alex",
-        "ip": "47.34.52.136"
+        "ip_address": "47.34.52.136"
         }
     ]
 }
