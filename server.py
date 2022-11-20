@@ -14,7 +14,8 @@ game_instances = {}
 
 def create_load_game_array(ip_address):
     load_games = []
-    for char in game_instances:
+    for name in game_instances:
+        char = game_instances[name] 
         if char.ip_address == ip_address:
             load_games.push(char.name)
     return load_games
