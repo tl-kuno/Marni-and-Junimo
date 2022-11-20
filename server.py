@@ -34,7 +34,7 @@ def handle_start():
     return json_dump
 
 
-@app.route('/new', methods=["GET", "POST"])
+@app.route('/new', methods=["GET"])
 def handle_new_game():
     """
     Summary:
@@ -58,7 +58,7 @@ def handle_new_game():
     return json_dump
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=["GET"])
 def handle_interaction():
     """
     Summary:
@@ -85,7 +85,7 @@ def handle_interaction():
 # TODO @ alex do you want Junimo to say something cuter than Game Over?
 # TODO, I will be attempting to call this function on window close as well
 # have to think about if a game has been saved and how to handle this
-@app.route('/quit', methods=["GET", "POST"])
+@app.route('/quit', methods=["GET"])
 def handle_quit_game():
     """
     Summary:
@@ -105,7 +105,7 @@ def handle_quit_game():
 
 # TODO what information (if any) do you need from me to be able to save
 # TODO I will have to look into having the user save a "name"
-@app.route('/save', methods=["GET", "POST"])
+@app.route('/save', methods=["GET"])
 def handle_save():
     """
     Summary:
@@ -125,7 +125,7 @@ def handle_save():
 
 # TODO, need to think about the reverse of save
 # TODO have output return the long string from the current room
-@app.route('/load', methods=["GET", "POST"])
+@app.route('/load', methods=["GET"])
 def handle_load():
     """
     Summary:
