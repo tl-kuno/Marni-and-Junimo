@@ -275,7 +275,8 @@ class Character:
         # If found, return message
         if object_idx != -1:
             if target == 'friends':
-                self.num_items = len(self.inventory)
+                # Returns engame string
+                self.num_items = self.calc_inv()
                 self.num_guests = len(self.invited)
                 msg = "You make your way to the park, where all of your friends are "\
                       "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
@@ -419,15 +420,15 @@ class Character:
                     return f"There is no {target.name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
-    # Handle endgame
-    def endgame(self):
-        num_items = len(self.inventory)
-        num_guests = len(self.invited)
-        msg = f"You make your way to the park, where all of your friends are there waiting for you.\n\
-                Congratulations! You've completed Picnic Quest!\nYou have brought {num_items} out of 5 \
-                picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
-                Type in newgame to start again",
-        return msg
+    def calc_inv(self):
+        # Returns the number of picnic items in player inventory
+        res = 0
+        needed = ['blueberries', 'mushrooms', 'dog treats', 'towel', 'umbrella']
+        for item in self.inventory:
+            print(item.name)
+            if item.name in needed:
+                res += 1
+        return res
 
 
 if __name__ == "__main__":
