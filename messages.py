@@ -153,7 +153,7 @@ messages = {
         "area in front of you. The fresh air feels good"
         " on your furry face as you take in the sights around "
         "you. Your favorite rocking chair is next to you on the"
-        " porch, with a light grey blanket draped over the back. "
+        " porch, with a light grey shawl draped over the back. "
         "You can see a big dirt pile at the bottom of the porch. "
         "\n\nTo the West you can see the alley.\n"
         "To the East you can see the park where your friends are "
@@ -327,7 +327,7 @@ messages = {
         "This is the human's favorite rocking chair. It "
         "has a strong wooden frame and a well worn but "
         "comfy blue cushion. There's a warm wool"
-        " blanket draped over the back for any chilly "
+        " sweater draped over the back for any chilly "
         "evenings.\n",
     'dirt pile':
         "The humans have big plans to set up a garden this "
