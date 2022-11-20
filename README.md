@@ -46,4 +46,4 @@ A text-based adventure game written for OSU Capstone Project<br>
     - Must compile and run on the OSU flip servers<br>
     - OOP, data about the game must be loaded from individual files<br>
     - ie each room would have its own file, consider json structure<br>
-    - Note: if your game requires min width and height in characters, inform user,   exit if not met at load<br>
+    - Note: if your game requires min width and height in characters, inform user,   exit if not met at load  
