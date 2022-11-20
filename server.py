@@ -24,7 +24,7 @@ def create_load_game_array(ip_address):
     for user in users:
         print(user)
         if user["ip_address"] == ip_address:
-            load_games.append(user.name)
+            load_games.append(user["name"])
     return load_games
 
 
