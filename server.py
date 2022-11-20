@@ -2,7 +2,6 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 import json
-import random
 from character import Character
 from messages import messages
 
@@ -21,7 +20,7 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    data_set = {'output': messages["welcome"]}
+    data_set = {'output': messages["welcome"], "loadGames": game_instances}
     json_dump = json.dumps(data_set)
     return json_dump
 
