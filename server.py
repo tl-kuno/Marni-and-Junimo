@@ -9,7 +9,7 @@ from messages import messages
 app = Flask(__name__)
 CORS(app)
 
-game_instances = open('users.json')
+game_instances = open('users', "rw")
 pq_data = json.load(game_instances)
 users = pq_data["active_games"]
 
