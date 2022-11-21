@@ -134,7 +134,21 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
-    pq_data.update(json.dumps(player.__dict__))
+    room_array = []
+    for room in player.room_list:
+        room_data = json.dumps(room.__dict__)
+        room_array.append(room_data)
+    player_save_data = {
+        "helmet": player.helmet,
+        "inventory": player.inventory,
+        "invited": player.invited,
+        "ip_address": player.ip_address,
+        "key": player.key,
+        "light": player.light,
+        "location": player.location,
+        "room_list": room_array,
+    }
+    pq_data.update(json.dumps(player_save_data))
 
     # output = player.savegame()
     # data_set = {'output': 'Game Progress Saved'}
