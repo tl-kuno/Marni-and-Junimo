@@ -138,11 +138,11 @@ def handle_save():
     for item in player.inventory:
         item_data = json.dumps(item.__dict__)
         inventory_array.append(item_data)
-        
+
     for room in player.room_list:
         room_data = json.dumps(room.__dict__)
         room_array.append(room_data)
-        
+
     player_save_data = {
         "helmet": player.helmet,
         "inventory": inventory_array,
