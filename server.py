@@ -132,7 +132,7 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
-    pq_data = open(users_file_path, "r+")
+    pq_data = open(users_file_path, "wb")
     player_pickle = pickle.dumps(player)
     pq_data.write(player_pickle)
     # inventory_array = []
