@@ -66,7 +66,7 @@ class Character:
         pq_data = open(users_file_path, "wb")
         pickle.dump(self, pq_data)
         pq_data.close()
-        return messages['intro']
+        return self.messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
