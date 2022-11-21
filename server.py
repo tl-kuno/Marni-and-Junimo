@@ -127,11 +127,11 @@ def handle_save():
     Returns:
         output: Junimo's response to the end of game
     """
-    key = request.args.get('key')
-    player = game_instances[key]
+    # key = request.args.get('key')
     pq_data = open(users_file_path, "wb")
-    pickle.dump(player, pq_data)
+    player = pickle.load(pq_data)
     pq_data.close()
+    print(player)
     data_set = {'output': 'Progress Saved'}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -176,6 +176,11 @@ def handle_load():
     """
     key = request.args.get('key')
     player = game_instances[key]
+    pq_data = open(users_file_path, "rb")
+    pickle.dump(player, pq_data)
+    pq_data.close()
+    data_set = {'output': 'Progress Saved'}
+    json_dump = json.dumps(data_set)
     # output = player.loadgame()
     data_set = {'output': 'Game Loaded from Last Save',
                 'location': player.location.room_name}
