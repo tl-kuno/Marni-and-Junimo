@@ -12,9 +12,8 @@ class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, name, inventory=[], location=None):
-        self.name = name
-        self.ip = 0
+    def __init__(self, key, ip_address, inventory=[], location=None):
+        self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
@@ -23,7 +22,8 @@ class Character:
         self._save_light = False
         self.invited = []       # Holds names of invited animals
         self._save_invited = []
-
+        self.ip_address = ip_address
+        self._save_ip_address = None
         self.room_list = init_room_list_and_items()
         self._save_room_list = init_room_list_and_items()
 
@@ -36,10 +36,9 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
-    def newgame(self, ip_address):
+    def newgame(self):
         # this is where we do all of the things!!!
         self.inventory = []
-        self.ip = ip_address
         self.invited = []
         self.light = False
         self.helmet = False
@@ -419,15 +418,15 @@ class Character:
             return f"There is no {target_name} here to listen to."
         return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
-    # Handle endgame
-    def endgame(self):
-        num_items = len(self.inventory)
-        num_guests = len(self.invited)
-        msg = f"You make your way to the park, where all of your friends are there waiting for you.\n\
-                Congratulations! You've completed Picnic Quest!\nYou have brought {num_items} out of 5 \
-                picnic items.\nYou have invited {num_guests} out of 4 guests to the picnic. Well done!\n\
-                Type in newgame to start again",
-        return msg
+    def calc_inv(self):
+        # Returns the number of picnic items in player inventory
+        res = 0
+        needed = ['blueberries', 'mushrooms', 'dog treats', 'towel', 'umbrella']
+        for item in self.inventory:
+            print(item.name)
+            if item.name in needed:
+                res += 1
+        return res
 
 
 if __name__ == "__main__":
