@@ -134,13 +134,19 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
+    inventory_array = []
     room_array = []
+    for item in player.inventory:
+        item_data = json.dumps(item.__dict__)
+        inventory_array.append(item_data)
+        
     for room in player.room_list:
         room_data = json.dumps(room.__dict__)
         room_array.append(room_data)
+        
     player_save_data = {
         "helmet": player.helmet,
-        "inventory": player.inventory,
+        "inventory": inventory_array,
         "invited": player.invited,
         "ip_address": player.ip_address,
         "key": player.key,
