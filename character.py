@@ -1,19 +1,24 @@
-from room import Room
+# from room import Room
 from item import Item
-from feature import Feature
-from messages import messages
+# from feature import Feature
+# from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
 from verb import VerbClass, verb_dict
 from copy import deepcopy
+import json
+import os
 
 
 class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, name, inventory=[], location=None):
-        self.name = name
+    def __init__(self, key, ip_address, inventory=[], location=None):
+        # Initialize messages
+        self.messages = self.init_messages()
+
+        self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
@@ -22,7 +27,8 @@ class Character:
         self._save_light = False
         self.invited = []       # Holds names of invited animals
         self._save_invited = []
-
+        self.ip_address = ip_address
+        self._save_ip_address = None
         self.room_list = init_room_list_and_items()
         self._save_room_list = init_room_list_and_items()
 
@@ -35,6 +41,13 @@ class Character:
         return f"{self.name}\nLocation: {self.location}\n\
         Inventory: {[item.name for item in self.inventory]}"
 
+    def init_messages(self):
+        dir = os.path.dirname(__file__)
+        file_path = os.path.join(dir, "game_data/messages.json")
+        message_instance = open(file_path, "r+")
+        messages = json.load(message_instance)
+        return messages['messages'][0]
+
     def newgame(self):
         # this is where we do all of the things!!!
         self.inventory = []
@@ -45,7 +58,7 @@ class Character:
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
 
-        return messages['intro']
+        return self.messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
@@ -219,7 +232,7 @@ class Character:
             # Check for basement block
             if self.location.room_name == 'Living Room':
                 if not self.light:
-                    return messages['basement.block']
+                    return self.messages['basement.block']
             # move north
             if self.location.north() is not None:
                 self.location = room_list[self.location.north()]
@@ -228,7 +241,7 @@ class Character:
             # Check for bedroom block
             if self.location.room_name == 'Living Room':
                 if not self.helmet:
-                    return messages['bedroom.block']
+                    return self.messages['bedroom.block']
             # move east
             if self.location.east() is not None:
                 self.location = room_list[self.location.east()]
@@ -285,7 +298,7 @@ class Character:
                 msg += str(self.num_guests)
                 msg += " out of 4 guests to the picnic. Well done!\n"
                 return msg
-            return messages.get(target, 'Invalid selection.')
+            return self.messages.get(target, 'Invalid selection.')
         return "Invalid selection"
 
     def drop(self, item):
@@ -306,7 +319,7 @@ class Character:
         target = self.retrieve_object_from_game(target_name)
         if target is None:
             return f"There is no {target_name.name} here to eat."
-        return messages.get(f"{target.name}.eat", "You can't eat that, sorry.")
+        return self.messages.get(f"{target.name}.eat", "You can't eat that, sorry.")
 
     def read(self, target):
         # Error handling
@@ -314,7 +327,7 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to read."
-        return messages.get(f"{target.name}.read", "There is nothing here to read.")
+        return self.messages.get(f"{target.name}.read", "There is nothing here to read.")
 
     def nap(self, target):
         # Error handling
@@ -322,7 +335,7 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to nap on."
-        return messages.get(f"{target.name}.nap", "You can't nap here, unfortunately.")
+        return self.messages.get(f"{target.name}.nap", "You can't nap here, unfortunately.")
 
     def scratch(self, target):
         # Error handling
@@ -330,7 +343,7 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to scratch."
-        return messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
+        return self.messages.get(f"{target.name}.scratch", "You can't scratch that, unfortunately.")
 
     def use(self, target_name):  # noqa: C901
         # Error handling
@@ -340,27 +353,27 @@ class Character:
         # Using flashlight
         if target.name == "flashlight":
             self.light = True
-            return messages.get("flashlight.use")
+            return self.messages.get("flashlight.use")
         # Using helmet
         if target.name == "helmet":
             self.helmet = True
-            return messages.get("helmet.use")
+            return self.messages.get("helmet.use")
         # Using spoon
         if target.name == "wooden spoon":
             if self.location.room_name == 'Pantry':
                 self.inventory.append(Item("dog treats",
-                                           messages['dog_treats'],
+                                           self.messages['dog_treats'],
                                            True,
                                            True))
-                return messages.get('wooden spoon.use')
+                return self.messages.get('wooden spoon.use')
         # Using soap on raccoon
         if target.name == "soap":
             if self.location.room_name == "Alley":
-                self.inventory.append(Item("umbrella", messages['umbrella'], True, True))
-                return messages.get('soap.use')
+                self.inventory.append(Item("umbrella", self.messages['umbrella'], True, True))
+                return self.messages.get('soap.use')
         # Using letter
         if target.name == 'letter':
-            return messages.get('letter')
+            return self.messages.get('letter')
         # Invalid command
         return f"There is no {target.name} here to use."
 
@@ -374,22 +387,22 @@ class Character:
         # Invite the mouse
         if target.name == 'mouse' and self.location.room_name == 'Basement':
             self.invited.append('mouse')
-            return messages.get('mouse.invite')
+            return self.messages.get('mouse.invite')
 
         # Invite the ants
         if target.name == 'ants' and self.location.room_name == 'Kitchen':
             self.invited.append('ants')
-            return messages.get('ants.invite')
+            return self.messages.get('ants.invite')
 
         # Invite the raccoon
         if target.name == 'raccoon' and self.location.room_name == 'Alley':
             self.invited.append('raccoon')
-            return messages.get('raccoon.invite')
+            return self.messages.get('raccoon.invite')
 
         # Invite the birds
         if target.name == 'birds' and self.location.room_name == 'Roof':
             self.invited.append('birds')
-            return messages.get('birds.invite')
+            return self.messages.get('birds.invite')
 
         # Invalid
         return f"There is no {target.name} here to invite."
@@ -400,7 +413,7 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to talk to."
-        return messages.get(f"{target.name}.talk", "You can't talk to that, unfortunately.")
+        return self.messages.get(f"{target.name}.talk", "You can't talk to that, unfortunately.")
 
     def wear(self, target):
         # Error handling
@@ -410,7 +423,7 @@ class Character:
                     return f"There is no {target.name} here to wear."
         if target.name == 'football helmet':
             self.helmet = True
-        return messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
+        return self.messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
 
     def listen(self, target):
         # Error handling
@@ -418,7 +431,7 @@ class Character:
             if target not in self.location.object_list:
                 if target not in self.location.feature_list:
                     return f"There is no {target.name} here to listen to."
-        return messages.get(f"{target.name}.listen", "Nothing to listen to here.")
+        return self.messages.get(f"{target.name}.listen", "Nothing to listen to here.")
 
     def calc_inv(self):
         # Returns the number of picnic items in player inventory
@@ -431,36 +444,36 @@ class Character:
         return res
 
 
-if __name__ == "__main__":
-    jacket = Item('Jacket', "A Jacket", True, True)
-    backpack = Item("Backpack", "a backpack", True, True)
-    mouse = Feature('mouse', 'hes a mouse')
-    zoo = Room(
-        9,
-        "Basement",
-        messages["park.long"],
-        messages["park.short"],
-        object_list=[jacket, backpack],
-        feature_list=[mouse],
-        directions=[None, None, None, 6])
-    home = Room(
-        1,
-        "home",
-        messages["park.long"],
-        messages["park.short"],
-        [],
-        [],
-        [None, None, None, 6])
-    hank = Character("Hank", [], zoo)
-    print(hank)
-    hank.show_inventory()
-    # hank.set_location(home)
-    hank.take(jacket)
-    hank.take(backpack)
-    hank.show_inventory()
-    hank.show_guests()
-    hank.invite(mouse)
-    hank.show_guests()
-    print(hank)
-    # hank.load()
-    # hank.endgame()
+# if __name__ == "__main__":
+    # jacket = Item('Jacket', "A Jacket", True, True)
+    # backpack = Item("Backpack", "a backpack", True, True)
+    # mouse = Feature('mouse', 'hes a mouse')
+    # zoo = Room(
+    #     9,
+    #     "Basement",
+    #     self.messages["park.long"],
+    #     self.messages["park.short"],
+    #     object_list=[jacket, backpack],
+    #     feature_list=[mouse],
+    #     directions=[None, None, None, 6])
+    # home = Room(
+    #     1,
+    #     "home",
+    #     self.messages["park.long"],
+    #     self.messages["park.short"],
+    #     [],
+    #     [],
+    #     [None, None, None, 6])
+    # hank = Character("Hank", [], zoo)
+    # print(hank)
+    # hank.show_inventory()
+    # # hank.set_location(home)
+    # hank.take(jacket)
+    # hank.take(backpack)
+    # hank.show_inventory()
+    # hank.show_guests()
+    # hank.invite(mouse)
+    # hank.show_guests()
+    # print(hank)
+    # # hank.load()
+    # # hank.endgame()
