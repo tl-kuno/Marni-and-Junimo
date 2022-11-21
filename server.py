@@ -20,7 +20,7 @@ def create_load_name_array(ip_address):
     # load the saved data
     my_dir = os.path.dirname(__file__)
     users_file_path = os.path.join(my_dir, "game_data/users.p")
-    pq_pickle = open(users_file_path, "wb")
+    pq_pickle = open(users_file_path, "rb")
     game_data = pickle.load(pq_pickle)
     saved_games = game_data["saved_games"]
     pq_pickle.close()
