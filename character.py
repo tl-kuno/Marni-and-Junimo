@@ -39,7 +39,7 @@ class Character:
         self.location = self.room_list[0]    # Object of current location
         self._save_location_id = 0
 
-        self.savegame()
+        # self.savegame()
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
