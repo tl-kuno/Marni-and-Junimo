@@ -119,7 +119,6 @@ def handle_quit_game():
     return json_dump
 
 
-
 # TODO what information (if any) do you need from me to be able to save
 # TODO I will have to look into having the user save a "name"
 @app.route('/save', methods=["GET"])

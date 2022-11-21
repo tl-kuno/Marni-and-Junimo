@@ -1,6 +1,6 @@
-from room import Room
+# from room import Room
 from item import Item
-from feature import Feature
+# from feature import Feature
 # from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
@@ -36,8 +36,6 @@ class Character:
         self._save_location_id = 0
 
         self.savegame()
-
-
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\

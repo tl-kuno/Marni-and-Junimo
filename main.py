@@ -17,7 +17,7 @@ def main():
     # for room in room_list:
     #     print(room.long_description)
     # print(inventory)
-    player = Character("Player 1",1)
+    player = Character("Player 1", 1)
     while True:
         response = input("Enter instructions: ").lower()
         if "quit" in response:
