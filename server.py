@@ -1,5 +1,6 @@
-import json
+import pickle
 import os
+import json
 from flask import Flask
 from flask import request
 from flask_cors import CORS
@@ -12,9 +13,9 @@ CORS(app)
 
 
 my_dir = os.path.dirname(__file__)
-file_path = os.path.join(my_dir, "game_data/users.json")
+file_path = os.path.join(my_dir, "game_data/users.p")
 source_data = open(file_path, "r+")
-pq_data = json.load(source_data)
+pq_data = pickle.load(source_data)
 users = pq_data["saved_games"]
 game_instances = {}
 
@@ -43,7 +44,7 @@ def handle_start():
     # ip_address = request.args.get('ip_address')
     # load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
-    json_dump = json.dumps(data_set)
+    json_dump = pickle.dump(data_set)
     return json_dump
 
 
@@ -134,27 +135,27 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
-    inventory_array = []
-    room_array = []
-    for item in player.inventory:
-        item_data = json.dumps(item.__dict__)
-        inventory_array.append(item_data)
+    # inventory_array = []
+    # room_array = []
+    # for item in player.inventory:
+    #     item_data = pickle.dump(item.__dict__)
+    #     inventory_array.append(item_data)
 
-    for room in player.room_list:
-        room_data = json.dumps(room.__dict__)
-        room_array.append(room_data)
+    # for room in player.room_list:
+    #     room_data = pickle.dumps(room.__dict__)
+    #     room_array.append(room_data)
 
     player_save_data = {
         "helmet": player.helmet,
-        "inventory": inventory_array,
+        "inventory": player.inventory,
         "invited": player.invited,
         "ip_address": player.ip_address,
         "key": player.key,
         "light": player.light,
         "location": player.location,
-        "room_list": room_array,
+        "room_list": player.room_list,
     }
-    pq_data.update(json.dumps(player_save_data))
+    pq_data.update(pickle.dumps(player_save_data))
 
     # output = player.savegame()
     # data_set = {'output': 'Game Progress Saved'}

@@ -16,10 +16,10 @@ class Room:
         self.feature_list = feature_list
         self.visited = False        # Show full description only on first visit
         self.direction_dict = {
-            "north": 0,
-            "east": 1,
-            "south": 2,
-            "west": 3
+            "north": Direction.NORTH,
+            "east": Direction.EAST,
+            "south": Direction.SOUTH,
+            "west": Direction.WEST
         }
         self.direction_dict.update(custom_exits)
 
