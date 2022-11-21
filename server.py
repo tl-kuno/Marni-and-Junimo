@@ -60,8 +60,8 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
-    player = Character("Marni", ip_address)
     key = request.args.get('key')
+    player = Character(key, ip_address)
     game_instances[key] = player
     intro = (game_instances[key]).newgame()
     data_set = {'output': intro,
