@@ -1,5 +1,4 @@
 import pickle
-import pprint
 import os
 import json
 from flask import Flask
@@ -13,18 +12,26 @@ app = Flask(__name__)
 CORS(app)
 
 
-my_dir = os.path.dirname(__file__)
-users_file_path = os.path.join(my_dir, "game_data/users.p")
 game_instances = {}
 
 
 # needs to be refactored to match whatever format the dump creates
-# def create_load_name_array(ip_address, users):
-#     load_games = []
-#     for user in users:
-#         if user["ip_address"] == ip_address:
-#             load_games.append(user["name"])
-#     return load_games
+def create_load_name_array(ip_address, users):
+    # load the saved data
+    my_dir = os.path.dirname(__file__)
+    users_file_path = os.path.join(my_dir, "game_data/users.p")
+    pq_pickle = open(users_file_path, "wb")
+    game_data = pickle.load(pq_pickle)
+    saved_games = game_data["saved_games"]
+    pq_pickle.close()
+
+    # create and return a list of the game keys associated
+    # with the current user's IP address
+    load_games = []
+    for save in saved_games:
+        if save["ip_address"] == ip_address:
+            load_games.append(save["name"])
+    return load_games
 
 
 @app.route('/start', methods=["GET"])
@@ -35,9 +42,8 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    load_games = ["Place", "Holder", "Text"]
-    # ip_address = request.args.get('ip_address')
-    # load_games = create_load_name_array(ip_address)
+    ip_address = request.args.get('ip_address')
+    load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump

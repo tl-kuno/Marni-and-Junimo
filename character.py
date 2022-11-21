@@ -13,7 +13,6 @@ my_dir = os.path.dirname(__file__)
 users_file_path = os.path.join(my_dir, "game_data/users.p")
 
 
-
 class Character:
     """
     Character class for Picnic Quest
@@ -156,9 +155,11 @@ class Character:
         print(self.room_list[self._save_location_id])
 
         pq_data = open(users_file_path, "wb")
-        pickle.dump(self, pq_data)
+        game_data = pickle.load(pq_data)
+        json_dict_member = {self.key: self}
+        pickle.dump(json_dict_member, pq_data)
         pq_data.close()
-        
+
         return "Saved your game!"
 
     def loadgame(self):
