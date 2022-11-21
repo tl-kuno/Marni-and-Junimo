@@ -130,8 +130,8 @@ def handle_save():
     key = request.args.get('key')
     player = game_instances[key]
     pq_data = open(users_file_path, "r+")
-    pickle.dumps(player, pq_data)
-
+    player_pickle = pickle.dumps(player)
+    pq_data.write(player_pickle)
     # inventory_array = []
     # room_array = []
     # for item in player.inventory:
