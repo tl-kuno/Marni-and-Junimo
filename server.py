@@ -132,6 +132,9 @@ def handle_save():
     pq_data = open(users_file_path, "wb")
     player_pickle = pickle.dumps(player)
     pq_data.write(player_pickle)
+    data_set = {'output': 'Progress Saved'}
+    json_dump = json.dumps(data_set)
+    return json_dump
     # inventory_array = []
     # room_array = []
     # for item in player.inventory:
