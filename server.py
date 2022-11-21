@@ -183,11 +183,12 @@ def handle_load():
     pq_data = open(users_file_path, "rb")
     player = pickle.load(pq_data)
     pq_data.close()
-
+    
     # output = player.loadgame()
-    #data_set = {'output': 'Game Loaded from Last Save',
-    #            'location': "PlaceHolder"}
-    json_dump = json.dumps(player)
+    data_set = {'output': 'Game Loaded from Last Save',
+                'location': player.location,
+                'history': player.history}
+    json_dump = json.dumps(data_set)
     return json_dump
 
 
