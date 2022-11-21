@@ -186,7 +186,7 @@ def handle_load():
 
     # output = player.loadgame()
     data_set = {'output': 'Game Loaded from Last Save',
-                'location': player.location,
+                'location': player.location.room_name,
                 'key': player.key}
     json_dump = json.dumps(data_set)
     return json_dump
