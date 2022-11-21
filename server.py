@@ -39,8 +39,9 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    ip_address = request.args.get('ip_address')
-    load_games = create_load_name_array(ip_address)
+    load_games = ["Place", "Holder", "Text"]
+    # ip_address = request.args.get('ip_address')
+    # load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -60,8 +61,8 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
-    player = Character("Marni", ip_address)
     key = request.args.get('key')
+    player = Character(key, ip_address)
     game_instances[key] = player
     intro = (game_instances[key]).newgame()
     data_set = {'output': intro,
