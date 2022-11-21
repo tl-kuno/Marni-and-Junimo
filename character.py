@@ -62,7 +62,7 @@ class Character:
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
 
-        # Send save to game_data/users.p
+        # Send save to game_data
         pq_data = open(users_file_path, "wb")
         pickle.dump(self, pq_data)
         pq_data.close()
@@ -155,6 +155,10 @@ class Character:
         print(self._save_location_id)
         print(self.room_list[self._save_location_id])
 
+        pq_data = open(users_file_path, "wb")
+        pickle.dump(self, pq_data)
+        pq_data.close()
+        
         return "Saved your game!"
 
     def loadgame(self):
