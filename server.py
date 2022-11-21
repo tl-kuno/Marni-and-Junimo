@@ -41,7 +41,7 @@ def handle_start():
     # load_games = create_load_name_array(ip_address, users)
     load_games = ["Place", "holder", "text"]
     data_set = {'output': messages["welcome"], "loadGames": load_games}
-    json_dump = json.dump(data_set)
+    json_dump = json.dumps(data_set)
     return json_dump
 
 
