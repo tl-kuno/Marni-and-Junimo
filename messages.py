@@ -91,7 +91,7 @@ messages = {
         "You stand in the brightly lit kitchen. The white tile floor glistens "
         "brightly, and rumbling sound of the humming refrigerator fills the "
         "room. The humans must have been clumsy earlier, because a thick "
-        "wooden ladle has rolled under a chair in the center of the room. "
+        "wooden spoon has rolled under a chair in the center of the room. "
         "Nearby you can see a few ants gathered suspiciously together. "
         "On the sleek marble countertops, you can see the corner of a "
         "plastic container of scrumptious, freshly picked blueberries! "
