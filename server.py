@@ -44,7 +44,7 @@ def handle_start():
     # ip_address = request.args.get('ip_address')
     # load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
-    json_dump = pickle.dump(data_set)
+    json_dump = json.dump(data_set)
     return json_dump
 
 
