@@ -16,7 +16,7 @@ game_instances = {}
 
 
 # needs to be refactored to match whatever format the dump creates
-def create_load_name_array(ip_address, users):
+def create_load_name_array(ip_address):
     # load the saved data
     my_dir = os.path.dirname(__file__)
     users_file_path = os.path.join(my_dir, "game_data/users.p")
