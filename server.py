@@ -13,23 +13,17 @@ CORS(app)
 
 
 my_dir = os.path.dirname(__file__)
-file_path = os.path.join(my_dir, "game_data/users.p")
-source_data = open(file_path, "rb")
-pq_data = pickle.loads(source_data)
-users = pq_data["saved_games"]
+users_file_path = os.path.join(my_dir, "game_data/users.p")
 game_instances = {}
 
 
-def create_load_name_array(ip_address):
-    load_games = []
-    print(users)
-    for user in users:
-        print(user)
-        print(user["ip_address"])
-        print(ip_address)
-        if user["ip_address"] == ip_address:
-            load_games.append(user["name"])
-    return load_games
+# needs to be refactored to match whatever format the dump creates
+# def create_load_name_array(ip_address, users):
+#     load_games = []
+#     for user in users:
+#         if user["ip_address"] == ip_address:
+#             load_games.append(user["name"])
+#     return load_games
 
 
 @app.route('/start', methods=["GET"])
@@ -135,6 +129,9 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
+    pq_data = open(users_file_path, "r+")
+    pickle.dumps(player, pq_data)
+
     # inventory_array = []
     # room_array = []
     # for item in player.inventory:
@@ -145,17 +142,16 @@ def handle_save():
     #     room_data = pickle.dumps(room.__dict__)
     #     room_array.append(room_data)
 
-    player_save_data = {
-        "helmet": player.helmet,
-        "inventory": player.inventory,
-        "invited": player.invited,
-        "ip_address": player.ip_address,
-        "key": player.key,
-        "light": player.light,
-        "location": player.location,
-        "room_list": player.room_list,
-    }
-    pq_data.update(pickle.dumps(player_save_data))
+    # player_save_data = {
+    #     "helmet": player.helmet,
+    #     "inventory": player.inventory,
+    #     "invited": player.invited,
+    #     "ip_address": player.ip_address,
+    #     "key": player.key,
+    #     "light": player.light,
+    #     "location": player.location,
+    #     "room_list": player.room_list,
+    # }
 
     # output = player.savegame()
     # data_set = {'output': 'Game Progress Saved'}
