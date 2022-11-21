@@ -182,7 +182,7 @@ def handle_load():
     pq_data.close()
     # output = player.loadgame()
     data_set = {'output': 'Game Loaded from Last Save',
-                'location': player.location.room_name}
+                'location': "PlaceHolder"}
     json_dump = json.dumps(data_set)
     return json_dump
 
