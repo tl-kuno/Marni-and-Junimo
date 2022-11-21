@@ -15,7 +15,7 @@ CORS(app)
 my_dir = os.path.dirname(__file__)
 file_path = os.path.join(my_dir, "game_data/users.p")
 source_data = open(file_path, "r+")
-pq_data = pickle.load(source_data)
+pq_data = pickle.loads(source_data)
 users = pq_data["saved_games"]
 game_instances = {}
 
