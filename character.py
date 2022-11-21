@@ -6,8 +6,12 @@ from nav import Direction
 from roomlist import init_room_list_and_items
 from verb import VerbClass, verb_dict
 from copy import deepcopy
-import json
 import os
+import pickle
+
+my_dir = os.path.dirname(__file__)
+users_file_path = os.path.join(my_dir, "game_data/users.p")
+
 
 
 class Character:
@@ -58,7 +62,11 @@ class Character:
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
 
-        return self.messages['intro']
+        # Send save to game_data/users.p
+        pq_data = open(users_file_path, "wb")
+        pickle.dump(self, pq_data)
+        pq_data.close()
+        return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()

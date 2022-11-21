@@ -130,11 +130,9 @@ def handle_save():
     """
     key = request.args.get('key')
     player = game_instances[key]
-    pq_data = open(users_file_path, "wb")
-    pickle.dump(player, pq_data)
-    pq_data.close()
-    data_set = {'output': 'Progress Saved'}
-    json_dump = json.dumps(data_set)
+    save_message = player.savegame()
+    data_set = {'output': save_message}
+    json_dump = json.dumps({data_set})
     return json_dump
     # inventory_array = []
     # room_array = []
