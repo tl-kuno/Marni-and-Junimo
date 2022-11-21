@@ -1,4 +1,5 @@
 import pickle
+import pprint
 import os
 import json
 from flask import Flask
@@ -178,12 +179,12 @@ def handle_load():
     # player = game_instances[key]
     pq_data = open(users_file_path, "rb")
     player = pickle.load(pq_data)
-    print(player)
     pq_data.close()
+
     # output = player.loadgame()
-    data_set = {'output': 'Game Loaded from Last Save',
-                'location': "PlaceHolder"}
-    json_dump = json.dumps(data_set)
+    #data_set = {'output': 'Game Loaded from Last Save',
+    #            'location': "PlaceHolder"}
+    json_dump = json.dumps(player)
     return json_dump
 
 
