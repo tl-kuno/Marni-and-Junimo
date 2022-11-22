@@ -155,9 +155,13 @@ class Character:
         print(self._save_location_id)
         print(self.room_list[self._save_location_id])
 
-        pq_data = open(users_file_path, "wb")
-        game_data = pickle.load(pq_data)
+        pq_data = open(users_file_path, "rb")
+        cur_game_data = pickle.load(pq_data)
+        pq_data.close()
+        cur_saved_games = cur_game_data["saved_games"]
         json_dict_member = {self.key: self}
+        cur_saved_games.append(json_dict_member)
+        pq_data = open(users_file_path, "wb")
         pickle.dump(json_dict_member, pq_data)
         pq_data.close()
 
