@@ -1,4 +1,5 @@
 import pickle
+import pprint
 import os
 import json
 from flask import Flask
@@ -12,26 +13,18 @@ app = Flask(__name__)
 CORS(app)
 
 
+my_dir = os.path.dirname(__file__)
+users_file_path = os.path.join(my_dir, "game_data/users.p")
 game_instances = {}
 
 
 # needs to be refactored to match whatever format the dump creates
-def create_load_name_array(ip_address):
-    # load the saved data
-    my_dir = os.path.dirname(__file__)
-    users_file_path = os.path.join(my_dir, "game_data/users.p")
-    pq_pickle = open(users_file_path, "rb")
-    game_data = pickle.load(pq_pickle)
-    saved_games = game_data["saved_games"]
-    pq_pickle.close()
-
-    # create and return a list of the game keys associated
-    # with the current user's IP address
-    load_games = []
-    for save in saved_games:
-        if save["ip_address"] == ip_address:
-            load_games.append(save["name"])
-    return load_games
+# def create_load_name_array(ip_address, users):
+#     load_games = []
+#     for user in users:
+#         if user["ip_address"] == ip_address:
+#             load_games.append(user["name"])
+#     return load_games
 
 
 @app.route('/start', methods=["GET"])
@@ -42,8 +35,12 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    ip_address = request.args.get('ip_address')
-    load_games = create_load_name_array(ip_address)
+    # ip_address = request.args.get('ip_address')
+    # source_data = open(users_file_path, "rb")
+    # pq_data = pickle.loads(source_data)
+    # users = pq_data["saved_games"]
+    # load_games = create_load_name_array(ip_address, users)
+    load_games = ["Place", "holder", "text"]
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -63,8 +60,8 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
+    player = Character("Marni", ip_address)
     key = request.args.get('key')
-    player = Character(key, ip_address)
     game_instances[key] = player
     intro = (game_instances[key]).newgame()
     data_set = {'output': intro,
@@ -138,7 +135,7 @@ def handle_save():
     player = game_instances[key]
     save_message = player.savegame()
     data_set = {'output': save_message}
-    json_dump = json.dumps(data_set)
+    json_dump = json.dumps({data_set})
     return json_dump
     # inventory_array = []
     # room_array = []

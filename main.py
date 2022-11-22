@@ -1,6 +1,5 @@
 # from room import Room
 # from item import Item
-import pickle
 from character import Character
 # from messages import messages
 # from feature import Feature
@@ -18,7 +17,7 @@ def main():
     # for room in room_list:
     #     print(room.long_description)
     # print(inventory)
-    player = Character("Player 1", 1)
+    player = Character("Player 1")
     while True:
         response = input("Enter instructions: ").lower()
         if "quit" in response:
@@ -33,10 +32,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # This is Taylor's I will git rid of it when I am ready
-    # users_file_base = {
-    #     "saved_games": [],
-    # }
-    # save_file = open("C:/dev/marni-and-junimo/Marni-and-Junimo/game_data/users.p", "wb")
-    # pickle.dump(users_file_base, save_file)
-    # save_file.close()
