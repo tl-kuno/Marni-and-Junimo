@@ -34,12 +34,8 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    # ip_address = request.args.get('ip_address')
-    # source_data = open(users_file_path, "rb")
-    # pq_data = pickle.loads(source_data)
-    # users = pq_data["saved_games"]
-    # load_games = create_load_name_array(ip_address, users)
-    load_games = ["Place", "holder", "text"]
+    ip_address = request.args.get('ip_address')
+    load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
