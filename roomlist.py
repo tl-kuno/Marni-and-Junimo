@@ -15,7 +15,7 @@ def init_room_list_and_items():
     # # Feature List: Sofa, TV
     # # Direction: [N: Basement, E: Bedroom , S: Porch, W: Kitchen]
     # # Custom Exit: smelly staircase
-    p_lr = open("/home/tlkuno/Picnic-Quest/rooms/living_room.p", "rb")
+    p_lr = open("/home/tlkuno/Picnic-Quest/rooms/living_room.pickle", "rb")
     unpickled_living_room = pickle.load(p_lr)
     p_lr.close()
 
@@ -24,7 +24,7 @@ def init_room_list_and_items():
     # # Object List: Mushrooms
     # # Feature List: Mouse, Suitcase
     # # Direction: [N: None, E: None , S: Living Room, W: None]
-    p_base = open("/home/tlkuno/Picnic-Quest/rooms/basement.p", "rb")
+    p_base = open("/home/tlkuno/Picnic-Quest/rooms/basement.pickle", "rb")
     unpickled_basement = pickle.load(p_base)
     p_base.close()
 
@@ -33,7 +33,7 @@ def init_room_list_and_items():
     # # Object List: Wooden Spoon, Blueberries
     # # Feature List: Refrigerator, Ants
     # # Direction: [N: Pantry, E: Living Room, S: None, W: None]
-    p_kit = open("/home/tlkuno/Picnic-Quest/rooms/kitchen.p", "rb")
+    p_kit = open("/home/tlkuno/Picnic-Quest/rooms/kitchen.pickle", "rb")
     unpicked_kitchen = pickle.load(p_kit)
     p_kit.close()
 
@@ -42,7 +42,7 @@ def init_room_list_and_items():
     # # Object List: Dog Treats
     # # Feature List: Shelves, Cleaning Supplies
     # # Direction: [N: None, E: None, S: Kitchen, W: None]
-    p_pan = open("/home/tlkuno/Picnic-Quest/rooms/pantry.p", "rb")
+    p_pan = open("/home/tlkuno/Picnic-Quest/rooms/pantry.pickle", "rb")
     unpicked_pantry = pickle.load(p_pan)
     p_pan.close()
 
@@ -51,7 +51,7 @@ def init_room_list_and_items():
     # # Object List: None
     # # Feature List: Blanket, Window
     # # Direction: [N: Bathroom, E: None, S: None, W: Living Room]
-    p_bed = open("/home/tlkuno/Picnic-Quest/rooms/bedroom.p", "rb")
+    p_bed = open("/home/tlkuno/Picnic-Quest/rooms/bedroom.pickle", "rb")
     unpickled_bedroom = pickle.load(p_bed)
     p_bed.close()
 
@@ -60,7 +60,7 @@ def init_room_list_and_items():
     # # Object List: Towel, Soap
     # # Feature List: Sink, Bathtub
     # # Direction: [N: None, E: None, S: Bedroom, W: None]
-    p_bath = open("/home/tlkuno/Picnic-Quest/rooms/bathroom.p", "rb")
+    p_bath = open("/home/tlkuno/Picnic-Quest/rooms/bathroom.pickle", "rb")
     unpickled_bathroom = pickle.load(p_bath)
     p_bath.close()
 
@@ -69,7 +69,7 @@ def init_room_list_and_items():
     # # Object List: None
     # # Feature List: Rocking Chair, Dirt pile
     # # Direction: [N: Living Room, E: Park, S: Roof, W: Alley]
-    p_por = open("/home/tlkuno/Picnic-Quest/rooms/porch.p", "rb")
+    p_por = open("/home/tlkuno/Picnic-Quest/rooms/porch.pickle", "rb")
     unpickled_porch = pickle.load(p_por)
     p_por.close()
 
@@ -78,7 +78,7 @@ def init_room_list_and_items():
     # # Object List: Umbrella, Football Helmet
     # # Feature List: Raccoon, Guitar
     # # Direction: [N: None, E: Porch, S: None, W: None]
-    p_all = open("/home/tlkuno/Picnic-Quest/rooms/alley.p", "rb")
+    p_all = open("/home/tlkuno/Picnic-Quest/rooms/alley.pickle", "rb")
     unpickled_alley = pickle.load(p_all)
     p_all.close()
 
@@ -87,7 +87,7 @@ def init_room_list_and_items():
     # # Object List: None
     # # Feature List: Birds, neighborhood
     # # Direction: [N: Porch, E: None, S: None, W: None]
-    p_roof = open("/home/tlkuno/Picnic-Quest/rooms/roof.p", "rb")
+    p_roof = open("/home/tlkuno/Picnic-Quest/rooms/roof.pickle", "rb")
     unpickled_roof = pickle.load(p_roof)
     p_roof.close()
 
@@ -97,7 +97,7 @@ def init_room_list_and_items():
     # # Feature List: Table, Friends
     # # Direction: [N: None, E: None, S: None, W: Porch]
     # # TODO: implement a final game state, based on items acquired
-    p_park = open("/home/tlkuno/Picnic-Quest/rooms/park.p", "rb")
+    p_park = open("/home/tlkuno/Picnic-Quest/rooms/park.pickle", "rb")
     unpickled_park = pickle.load(p_park)
     p_park.close()
 
