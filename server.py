@@ -21,7 +21,7 @@ def create_load_name_array(ip_address):
     load_games = []
     for filename in os.listdir(users_dir):
         split_file_ext = filename.split("-")
-        identifiers = split_file_ext.split("-")
+        identifiers = split_file_ext[0].split("-")
         print(identifiers)
         if identifiers[1] == ip_address:
             load_games.append[identifiers[0]]
