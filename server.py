@@ -108,7 +108,7 @@ def handle_save():
     player = game_instances[identifier]
     save_message = player.savegame()
     data_set = {'output': save_message}
-    json_dump = json.dumps({data_set})
+    json_dump = json.dumps(data_set)
     return json_dump
 
 
