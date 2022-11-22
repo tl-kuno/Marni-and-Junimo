@@ -377,7 +377,7 @@ class Character:
         # Invalid command
         return f"There is no {target.name} here to use."
 
-    def invite(self, target):
+    def invite(self, target):       # noqa: C901
         # Error handling
         if target not in self.inventory:
             if target not in self.location.object_list:
