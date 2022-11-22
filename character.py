@@ -155,14 +155,18 @@ class Character:
         print(self._save_location_id)
         print(self.room_list[self._save_location_id])
 
+        # Structure of pickle file
+        # {
+        #    "saved_games": [list of char class instances]
+        # }
         pq_data = open(users_file_path, "rb")
         cur_game_data = pickle.load(pq_data)
         pq_data.close()
         cur_saved_games = cur_game_data["saved_games"]
-        json_dict_member = {self.key: self}
-        cur_saved_games.append(json_dict_member)
+        cur_saved_games.append(self)
+        new_pickle = {"saved_games": cur_saved_games}
         pq_data = open(users_file_path, "wb")
-        pickle.dump(json_dict_member, pq_data)
+        pickle.dump(new_pickle, pq_data)
         pq_data.close()
 
         return "Saved your game!"
