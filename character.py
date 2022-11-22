@@ -79,7 +79,7 @@ class Character:
                 noun = input_components[2].strip()
                 verb = 'pick up'
         # For one word verb commands
-        elif len(input_components) > 1 and verb != 'look at':
+        elif len(input_components) > 1 and verb != 'look at' and verb != 'nap on':
             noun = command.split(maxsplit=1)[1].strip()
 
         # determine our verb class
