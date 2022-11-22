@@ -55,15 +55,15 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
-    key = request.args.get('key')
-    identifier = key + "-" + ip_address
-    player = Character(key, ip_address)
+    userName = request.args.get('userName')
+    identifier = userName + "-" + ip_address
+    player = Character(userName, ip_address)
     game_instances[identifier] = player
-    intro = (game_instances[key]).newgame()
+    intro = (game_instances[identifier]).newgame()
     data_set = {'output': intro,
-                'location': game_instances[key].location.room_name,
-                'key': key,
-                'ip_address': ip_address
+                'location': game_instances[userName].location.room_name,
+                'ip_address': ip_address,
+                'identifier': identifier,
                 }
     json_dump = json.dumps(data_set)
     return json_dump
@@ -124,10 +124,7 @@ def handle_load():
     Returns:
         output: Junimo's response to the end of game
     """
-
-    key = request.args.get('key')
-    ip_address = request.args.get('ip_address')
-    identifier = key + "-" + ip_address
+    identifier = request.args.get('identifier')
     full_path = users_dir + "/" + identifier + ".pickle"
     try:
         player_pickle = open(full_path, "rb")
@@ -142,6 +139,7 @@ def handle_load():
     game_instances[identifier] = player
     data_set = {'output': 'Game Loaded from Last Save',
                 'is_loaded': True,
+                'identifier': player.identifier,
                 'location': player.location.room_name,
                 'key': player.key}
     json_dump = json.dumps(data_set)
@@ -152,7 +150,7 @@ def handle_load():
 # TODO, I will be attempting to call this function on window close as well
 # have to think about if a game has been saved and how to handle this
 @app.route('/quit', methods=["GET"])
-def handle_quit_game():
+def handle_quit():
     """
     Summary:
         When a user quits (clicking the button, closing the browser)
