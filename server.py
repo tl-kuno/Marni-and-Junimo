@@ -20,8 +20,8 @@ game_instances = {}
 def create_load_name_array(ip_address):
     load_games = []
     for filename in os.listdir(users_dir):
-        print(filename)
-        identifiers = filename.split("-")
+        split_file_ext = filename.split("-")
+        identifiers = split_file_ext.split("-")
         print(identifiers)
         if identifiers[1] == ip_address:
             load_games.append[identifiers[0]]
