@@ -9,9 +9,8 @@ from copy import deepcopy
 import os
 import pickle
 
-my_dir = os.path.dirname(__file__)
-users_file_path = os.path.join(my_dir, "game_data/users.p")
-
+home_dir = os.path.dirname(__file__)
+users_dir = os.path.join(home_dir, "game_data/users")
 
 
 class Character:
@@ -51,11 +50,6 @@ class Character:
 
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
-
-        # Send save to game_data/users.p
-        pq_data = open(users_file_path, "wb")
-        pickle.dump(self, pq_data)
-        pq_data.close()
         return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
@@ -134,28 +128,37 @@ class Character:
         return "verb [{}] not yet supported...".format(verb)
 
     def savegame(self):
-        # Saves current character stats to private values
-        self._save_inventory = self.inventory[:]
-        self._save_invited = self.invited[:]
-        self._save_helmet = self.helmet
-        self._save_light = self.light
+        filename = self.key + "-" + self.ip_address + ".pickle"
+        full_path = users_dir + "/" + filename
+        pq_data = open(full_path, "wb")
+        pickle.dump(self, pq_data)
+        pq_data.close()
 
-        self._save_room_list = deepcopy(self.room_list)
-        self._save_location_id = self.room_list.index(self.location)
-        print(self._save_location_id)
-        print(self.room_list[self._save_location_id])
+        # # Saves current character stats to private values
+        # self._save_inventory = self.inventory[:]
+        # self._save_invited = self.invited[:]
+        # self._save_helmet = self.helmet
+        # self._save_light = self.light
+
+        # self._save_room_list = deepcopy(self.room_list)
+        # self._save_location_id = self.room_list.index(self.location)
+        # print(self._save_location_id)
+        # print(self.room_list[self._save_location_id])
 
         return "Saved your game!"
 
-    def loadgame(self):
-        # swaps current stats with saved stats
-        self.inventory = self._save_inventory[:]
-        self.helmet = self._save_helmet
-        self.light = self._save_light
-        self.invited = self._save_invited[:]
-        # Flip this?
-        self.room_list = deepcopy(self._save_room_list)
-        self.location = self.room_list[self._save_location_id]
+    def loadgame(self, key):
+        
+
+
+        # # swaps current stats with saved stats
+        # self.inventory = self._save_inventory[:]
+        # self.helmet = self._save_helmet
+        # self.light = self._save_light
+        # self.invited = self._save_invited[:]
+        # # Flip this?
+        # self.room_list = deepcopy(self._save_room_list)
+        # self.location = self.room_list[self._save_location_id]
 
         return "Loaded your game!"
 

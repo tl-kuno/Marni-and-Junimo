@@ -1,5 +1,4 @@
 import pickle
-import pprint
 import os
 import json
 from flask import Flask
@@ -13,18 +12,18 @@ app = Flask(__name__)
 CORS(app)
 
 
-my_dir = os.path.dirname(__file__)
-users_file_path = os.path.join(my_dir, "game_data/users.p")
+home_dir = os.path.dirname(__file__)
+users_dir = os.path.join(home_dir, "game_data/users")
 game_instances = {}
 
 
-# needs to be refactored to match whatever format the dump creates
-# def create_load_name_array(ip_address, users):
-#     load_games = []
-#     for user in users:
-#         if user["ip_address"] == ip_address:
-#             load_games.append(user["name"])
-#     return load_games
+def create_load_name_array(ip_address):
+    load_games = []
+    for filename in os.listdir(users_dir):
+        identifiers = filename.split("-")
+        if identifiers[1] == ip_address:
+            load_games.append[identifiers[0]]
+    return load_games
 
 
 @app.route('/start', methods=["GET"])
@@ -60,9 +59,10 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
-    player = Character("Marni", ip_address)
     key = request.args.get('key')
-    game_instances[key] = player
+    identifier = key + "-" + ip_address
+    player = Character(key, ip_address)
+    game_instances[identifier] = player
     intro = (game_instances[key]).newgame()
     data_set = {'output': intro,
                 'location': game_instances[key].location.room_name,
@@ -98,6 +98,60 @@ def handle_interaction():
     return json_dump
 
 
+@app.route('/save', methods=["GET"])
+def handle_save():
+    """
+    Summary:
+        When a user saves via the button
+    Params:
+        key: the dictionary key of the user's character class
+    Returns:
+        output: Junimo's response to the end of game
+    """
+    key = request.args.get('key')
+    player = game_instances[key]
+    save_message = player.savegame()
+    data_set = {'output': save_message}
+    json_dump = json.dumps({data_set})
+    return json_dump
+
+
+# TODO, need to think about the reverse of save
+# TODO have output return the long string from the current room
+@app.route('/load', methods=["GET"])
+def handle_load():
+    """
+    Summary:
+        When a user loads via the load button
+    Params:
+        key: the dictionary key of the user's character class
+    Returns:
+        output: Junimo's response to the end of game
+    """
+
+    key = request.args.get('key')
+    ip_address = request.args.get('ip_address')
+    identifier = key + "-" + ip_address
+    full_path = users_dir + "/" + identifier + ".pickle"
+    try:
+        player_pickle = open(full_path, "rb")
+        player = pickle.load(player_pickle)
+    except FileNotFoundError:
+        data_set = {
+            'output': 'No file found by that name',
+            'is_loaded': False,
+        }
+        json_dump = json.dumps(data_set)
+        return json_dump
+    game_instances[identifier] = player
+    data_set = {'output': 'Game Loaded from Last Save',
+                'is_loaded': True,
+                'location': player.location.room_name,
+                'key': player.key}
+    json_dump = json.dumps(data_set)
+    return json_dump
+
+
 # TODO @ alex do you want Junimo to say something cuter than Game Over?
 # TODO, I will be attempting to call this function on window close as well
 # have to think about if a game has been saved and how to handle this
@@ -116,77 +170,6 @@ def handle_quit_game():
     data_set = {'output': 'Game Over'}
     json_dump = json.dumps(data_set)
     del game_instances[key]
-    return json_dump
-
-
-# TODO what information (if any) do you need from me to be able to save
-# TODO I will have to look into having the user save a "name"
-@app.route('/save', methods=["GET"])
-def handle_save():
-    """
-    Summary:
-        When a user saves via the button
-    Params:
-        key: the dictionary key of the user's character class
-    Returns:
-        output: Junimo's response to the end of game
-    """
-    key = request.args.get('key')
-    player = game_instances[key]
-    save_message = player.savegame()
-    data_set = {'output': save_message}
-    json_dump = json.dumps({data_set})
-    return json_dump
-    # inventory_array = []
-    # room_array = []
-    # for item in player.inventory:
-    #     item_data = pickle.dump(item.__dict__)
-    #     inventory_array.append(item_data)
-
-    # for room in player.room_list:
-    #     room_data = pickle.dumps(room.__dict__)
-    #     room_array.append(room_data)
-
-    # player_save_data = {
-    #     "helmet": player.helmet,
-    #     "inventory": player.inventory,
-    #     "invited": player.invited,
-    #     "ip_address": player.ip_address,
-    #     "key": player.key,
-    #     "light": player.light,
-    #     "location": player.location,
-    #     "room_list": player.room_list,
-    # }
-
-    # output = player.savegame()
-    # data_set = {'output': 'Game Progress Saved'}
-    # json_dump = json.dumps(data_set)
-    # return json_dump
-
-
-# TODO, need to think about the reverse of save
-# TODO have output return the long string from the current room
-@app.route('/load', methods=["GET"])
-def handle_load():
-    """
-    Summary:
-        When a user loads via the load button
-    Params:
-        key: the dictionary key of the user's character class
-    Returns:
-        output: Junimo's response to the end of game
-    """
-    # key = request.args.get('key')
-    # player = game_instances[key]
-    pq_data = open(users_file_path, "rb")
-    player = pickle.load(pq_data)
-    pq_data.close()
-
-    # output = player.loadgame()
-    data_set = {'output': 'Game Loaded from Last Save',
-                'location': player.location.room_name,
-                'key': player.key}
-    json_dump = json.dumps(data_set)
     return json_dump
 
 
