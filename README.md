@@ -33,17 +33,17 @@ A text-based adventure game written for OSU Capstone Project<br>
     - main commands must be listed, but some commands may be hidden for user to discover
     - inventory :: lists all items in your inventory
     - savegame :: saves the state of the game to a file
-    - loadgame :: confirms with the user that this is really desired and then<br>
+    - loadgame :: confirms with the user that this is really desired and then
 
 ### Language Processing
-    - research and implement Natural Langage Parsing<br>
-    - implement synonym phrases like "grab" for "take" etc.  <br>
+    - research and implement Natural Langage Parsing
+    - implement synonym phrases like "grab" for "take" etc.  
 
 ### Misc Requirements
-    - Must submit a step-by-step solution for professor to be able to walk through entire game<br>
+    - Must submit a step-by-step solution for professor to be able to walk through entire game
 
 ### Technical Requirements
-    - Must compile and run on the OSU flip servers<br>
-    - OOP, data about the game must be loaded from individual files<br>
-    - ie each room would have its own file, consider json structure<br>
-    - Note: if your game requires min width and height in characters, inform user,   exit if not met at load<br>
+    - Must compile and run on the OSU flip servers
+    - OOP, data about the game must be loaded from individual files
+    - ie each room would have its own file, consider json structure
+    - Note: if your game requires min width and height in characters, inform user,   exit if not met at load
