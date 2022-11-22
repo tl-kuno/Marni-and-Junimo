@@ -59,7 +59,7 @@ def handle_new_game():
     ip_address = request.args.get('ip_address')
     userName = request.args.get('userName')
     identifier = userName + "-" + ip_address
-    player = Character(userName, ip_address)
+    player = Character(userName, ip_address, identifier)
     game_instances[identifier] = player
     intro = (game_instances[identifier]).newgame()
     data_set = {'output': intro,
