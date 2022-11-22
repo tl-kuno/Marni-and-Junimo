@@ -61,7 +61,7 @@ def handle_new_game():
     game_instances[identifier] = player
     intro = (game_instances[identifier]).newgame()
     data_set = {'output': intro,
-                'location': game_instances[userName].location.room_name,
+                'location': game_instances[identifier].location.room_name,
                 'ip_address': ip_address,
                 'identifier': identifier,
                 }
@@ -83,8 +83,8 @@ def handle_interaction():
         location: the current room that the player is located in
     """
 
-    key = request.args.get('key')
-    player = game_instances[key]
+    identifier = request.args.get('identifier')
+    player = game_instances[identifier]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
     data_set = {'output': output,
@@ -104,8 +104,8 @@ def handle_save():
     Returns:
         output: Junimo's response to the end of game
     """
-    key = request.args.get('key')
-    player = game_instances[key]
+    identifier = request.args.get('identifier')
+    player = game_instances[identifier]
     save_message = player.savegame()
     data_set = {'output': save_message}
     json_dump = json.dumps({data_set})
@@ -160,10 +160,10 @@ def handle_quit():
     Returns:
         output: Junimo's response to the end of game
     """
-    key = request.args.get('key')
+    identifier = request.args.get('identifier')
     data_set = {'output': 'Game Over'}
     json_dump = json.dumps(data_set)
-    del game_instances[key]
+    del game_instances[identifier]
     return json_dump
 
 
