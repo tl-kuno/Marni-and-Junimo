@@ -386,24 +386,32 @@ class Character:
 
         # Invite the mouse
         if target.name == 'mouse' and self.location.room_name == 'Basement':
-            self.invited.append('mouse')
-            return self.messages.get('mouse.invite')
+            # Error check
+            if "mouse" not in self.invited:
+                self.invited.append('mouse')
+                return self.messages.get('mouse.invite')
+            return "You have already invited the mouse."
 
         # Invite the ants
         if target.name == 'ants' and self.location.room_name == 'Kitchen':
-            self.invited.append('ants')
-            return self.messages.get('ants.invite')
+            if 'ants' not in self.invited:
+                self.invited.append('ants')
+                return self.messages.get('ants.invite')
+            return "You have already invited the ants."
 
         # Invite the raccoon
         if target.name == 'raccoon' and self.location.room_name == 'Alley':
-            self.invited.append('raccoon')
-            return self.messages.get('raccoon.invite')
+            if "raccoon" not in self.invited:
+                self.invited.append('raccoon')
+                return self.messages.get('raccoon.invite')
+            return "You have already invited the raccoon."
 
         # Invite the birds
         if target.name == 'birds' and self.location.room_name == 'Roof':
-            self.invited.append('birds')
-            return self.messages.get('birds.invite')
-
+            if "birds" not in self.invited:
+                self.invited.append('birds')
+                return self.messages.get('birds.invite')
+            return "You have already invited the birds."
         # Invalid
         return f"There is no {target.name} here to invite."
 
