@@ -147,7 +147,7 @@ class Character:
             return self.savegame()
         if verb_class == VerbClass.LOAD:
             # Need to send a confirmation prompt?
-            return self.loadgame()
+            return self.loadgame(self.key)
 
         return "verb [{}] not yet supported...".format(verb)
 
