@@ -39,7 +39,7 @@ class Character:
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
-        Inventory: {[item.name for item in self.inventory]}"
+        Inventory: \n{[item.name for item in self.inventory]}"
 
     def init_messages(self):
         dir = os.path.dirname(__file__)
@@ -69,7 +69,7 @@ class Character:
             return self.show_inventory()
 
         if command == "help":
-            return messages.get("help")
+            return self.messages.get("help")
 
         # Changed maxsplit to 2 to handle 'look at'
         input_components = command.split(maxsplit=2)
@@ -182,7 +182,7 @@ class Character:
             res += "None"
         else:
             for item in self.inventory:
-                res += item.name + "\n"
+                res += "\n" + item.name
         return res
 
     def show_guests(self):
@@ -282,7 +282,7 @@ class Character:
         object_idx = self.in_object_list(self.location.object_list, target)
         # check if we found a valid item
         if object_idx == -1:
-            return f"There is no {target} to pick up.\n"
+            return "I don't think the humans would appreciate you trying to take that.\n"
         # remove object from room
         target_object = self.location.object_list.pop(object_idx)
         # add item to inventory
@@ -296,6 +296,8 @@ class Character:
         # If found, return message
         if target is not None:
             if target.name == 'friends':
+                if self.location.room_name == "Roof":
+                    return "Your friends are waiting for you! Hurry up and meet them."
                 self.num_items = len(self.inventory)
                 self.num_guests = len(self.invited)
                 msg = "You make your way to the park, where all of your friends are "\
@@ -364,7 +366,7 @@ class Character:
             return self.messages.get("football helmet.use")
         # Using spoon
         if target.name == "wooden spoon":
-            treats = self.retrieve_object_from_game('dog treats')
+            self.treats = self.retrieve_object_from_game('dog treats')
             if self.treats is not None:
                 return self.messages.get('wooden spoon.use')
         # Using soap on raccoon
@@ -372,6 +374,8 @@ class Character:
             if self.location.room_name == "Alley":
                 self.inventory.append(Item("umbrella", self.messages['umbrella']))
                 return self.messages.get('soap.use')
+
+            return "Maybe you should save that soap for someone who really needs it."
         # Using letter
         if target.name == 'letter':
             return self.messages.get('letter')
@@ -443,7 +447,7 @@ class Character:
         res = 0
         needed = ['blueberries', 'mushrooms', 'dog treats', 'towel', 'umbrella']
         for item in self.inventory:
-            print(item.name)
+            # print(item.name)
             if item.name in needed:
                 res += 1
         return res
