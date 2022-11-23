@@ -1,3 +1,4 @@
+# flake8: noqa: C901
 messages = {
     # Welcome paragraph
     'welcome':
@@ -36,7 +37,7 @@ messages = {
         "Inventory: Look at all of your items in your inventory.\n"
         "savegame: Save the current game state.\n"
         "loadgame: Load your previously saved game.\n"
-        "Other verbs: Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
+        "Other verbs: Look, Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
     'inventory':        # TODO write inventory function
         "This is your inventory:",
     # Room Descriptions
@@ -90,7 +91,7 @@ messages = {
         "You stand in the brightly lit kitchen. The white tile floor glistens "
         "brightly, and rumbling sound of the humming refrigerator fills the "
         "room. The humans must have been clumsy earlier, because a thick "
-        "wooden ladle has rolled under a chair in the center of the room. "
+        "wooden spoon has rolled under a chair in the center of the room. "
         "Nearby you can see a few ants gathered suspiciously together. "
         "On the sleek marble countertops, you can see the corner of a "
         "plastic container of scrumptious, freshly picked blueberries! "
@@ -507,7 +508,7 @@ messages = {
     'flashlight.use':
         "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can "
         "see better in dark spaces!",
-    'helmet.use':
+    'football helmet.use':
         "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your "
         "way now.",
     'wooden spoon.use':
@@ -556,7 +557,7 @@ messages = {
     'umbrella.wear':
         "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes "
         "you look very fashionable.\n",
-    'helmet.wear':
+    'football helmet.wear':
         "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in "
         "your way now.\n",
     'blanket.wear':

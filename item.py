@@ -2,11 +2,9 @@ class Item:
     """
     Creates an item and how that item could be interacted with
     """
-    def __init__(self, name, description, can_pick_up, can_drop):
+    def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.can_pick_up = can_pick_up
-        self.can_drop = can_drop
 
     def look_at(self):
         """
