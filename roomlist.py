@@ -79,7 +79,7 @@ def init_room_list_and_items():
     shelves = Feature("shelves", messages['shelves'])
 
     # Feature Name: Treat bin
-    cleaning_supplies = Feature("Cleaning Supplies",
+    cleaning_supplies = Feature("cleaning supplies",
                                 messages['cleaning supplies'])
 
     # Feature Name: Blanket
@@ -319,16 +319,16 @@ def init_room_list_and_items():
 
     # ------
 
-    p_lr = open("rooms/living_room.p", "wb")
-    p_base = open("rooms/basement.p", "wb")
-    p_kit = open("rooms/kitchen.p", "wb")
-    p_pan = open("rooms/pantry.p", "wb")
-    p_bed = open("rooms/bedroom.p", "wb")
-    p_bath = open("rooms/bathroom.p", "wb")
-    p_por = open("rooms/porch.p", "wb")
-    p_all = open("rooms/alley.p", "wb")
-    p_roof = open("rooms/roof.p", "wb")
-    p_park = open("rooms/park.p", "wb")
+    p_lr = open("rooms/living_room.pickle", "wb")
+    p_base = open("rooms/basement.pickle", "wb")
+    p_kit = open("rooms/kitchen.pickle", "wb")
+    p_pan = open("rooms/pantry.pickle", "wb")
+    p_bed = open("rooms/bedroom.pickle", "wb")
+    p_bath = open("rooms/bathroom.pickle", "wb")
+    p_por = open("rooms/porch.pickle", "wb")
+    p_all = open("rooms/alley.pickle", "wb")
+    p_roof = open("rooms/roof.pickle", "wb")
+    p_park = open("rooms/park.pickle", "wb")
 
     pickle.dump(living_room, p_lr)
     pickle.dump(basement, p_base)
@@ -341,16 +341,16 @@ def init_room_list_and_items():
     pickle.dump(roof, p_roof)
     pickle.dump(park, p_park)
 
-    # p_lr = open("rooms/living_room.p",'rb')
-    # p_base = open("rooms/basement.p",'rb')
-    # p_kit = open("rooms/kitchen.p",'rb')
-    # p_pan = open("rooms/pantry.p", "rb")
-    # p_bed = open("rooms/bedroom.p", "rb")
-    # p_bath = open("rooms/bathroom.p", "rb")
-    # p_por = open("rooms/porch.p", "rb")
-    # p_all = open("rooms/alley.p", "rb")
-    # p_roof = open("rooms/roof.p", "rb")
-    # p_park = open("rooms/park.p", "rb")
+    # p_lr = open("rooms/living_room.pickle",'rb')
+    # p_base = open("rooms/basement.pickle",'rb')
+    # p_kit = open("rooms/kitchen.pickle",'rb')
+    # p_pan = open("rooms/pantry.pickle", "rb")
+    # p_bed = open("rooms/bedroom.pickle", "rb")
+    # p_bath = open("rooms/bathroom.pickle", "rb")
+    # p_por = open("rooms/porch.pickle", "rb")
+    # p_all = open("rooms/alley.pickle", "rb")
+    # p_roof = open("rooms/roof.pickle", "rb")
+    # p_park = open("rooms/park.pickle", "rb")
 
     # unpickled_living_room = pickle.load(p_lr)
     # unpickled_basement = pickle.load(p_base)
