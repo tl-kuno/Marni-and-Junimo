@@ -1,5 +1,6 @@
-import json
+import pickle
 import os
+import json
 from flask import Flask
 from flask import request
 from flask_cors import CORS
@@ -11,23 +12,19 @@ app = Flask(__name__)
 CORS(app)
 
 
-my_dir = os.path.dirname(__file__)
-file_path = os.path.join(my_dir, "game_data/users.json")
-source_data = open(file_path, "r+")
-pq_data = json.load(source_data)
-users = pq_data["saved_games"]
+home_dir = os.path.dirname(__file__)
+users_dir = os.path.join(home_dir, "game_data/users")
 game_instances = {}
 
 
 def create_load_name_array(ip_address):
     load_games = []
-    print(users)
-    for user in users:
-        print(user)
-        print(user["ip_address"])
-        print(ip_address)
-        if user["ip_address"] == ip_address:
-            load_games.append(user["name"])
+    for filename in os.listdir(users_dir):
+        split_file_ext = filename.split(".p")
+        identifiers = split_file_ext[0].split("-")
+        print(identifiers)
+        if identifiers[1] == ip_address:
+            load_games.append(identifiers[0])
     return load_games
 
 
@@ -39,9 +36,8 @@ def handle_start():
     Returns:
         output: Junimo's welcome message to the user
     """
-    load_games = ["Place", "Holder", "Text"]
-    # ip_address = request.args.get('ip_address')
-    # load_games = create_load_name_array(ip_address)
+    ip_address = request.args.get('ip_address')
+    load_games = create_load_name_array(ip_address)
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
@@ -61,14 +57,15 @@ def handle_new_game():
         location: the current room that the player is located in
     """
     ip_address = request.args.get('ip_address')
-    key = request.args.get('key')
-    player = Character(key, ip_address)
-    game_instances[key] = player
-    intro = (game_instances[key]).newgame()
+    userName = request.args.get('userName')
+    identifier = userName + "-" + ip_address
+    player = Character(userName, ip_address, identifier)
+    game_instances[identifier] = player
+    intro = (game_instances[identifier]).newgame()
     data_set = {'output': intro,
-                'location': game_instances[key].location.room_name,
-                'key': key,
-                'ip_address': ip_address
+                'location': game_instances[identifier].location.room_name,
+                'ip_address': ip_address,
+                'identifier': identifier,
                 }
     json_dump = json.dumps(data_set)
     return json_dump
@@ -88,8 +85,8 @@ def handle_interaction():
         location: the current room that the player is located in
     """
 
-    key = request.args.get('key')
-    player = game_instances[key]
+    identifier = request.args.get('identifier')
+    player = game_instances[identifier]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
     data_set = {'output': output,
@@ -99,29 +96,6 @@ def handle_interaction():
     return json_dump
 
 
-# TODO @ alex do you want Junimo to say something cuter than Game Over?
-# TODO, I will be attempting to call this function on window close as well
-# have to think about if a game has been saved and how to handle this
-@app.route('/quit', methods=["GET"])
-def handle_quit_game():
-    """
-    Summary:
-        When a user quits (clicking the button, closing the browser)
-        The information is removed from the array
-    Params:
-        key: the dictionary key of the user's character class
-    Returns:
-        output: Junimo's response to the end of game
-    """
-    key = request.args.get('key')
-    data_set = {'output': 'Game Over'}
-    json_dump = json.dumps(data_set)
-    del game_instances[key]
-    return json_dump
-
-
-# TODO what information (if any) do you need from me to be able to save
-# TODO I will have to look into having the user save a "name"
 @app.route('/save', methods=["GET"])
 def handle_save():
     """
@@ -132,10 +106,10 @@ def handle_save():
     Returns:
         output: Junimo's response to the end of game
     """
-    # key = request.args.get('key')
-    # player = game_instances[key]
-    # output = player.savegame()
-    data_set = {'output': 'Game Progress Saved'}
+    identifier = request.args.get('identifier')
+    player = game_instances[identifier]
+    save_message = player.savegame()
+    data_set = {'output': save_message}
     json_dump = json.dumps(data_set)
     return json_dump
 
@@ -152,12 +126,43 @@ def handle_load():
     Returns:
         output: Junimo's response to the end of game
     """
-    key = request.args.get('key')
-    player = game_instances[key]
-    # output = player.loadgame()
-    data_set = {'output': 'Game Loaded from Last Save',
-                'location': player.location.room_name}
+    identifier = request.args.get('identifier')
+    full_path = users_dir + "/" + identifier + ".pickle"
+
+    player_pickle = open(full_path, "rb")
+    player = pickle.load(player_pickle)
+    game_instances[identifier] = player
+    data_set = {
+                'identifier': player.identifier,
+                'is_loaded': True,
+                'location': player.location.room_name,
+                'output': player.location.long_description,
+                'userName': player.key,
+                }
     json_dump = json.dumps(data_set)
+    return json_dump
+
+
+# TODO @ alex do you want Junimo to say something cuter than Game Over?
+# TODO, I will be attempting to call this function on window close as well
+# have to think about if a game has been saved and how to handle this
+@app.route('/quit', methods=["GET"])
+def handle_quit():
+    """
+    Summary:
+        When a user quits (clicking the button, closing the browser)
+        The information is removed from the array
+    Params:
+        key: the dictionary key of the user's character class
+    Returns:
+        output: Junimo's response to the end of game
+    """
+    ip_address = request.args.get('ip_address')
+    load_games = create_load_name_array(ip_address)
+    identifier = request.args.get('identifier')
+    data_set = {'output': 'See you next time!', 'loadGames': load_games}
+    json_dump = json.dumps(data_set)
+    del game_instances[identifier]
     return json_dump
 
 

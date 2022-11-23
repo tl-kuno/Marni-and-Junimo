@@ -1,23 +1,24 @@
-# from room import Room
+from room import Room
 from item import Item
-# from feature import Feature
-# from messages import messages
+from feature import Feature
+from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
 from verb import VerbClass, verb_dict
 from copy import deepcopy
-import json
 import os
+import pickle
+
+home_dir = os.path.dirname(__file__)
+users_dir = os.path.join(home_dir, "game_data/users")
 
 
 class Character:
     """
     Character class for Picnic Quest
     """
-    def __init__(self, key, ip_address, inventory=[], location=None):
-        # Initialize messages
-        self.messages = self.init_messages()
-
+    def __init__(self, key, ip_address, identifier,
+                 inventory=[], location=None):
         self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
@@ -27,6 +28,7 @@ class Character:
         self._save_light = False
         self.invited = []       # Holds names of invited animals
         self._save_invited = []
+        self.identifier = identifier
         self.ip_address = ip_address
         self._save_ip_address = None
         self.room_list = init_room_list_and_items()
@@ -35,11 +37,9 @@ class Character:
         self.location = self.room_list[0]    # Object of current location
         self._save_location_id = 0
 
-        self.savegame()
-
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
-        Inventory: \n{[item.name for item in self.inventory]}"
+        Inventory: {[item.name for item in self.inventory]}"
 
     def init_messages(self):
         dir = os.path.dirname(__file__)
@@ -57,8 +57,7 @@ class Character:
 
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
-
-        return self.messages['intro']
+        return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
@@ -148,28 +147,37 @@ class Character:
         return "verb [{}] not yet supported...".format(verb)
 
     def savegame(self):
-        # Saves current character stats to private values
-        self._save_inventory = self.inventory[:]
-        self._save_invited = self.invited[:]
-        self._save_helmet = self.helmet
-        self._save_light = self.light
+        filename = self.key + "-" + self.ip_address + ".pickle"
+        full_path = users_dir + "/" + filename
+        pq_data = open(full_path, "wb")
+        pickle.dump(self, pq_data)
+        pq_data.close()
 
-        self._save_room_list = deepcopy(self.room_list)
-        self._save_location_id = self.room_list.index(self.location)
-        print(self._save_location_id)
-        print(self.room_list[self._save_location_id])
+        # # Saves current character stats to private values
+        # self._save_inventory = self.inventory[:]
+        # self._save_invited = self.invited[:]
+        # self._save_helmet = self.helmet
+        # self._save_light = self.light
+
+        # self._save_room_list = deepcopy(self.room_list)
+        # self._save_location_id = self.room_list.index(self.location)
+        # print(self._save_location_id)
+        # print(self.room_list[self._save_location_id])
 
         return "Saved your game!"
 
-    def loadgame(self):
-        # swaps current stats with saved stats
-        self.inventory = self._save_inventory[:]
-        self.helmet = self._save_helmet
-        self.light = self._save_light
-        self.invited = self._save_invited[:]
-        # Flip this?
-        self.room_list = deepcopy(self._save_room_list)
-        self.location = self.room_list[self._save_location_id]
+    def loadgame(self, key):
+        
+
+
+        # # swaps current stats with saved stats
+        # self.inventory = self._save_inventory[:]
+        # self.helmet = self._save_helmet
+        # self.light = self._save_light
+        # self.invited = self._save_invited[:]
+        # # Flip this?
+        # self.room_list = deepcopy(self._save_room_list)
+        # self.location = self.room_list[self._save_location_id]
 
         return "Loaded your game!"
 
@@ -245,7 +253,7 @@ class Character:
             # Check for basement block
             if self.location.room_name == 'Living Room':
                 if not self.light:
-                    return self.messages['basement.block']
+                    return messages['basement.block']
             # move north
             if self.location.north() is not None:
                 self.location.visited = True
@@ -255,7 +263,7 @@ class Character:
             # Check for bedroom block
             if self.location.room_name == 'Living Room':
                 if not self.helmet:
-                    return self.messages['bedroom.block']
+                    return messages['bedroom.block']
             # move east
             if self.location.east() is not None:
                 self.location.visited = True
@@ -359,7 +367,7 @@ class Character:
         # Using flashlight
         if target.name == "flashlight":
             self.light = True
-            return self.messages.get("flashlight.use")
+            return messages.get("flashlight.use")
         # Using helmet
         if target.name == "football helmet":
             self.helmet = True
@@ -378,7 +386,7 @@ class Character:
             return "Maybe you should save that soap for someone who really needs it."
         # Using letter
         if target.name == 'letter':
-            return self.messages.get('letter')
+            return messages.get('letter')
         # Invalid command
         return f"There is no {target.name} here to use."
 
@@ -433,7 +441,7 @@ class Character:
             return f"There is no {target_name} here to wear."
         if target.name == 'football helmet':
             self.helmet = True
-        return self.messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
+        return messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
 
     def listen(self, target_name):
         # Error handling
