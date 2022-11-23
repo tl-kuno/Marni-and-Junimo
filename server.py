@@ -135,7 +135,7 @@ def handle_load():
     data_set = {
                 'identifier': player.identifier,
                 'is_loaded': True,
-                'location': player.location.room,
+                'location': player.location.room_name,
                 'output': player.location.long_description,
                 'userName': player.key,
                 }
