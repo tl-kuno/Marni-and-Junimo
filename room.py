@@ -1,6 +1,6 @@
 from nav import Direction
 
-
+# flake8: noqa: C901
 class Room:
     """
     Creates a full room environment
@@ -22,6 +22,9 @@ class Room:
             "west": Direction.WEST
         }
         self.direction_dict.update(custom_exits)
+
+    def get_description(self):
+        return self.short_description if self.visited else self.long_description
 
     def north(self):
         """
