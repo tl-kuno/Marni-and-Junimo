@@ -19,6 +19,7 @@ class Character:
     """
     def __init__(self, key, ip_address, identifier,
                  inventory=[], location=None):
+        self.messages = self.init_messages()
         self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
         self._save_inventory = inventory
