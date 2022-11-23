@@ -19,13 +19,13 @@
         "basement.short":
             "The cold, dark basement is eerily quiet. Only a small amount of light peeks in from the doorway upstairs. You can see a friendly mouse peering out from under the stairs, and an old familiar suitcase lying in a corner against the wall. Beneath the stairway a patch of ripe, tasty mushrooms are growing.\n\nThe only way out of the basement is South back to the living room.\n",
         "kitchen.long":
-            "You stand in the brightly lit kitchen. The white tile floor glistens brightly, and rumbling sound of the humming refrigerator fills the room. The humans must have been clumsy earlier, because a thick wooden ladle has rolled under a chair in the center of the room. Nearby you can see a few ants gathered suspiciously together. On the sleek marble countertops, you can see the corner of a plastic container of scrumptious, freshly picked blueberries! These would be perfect for a picnic!\n\nTo the North you can see the pantry.\nTo the East you can see the living room.\n",
+            "You stand in the brightly lit kitchen. The white tile floor glistens brightly, and rumbling sound of the humming refrigerator fills the room. The humans must have been clumsy earlier, because a thick wooden spoon has rolled under a chair in the center of the room. Nearby you can see a few ants gathered suspiciously together. On the sleek marble countertops, you can see the corner of a plastic container of scrumptious, freshly picked blueberries! These would be perfect for a picnic!\n\nTo the North you can see the pantry.\nTo the East you can see the living room.\n",
         "kitchen.short":
             "You find yourself in the brightly lit kitchen. The shiny refrigerator is on one end of the room, and a line of ants is crawling along the tiled floor. You can see a wooden spoon that has rolled under the table, and a carton of blueberries at the edge of the counter.\n\nTo the North you can see the pantry.\nTo the East you can see the doorway to the living room.\n",
         "pantry.long":
-            "You stand in the well-stocked pantry, looking at shelves packed floor to ceiling with human food. Luckily, there is a bin full of yummy dog treats situated on the bottom shelf in front of you. The handle is really heavy, and won't open easily. You will need something strong to pop it open in order to stock up on the tasty snacks. There are some strong smelling cleaning supplies to the back of the pantry.\n\nTo the South you can see the kitchen.\n",
+            "You stand in the well-stocked pantry, looking at shelves packed floor to ceiling with human food. Luckily, there is a bin full of yummy dog treats situated on the bottom shelf in front of you. The handle is really heavy, and won't open easily. You will need something strong, like a spoon, to pop it open in order to stock up on the tasty snacks. There are some strong smelling cleaning supplies to the back of the pantry.\n\nTo the South you can see the kitchen.\n",
         "pantry.short":
-            "You stand in the well-stocked pantry, looking at shelves packed floor to ceiling with human food. There is a sturdy bin full of dog treats on the bottom shelf in front of you. There are some strong smelling cleaning supplies to the back of the pantry.\n\nTo the South you can see the kitchen.\n",
+            "You stand in the well-stocked pantry, looking at shelves packed floor to ceiling with human food. There is a sturdy bin full of dog treats on the bottom shelf in front of you. You'll need a spoon to prop the bin open. There are some strong smelling cleaning supplies to the back of the pantry.\n\nTo the South you can see the kitchen.\n",
         "bedroom.block":
             "The door is jammed tight. Maybe there's something pushing it closed from the other side? You could probably force your way through, but you'll need something to protect your head first. Maybe there's something lying around that can help.\n",
         "bedroom.long" :
@@ -233,7 +233,7 @@
         "raccoon.talk":
             "The raccoon has all of the hot gossip from the alley. You hear all of the details of the rivalry between the squirrels and the chipmunks on either side of the alley. You get all of the salacious details about the star-crossed-love of the owl in the nearby oak tree and the corgi that lives next door. Who knew that the alley could be such a hub for drama!\n",
         "birds.talk":
-            "The birds start twittering ove r each other, trying to be the first to tell you about a shiny pebble they found yesterday.\n",
+            "The birds start twittering over each other, trying to be the first to tell you about a shiny pebble they found yesterday.\n",
     
         "towel.wear":
             "You wrap the towel around your neck and use your teeth and paws to tie it into an awesome cape. You look like a superhero!\n",
