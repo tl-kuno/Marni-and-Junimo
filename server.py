@@ -128,22 +128,17 @@ def handle_load():
     """
     identifier = request.args.get('identifier')
     full_path = users_dir + "/" + identifier + ".pickle"
-    try:
-        player_pickle = open(full_path, "rb")
-        player = pickle.load(player_pickle)
-    except FileNotFoundError:
-        data_set = {
-            'output': 'No file found by that name',
-            'is_loaded': False,
-        }
-        json_dump = json.dumps(data_set)
-        return json_dump
+
+    player_pickle = open(full_path, "rb")
+    player = pickle.load(player_pickle)
     game_instances[identifier] = player
-    data_set = {'output': 'Game Loaded from Last Save',
-                'is_loaded': True,
+    data_set = {
                 'identifier': player.identifier,
-                'location': player.location.long_description,
-                'key': player.key}
+                'is_loaded': True,
+                'location': player.location.room,
+                'output': player.location.long_description,
+                'userName': player.key,
+                }
     json_dump = json.dumps(data_set)
     return json_dump
 
