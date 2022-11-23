@@ -157,8 +157,10 @@ def handle_quit():
     Returns:
         output: Junimo's response to the end of game
     """
+    ip_address = request.args.get('ip_address')
+    load_games = create_load_name_array(ip_address)
     identifier = request.args.get('identifier')
-    data_set = {'output': 'Game Over'}
+    data_set = {'output': 'See you next time!', 'loadGames': load_games}
     json_dump = json.dumps(data_set)
     del game_instances[identifier]
     return json_dump
