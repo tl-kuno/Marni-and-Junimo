@@ -450,7 +450,6 @@ class Character:
         res = 0
         needed = ['blueberries', 'mushrooms', 'dog treats', 'towel', 'umbrella']
         for item in self.inventory:
-            # print(item.name)
             if item.name in needed:
                 res += 1
         return res
