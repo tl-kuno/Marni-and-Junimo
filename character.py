@@ -8,6 +8,7 @@ from verb import VerbClass, verb_dict
 from copy import deepcopy
 import os
 import pickle
+import json
 
 home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
