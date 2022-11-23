@@ -68,6 +68,9 @@ class Character:
         if command == "inventory":
             return self.show_inventory()
 
+        if command == "guestlist":
+            return self.show_guests()
+
         if command == "help":
             return self.messages.get("help")
 
@@ -191,7 +194,7 @@ class Character:
             res += "None"
         else:
             for invite in self.invited:
-                res += invite + "\n"
+                res += "\n"+ invite
         return res
 
     def in_object_list(self, o_list, target_name):
@@ -302,7 +305,7 @@ class Character:
                 self.num_guests = len(self.invited)
                 msg = "You make your way to the park, where all of your friends are "\
                       "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
-                msg += str(self.num_items)
+                msg += str(self.calc_inv())
                 msg += " out of 5 picnic items.\nYou have invited "
                 msg += str(self.num_guests)
                 msg += " out of 4 guests to the picnic. Well done!\n"
