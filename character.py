@@ -158,14 +158,14 @@ class Character:
         pickle.dump(self, pq_data)
         pq_data.close()
 
-        # # Saves current character stats to private values
-        # self._save_inventory = self.inventory[:]
-        # self._save_invited = self.invited[:]
-        # self._save_helmet = self.helmet
-        # self._save_light = self.light
+        # Saves current character stats to private values
+        self._save_inventory = self.inventory[:]
+        self._save_invited = self.invited[:]
+        self._save_helmet = self.helmet
+        self._save_light = self.light
 
-        # self._save_room_list = deepcopy(self.room_list)
-        # self._save_location_id = self.room_list.index(self.location)
+        self._save_room_list = deepcopy(self.room_list)
+        self._save_location_id = self.room_list.index(self.location)
         # print(self._save_location_id)
         # print(self.room_list[self._save_location_id])
 
@@ -176,13 +176,13 @@ class Character:
 
 
         # # swaps current stats with saved stats
-        # self.inventory = self._save_inventory[:]
-        # self.helmet = self._save_helmet
-        # self.light = self._save_light
-        # self.invited = self._save_invited[:]
-        # # Flip this?
-        # self.room_list = deepcopy(self._save_room_list)
-        # self.location = self.room_list[self._save_location_id]
+        self.inventory = self._save_inventory[:]
+        self.helmet = self._save_helmet
+        self.light = self._save_light
+        self.invited = self._save_invited[:]
+        # Flip this?
+        self.room_list = deepcopy(self._save_room_list)
+        self.location = self.room_list[self._save_location_id]
 
         return "Loaded your game!"
 
