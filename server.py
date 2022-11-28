@@ -16,6 +16,7 @@ home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
 game_instances = {}
 
+
 @app.route('/start', methods=["GET"])
 def handle_start():
     """
@@ -29,6 +30,7 @@ def handle_start():
     data_set = {'output': messages["welcome"], "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
+
 
 @app.route('/new', methods=["GET"])
 def handle_new_game():

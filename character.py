@@ -4,9 +4,7 @@ from feature import Feature
 from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
-from server import load_from_console
 from verb import VerbClass, verb_dict
-from copy import deepcopy
 import os
 import pickle
 import json
