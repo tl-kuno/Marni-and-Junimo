@@ -1,7 +1,7 @@
 from room import Room
 from item import Item
 from feature import Feature
-from messages import messages
+# from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
 from verb import VerbClass, verb_dict
@@ -59,7 +59,7 @@ class Character:
 
         self.room_list = init_room_list_and_items()
         self.location = self.room_list[0]
-        return messages['intro']
+        return self.messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
         command = command.strip().lower()
@@ -258,7 +258,7 @@ class Character:
             # Check for basement block
             if self.location.room_name == 'Living Room':
                 if not self.light:
-                    return messages['basement.block']
+                    return self.messages['basement.block']
             # move north
             if self.location.north() is not None:
                 self.location.visited = True
@@ -268,7 +268,7 @@ class Character:
             # Check for bedroom block
             if self.location.room_name == 'Living Room':
                 if not self.helmet:
-                    return messages['bedroom.block']
+                    return self.messages['bedroom.block']
             # move east
             if self.location.east() is not None:
                 self.location.visited = True
@@ -372,7 +372,7 @@ class Character:
         # Using flashlight
         if target.name == "flashlight":
             self.light = True
-            return messages.get("flashlight.use")
+            return self.messages.get("flashlight.use")
         # Using helmet
         if target.name == "football helmet":
             self.helmet = True
@@ -391,7 +391,7 @@ class Character:
             return "Maybe you should save that soap for someone who really needs it."
         # Using letter
         if target.name == 'letter':
-            return messages.get('letter')
+            return self.messages.get('letter')
         # Invalid command
         return f"There is no {target.name} here to use."
 
@@ -446,7 +446,7 @@ class Character:
             return f"There is no {target_name} here to wear."
         if target.name == 'football helmet':
             self.helmet = True
-        return messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
+        return self.messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
 
     def listen(self, target_name):
         # Error handling
