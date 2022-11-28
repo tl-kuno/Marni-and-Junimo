@@ -5,7 +5,6 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 from character import Character, create_load_name_array
-from messages import messages
 
 app = Flask(__name__)
 CORS(app)
