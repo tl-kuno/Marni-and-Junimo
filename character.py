@@ -72,6 +72,7 @@ class Character:
         return messages['intro']
 
     def handle_user_input(self, command):     # noqa: C901
+        noun = ""
         command = command.strip().lower()
         if len(command) == 0:
             return "You didnt say anything!"
