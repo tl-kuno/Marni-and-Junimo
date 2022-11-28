@@ -5,7 +5,7 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 from character import Character
-from messages import messages
+# from messages import messages
 
 
 app = Flask(__name__)
