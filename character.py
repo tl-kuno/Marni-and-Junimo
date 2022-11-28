@@ -181,7 +181,7 @@ class Character:
 
     def loadgame(self, noun=""):
                
-        list_games_string = "Be careful, your current progress will not be saved!\nTo abort enter any command."\
+        list_games_string = "Be careful, your progress will not be saved!\nTo abort enter any command."\
                             "\n\nWhich username would you like to load?\n"
         no_games = "Hmm, it looks like there are no games to load."
         saved_games = create_load_name_array(self.ip_address)
@@ -189,10 +189,14 @@ class Character:
         if len(saved_games) > 0 and noun == "":
             for game in saved_games:
                 list_games_string = list_games_string  + "\n  " + game
-            list_games_string += "\n\nType loadgame username to select a game to load..."
+            list_games_string += "\n\nType 'loadgame username' to select a game to load..."
             return(list_games_string)
         elif noun in saved_games:
-            identifier = noun + "-" + self.ip_address
+            filename = noun + "-" + self.ip_address + ".pickle"
+            full_path = users_dir + "/" + filename
+            pq_data = open(full_path, "rb")
+            player = pickle.load(pq_data)
+            return player
         elif noun != "":
             return("Username not found")
         else:

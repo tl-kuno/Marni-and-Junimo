@@ -38,8 +38,6 @@ def handle_new_game():
     Summary:
         When a new game is started, create a game instance and store it
         in the dict with a newly genereated num between 1-100 as the key
-        TODO    Consider other options for the key, such as a user given "name"
-                Benefits of this are making the load/save front end work better
     Returns:
         key: random int between 1-100 generated as a dictionary key
         output: Starting room introduction/description
@@ -78,26 +76,13 @@ def handle_interaction():
     player = game_instances[identifier]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
-    data_set = {'output': output,
-                'location': player.location.room_name,
-                'ip_address': player.ip_address}
-    json_dump = json.dumps(data_set)
-    return json_dump
-
-
-def load_from_console(identifier):
-    full_path = users_dir + "/" + identifier + ".pickle"
-
-    player_pickle = open(full_path, "rb")
-    player = pickle.load(player_pickle)
-    game_instances[identifier] = player
-    data_set = {
-                'identifier': player.identifier,
-                'is_loaded': True,
-                'location': player.location.room_name,
-                'output': player.location.long_description,
-                'userName': player.key,
-                }
+    if type(output) == "dict":
+        print(output)
+        data_set = {'output': "accessed a dictionary",
+                    'location': player.location.room_name}
+    else:
+        data_set = {'output': output,
+                    'location': player.location.room_name}
     json_dump = json.dumps(data_set)
     return json_dump
 
@@ -120,8 +105,6 @@ def handle_save():
     return json_dump
 
 
-# TODO, need to think about the reverse of save
-# TODO have output return the long string from the current room
 @app.route('/load', methods=["GET"])
 def handle_load():
     """
@@ -149,9 +132,6 @@ def handle_load():
     return json_dump
 
 
-# TODO @ alex do you want Junimo to say something cuter than Game Over?
-# TODO, I will be attempting to call this function on window close as well
-# have to think about if a game has been saved and how to handle this
 @app.route('/quit', methods=["GET"])
 def handle_quit():
     """
