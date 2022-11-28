@@ -206,7 +206,7 @@ def init_room_list_and_items():
         "Pantry",
         messages["pantry.long"],
         messages["pantry.short"],
-        [dog_treats],
+        [],
         [shelves, cleaning_supplies],
         [None, None, 2, None],
         {
@@ -278,7 +278,7 @@ def init_room_list_and_items():
         "Alley",
         messages["alley.long"],
         messages["alley.short"],
-        [umbrella, football_helmet],
+        [football_helmet],
         [raccoon, guitar],
         [None, 6, None, None],
         {
