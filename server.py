@@ -92,7 +92,7 @@ def handle_interaction():
     player = game_instances[identifier]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
-    if type(output) == "string":
+    if type(output) == "str":
         data_set = {'output': output,
                     'location': player.location.room_name}
         json_dump = json.dumps(data_set)

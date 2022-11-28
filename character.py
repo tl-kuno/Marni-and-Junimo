@@ -185,7 +185,6 @@ class Character:
                             "\n\nWhich username would you like to load?\n"
         no_games = "Hmm, it looks like there are no games to load."
         saved_games = create_load_name_array(self.ip_address)
-        print("The noun is " + noun)
         if len(saved_games) > 0 and noun == "":
             for game in saved_games:
                 list_games_string = list_games_string  + "\n  " + game
