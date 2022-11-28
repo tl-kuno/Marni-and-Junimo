@@ -157,7 +157,7 @@ class Character:
             return self.savegame()
         if verb_class == VerbClass.LOAD:
             # Need to send a confirmation prompt?
-            return self.loadgame()
+            return self.loadgame(noun)
 
         return "verb [{}] not yet supported...".format(verb)
 
@@ -181,16 +181,19 @@ class Character:
 
         return "Saved your game!"
 
-    def loadgame(self):
+    def loadgame(self, noun):
+        
+        print(noun)
+        
         list_games_string = "Be careful, your current progress will not be saved!\nTo abort enter any command."\
-                            "\nWhich username would you like to load?\n"
+                            "\n\nWhich username would you like to load?\n"
         no_games = "Hmm, it looks like there are no games to load."
         saved_games = create_load_name_array(self.ip_address)
         
         if len(saved_games) > 0:
             for game in saved_games:
-                list_games_string = list_games_string + game + "   "
-            list_games_string += "\n Type 'loadgame username' to select a game to load..."
+                list_games_string = list_games_string  + "   " + game
+            list_games_string += "\nType 'loadgame username' to select a game to load..."
             return(list_games_string)
         else:
             return(no_games)
