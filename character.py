@@ -181,7 +181,7 @@ class Character:
 
         return "Saved your game!"
 
-    def loadgame(self, noun):
+    def loadgame(self, noun=""):
         
         print(noun)
         
