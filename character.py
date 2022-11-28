@@ -189,11 +189,12 @@ class Character:
         if len(saved_games) > 0 and noun == "":
             for game in saved_games:
                 list_games_string = list_games_string  + "\n  " + game
-            list_games_string += "\n\nType 'loadgame username' to select a game to load..."
+            list_games_string += "\n\nType ' loadgame username ' to select a game to load..."
             return(list_games_string)
         elif noun in saved_games:
             identifier = noun + "-" + self.ip_address
-            load_from_console(identifier)
+        elif noun != "":
+            return("Username not found")
         else:
             return(no_games)
 
