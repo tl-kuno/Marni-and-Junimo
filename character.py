@@ -14,6 +14,7 @@ home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
 
 def create_load_name_array(ip_address):
+    print("at create array")
     load_games = []
     for filename in os.listdir(users_dir):
         split_file_ext = filename.split(".p")
@@ -61,7 +62,6 @@ class Character:
         return messages['messages'][0]
 
     def newgame(self):
-        # this is where we do all of the things!!!
         self.inventory = []
         self.invited = []
         self.light = False
@@ -181,8 +181,18 @@ class Character:
 
         return "Saved your game!"
 
-    def loadgame(self, key):
+    def loadgame(self):
+        list_games_string = "Okay! But, be careful your current progess will not be saved!"\
+                            "\nWhich game would you like to load?\n"
+        no_games = "Hmm, it looks like there are no games to load."
+        saved_games = create_load_name_array(self.ip_address)
         
+        if len(saved_games) > 0:
+            for game in saved_games:
+                list_games_string = list_games_string + game + "   "
+            return(list_games_string)
+        else:
+            return(no_games)
 
 
         # # swaps current stats with saved stats
@@ -194,7 +204,7 @@ class Character:
         # self.room_list = deepcopy(self._save_room_list)
         # self.location = self.room_list[self._save_location_id]
 
-        return "Loaded your game!"
+        # return "Loaded your game!"
 
     def set_location(self, location):
         self.location = location
