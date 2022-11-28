@@ -307,11 +307,11 @@ class Character:
                 if self.location.room_name == "Roof":
                     return "Your friends are waiting for you! Hurry up and meet them."
                 msg = "You make your way to the park, where all of your friends are "\
-                      "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
+                      "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\n\nYou brought "
                 msg += str(self.calc_inv())
-                msg += " out of 5 picnic items.\nYou have invited "
+                msg += " out of 5 picnic items.\nAnd you invited "
                 msg += str(len(self.invited))
-                msg += " out of 4 guests to the picnic. Well done!\n"
+                msg += " out of 4 friends!\nWell done!\n"
                 return {"isPlaying": False, "offMsg": msg}
             return self.messages.get(target.name, f'cant look at {target.name}')
         return f"cant find {target_name}"
