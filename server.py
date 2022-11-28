@@ -97,6 +97,8 @@ def handle_interaction():
         data_set = {'output': output,
                     'location': player.location.room_name}
         json_dump = json.dumps(data_set)
+    elif isinstance(output, dict):
+        json_dump = json.dumps(output)
     else:
         json_dump = load_game(output.identifier)
     return json_dump

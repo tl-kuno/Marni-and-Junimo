@@ -31,21 +31,13 @@ class Character:
         self.messages = self.init_messages()
         self.key = key
         self.inventory = inventory  # Holds objects of items in inventory
-        self._save_inventory = inventory
         self.helmet = False     # Helmet can push open bedroom door
-        self._save_helmet = False
         self.light = False      # Flashlight can light up basement
-        self._save_light = False
         self.invited = []       # Holds names of invited animals
-        self._save_invited = []
         self.identifier = identifier
         self.ip_address = ip_address
-        self._save_ip_address = None
         self.room_list = init_room_list_and_items()
-        self._save_room_list = init_room_list_and_items()
-
         self.location = self.room_list[0]    # Object of current location
-        self._save_location_id = 0
 
     def __repr__(self):
         return f"{self.name}\nLocation: {self.location}\n\
@@ -165,18 +157,6 @@ class Character:
         pq_data = open(full_path, "wb")
         pickle.dump(self, pq_data)
         pq_data.close()
-
-        # # Saves current character stats to private values
-        # self._save_inventory = self.inventory[:]
-        # self._save_invited = self.invited[:]
-        # self._save_helmet = self.helmet
-        # self._save_light = self.light
-
-        # self._save_room_list = deepcopy(self.room_list)
-        # self._save_location_id = self.room_list.index(self.location)
-        # print(self._save_location_id)
-        # print(self.room_list[self._save_location_id])
-
         return "Saved your game!"
 
     def loadgame(self, noun=""):
@@ -200,18 +180,6 @@ class Character:
             return("Username not found")
         else:
             return(no_games)
-
-
-        # # swaps current stats with saved stats
-        # self.inventory = self._save_inventory[:]
-        # self.helmet = self._save_helmet
-        # self.light = self._save_light
-        # self.invited = self._save_invited[:]
-        # # Flip this?
-        # self.room_list = deepcopy(self._save_room_list)
-        # self.location = self.room_list[self._save_location_id]
-
-        # return "Loaded your game!"
 
     def set_location(self, location):
         self.location = location
@@ -338,15 +306,13 @@ class Character:
             if target.name == 'friends':
                 if self.location.room_name == "Roof":
                     return "Your friends are waiting for you! Hurry up and meet them."
-                self.num_items = len(self.inventory)
-                self.num_guests = len(self.invited)
                 msg = "You make your way to the park, where all of your friends are "\
                       "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
                 msg += str(self.calc_inv())
                 msg += " out of 5 picnic items.\nYou have invited "
-                msg += str(self.num_guests)
+                msg += len(self.invited)
                 msg += " out of 4 guests to the picnic. Well done!\n"
-                return msg
+                return {"isPlaying": False, "offMsg": msg}
             return self.messages.get(target.name, f'cant look at {target.name}')
         return f"cant find {target_name}"
 
@@ -490,38 +456,3 @@ class Character:
             if item.name in needed:
                 res += 1
         return res
-
-
-# if __name__ == "__main__":
-    # jacket = Item('Jacket', "A Jacket")
-    # backpack = Item("Backpack", "a backpack")
-    # mouse = Feature('mouse', 'hes a mouse')
-    # zoo = Room(
-    #     9,
-    #     "Basement",
-    #     self.messages["park.long"],
-    #     self.messages["park.short"],
-    #     object_list=[jacket, backpack],
-    #     feature_list=[mouse],
-    #     directions=[None, None, None, 6])
-    # home = Room(
-    #     1,
-    #     "home",
-    #     self.messages["park.long"],
-    #     self.messages["park.short"],
-    #     [],
-    #     [],
-    #     [None, None, None, 6])
-    # hank = Character("Hank", [], zoo)
-    # print(hank)
-    # hank.show_inventory()
-    # # hank.set_location(home)
-    # hank.take(jacket)
-    # hank.take(backpack)
-    # hank.show_inventory()
-    # hank.show_guests()
-    # hank.invite(mouse)
-    # hank.show_guests()
-    # print(hank)
-    # # hank.load()
-    # # hank.endgame()
