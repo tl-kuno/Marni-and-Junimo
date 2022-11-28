@@ -30,7 +30,6 @@ def handle_start():
     json_dump = json.dumps(data_set)
     return json_dump
 
-
 @app.route('/new', methods=["GET"])
 def handle_new_game():
     """
@@ -80,6 +79,23 @@ def handle_interaction():
     data_set = {'output': output,
                 'location': player.location.room_name,
                 'ip_address': player.ip_address}
+    json_dump = json.dumps(data_set)
+    return json_dump
+
+
+def load_from_console(identifier):
+    full_path = users_dir + "/" + identifier + ".pickle"
+
+    player_pickle = open(full_path, "rb")
+    player = pickle.load(player_pickle)
+    game_instances[identifier] = player
+    data_set = {
+                'identifier': player.identifier,
+                'is_loaded': True,
+                'location': player.location.room_name,
+                'output': player.location.long_description,
+                'userName': player.key,
+                }
     json_dump = json.dumps(data_set)
     return json_dump
 

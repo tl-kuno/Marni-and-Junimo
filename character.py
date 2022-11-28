@@ -4,6 +4,7 @@ from feature import Feature
 from messages import messages
 from nav import Direction
 from roomlist import init_room_list_and_items
+from server import load_from_console
 from verb import VerbClass, verb_dict
 from copy import deepcopy
 import os
@@ -193,7 +194,8 @@ class Character:
             list_games_string += "\n\nType 'loadgame username' to select a game to load..."
             return(list_games_string)
         elif noun in saved_games:
-            return("loaded " + noun)
+            identifier = noun + "-" + self.ip_address
+            load_from_console(identifier)
         else:
             return(no_games)
 
