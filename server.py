@@ -17,6 +17,22 @@ users_dir = os.path.join(home_dir, "game_data/users")
 game_instances = {}
 
 
+def load_game(identifier):
+    full_path = users_dir + "/" + identifier + ".pickle"
+    player_pickle = open(full_path, "rb")
+    player = pickle.load(player_pickle)
+    game_instances[identifier] = player
+    data_set = {
+                'identifier': player.identifier,
+                'is_loaded': True,
+                'location': player.location.room_name,
+                'output': player.location.long_description,
+                'userName': player.key,
+                }
+    json_dump = json.dumps(data_set)
+    return json_dump
+
+
 @app.route('/start', methods=["GET"])
 def handle_start():
     """
@@ -76,14 +92,12 @@ def handle_interaction():
     player = game_instances[identifier]
     command = str(request.args.get('command'))
     output = player.handle_user_input(command)
-    if type(output) == "dict":
-        print(output)
-        data_set = {'output': "accessed a dictionary",
-                    'location': player.location.room_name}
-    else:
+    if type(output) == "string":
         data_set = {'output': output,
                     'location': player.location.room_name}
-    json_dump = json.dumps(data_set)
+        json_dump = json.dumps(data_set)
+    else:
+        json_dump = load_game(identifier)
     return json_dump
 
 
@@ -116,19 +130,7 @@ def handle_load():
         output: Junimo's response to the end of game
     """
     identifier = request.args.get('identifier')
-    full_path = users_dir + "/" + identifier + ".pickle"
-
-    player_pickle = open(full_path, "rb")
-    player = pickle.load(player_pickle)
-    game_instances[identifier] = player
-    data_set = {
-                'identifier': player.identifier,
-                'is_loaded': True,
-                'location': player.location.room_name,
-                'output': player.location.long_description,
-                'userName': player.key,
-                }
-    json_dump = json.dumps(data_set)
+    json_dump = load_game(identifier)
     return json_dump
 
 
