@@ -5,12 +5,17 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS
 from character import Character
-from messages import messages
+# from messages import messages
 
 
 app = Flask(__name__)
 CORS(app)
-
+# Initialize messages
+dir = os.path.dirname(__file__)
+file_path = os.path.join(dir, "game_data/messages.json")
+message_instance = open(file_path, "r+")
+temp = json.load(message_instance)
+messages = temp['messages'][0]
 
 home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
