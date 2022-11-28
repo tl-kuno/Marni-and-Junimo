@@ -40,7 +40,7 @@ def handle_start():
     """
     ip_address = request.args.get('ip_address')
     load_games = create_load_name_array(ip_address)
-    data_set = {'output': "THIS IS A TEST", "loadGames": load_games}
+    data_set = {'output': welcome, "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
 
