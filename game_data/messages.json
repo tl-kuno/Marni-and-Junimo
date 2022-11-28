@@ -5,7 +5,7 @@
         "intro":
             "You slowly awaken in a warm, cozy living room. Sunlight pours through the curtains, lighting up the familiar sofa in the center of the room. There are no signs of humans around here, just the soft sound of the trees rustling in the breeze outside. You stretch your paws and arch your back, slowly waking up from a relaxing nap. You suddenly realize that a letter has been placed on the pillow in front of you. In the corner of the room, you can hear the TV quietly buzzing as a show plays on the screen.\n\nTo the North you can see the door to the basement. To the East you can see the closed door to the bedroom. To the South you can see the front door that leads to the porch outside. To the West you see the doorway to the kitchen.\n",
         "help":
-            "Try these commands:\nLook: Repeat the description of the current room\nLook at: Learn more about a nearby item or feature.\nGo/Move: Using cardinal directions or room names, move your character from room to room.\nTake: Pick up an item and put it in your inventory.\nDrop: Drop an item where you are.\nUse: Use an item in your inventory.\nListen: Listen to an object or feature.\nWear: Put on a piece of clothing or an item.\nInventory: Look at all of your items in your inventory.\nsavegame: Save the current game state.\nloadgame: Load your previously saved game.\nOther verbs: Eat, Read, Nap, Scratch, Invite, Talk, Give.\n",
+            "Try these commands:\nLook: Repeat the description of the current room\nLook at: Learn more about a nearby item or feature.\nGo/Move: Using cardinal directions or room names, move your character from room to room.\nTake: Pick up an item and put it in your inventory.\nDrop: Drop an item where you are.\nUse: Use an item in your inventory.\nListen: Listen to an object or feature.\nWear: Put on a piece of clothing or an item.\nInventory: Look at all of your items in your inventory.\nsavegame: Save the current game state.\nloadgame: Load your previously saved game.\nOther verbs: Eat, Read, Nap, Scratch, Invite, Talk, Listen.\n",
         "inventory":
             "This is your inventory:",
         "living room.long":
@@ -75,7 +75,7 @@
             "This old clunky flashlight still works,despite not having been used in many months. The batteries are still in good condition, and the light is bright enough to illuminate any dark spaces around the house.\n",
     
         "sofa":
-            "This is sofa is well worn, and covered in a nice floral pattern. There is a sunbeam cutting through the room that is keeping the sofa nice and warm. The gap beneath the sofa is a great hiding spot, with all sorts of lost tools and items that tend to roll underneath.\n",
+            "This sofa is well worn, and covered in a nice floral pattern. There is a sunbeam cutting through the room that is keeping the sofa nice and warm. The gap beneath the sofa is a great hiding spot, with all sorts of lost tools and items that tend to roll underneath.\n",
         "tv":
             "There is a tv on in the corner of the room. Right now it's showing a nature documentary about lions in sub-Saharan Africa, narrated by David Attenborough.\n",
         "mouse":
