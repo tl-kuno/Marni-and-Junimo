@@ -182,14 +182,16 @@ class Character:
         return "Saved your game!"
 
     def loadgame(self):
-        list_games_string = "Okay! But, be careful your current progess will not be saved!"\
-                            "\nWhich game would you like to load?\n"
+        list_games_string = "Be careful, your current progress will not be saved!\nTo abort enter any command."\
+                            "\nWhich game would you like to load?\n"\
+            "
         no_games = "Hmm, it looks like there are no games to load."
         saved_games = create_load_name_array(self.ip_address)
         
         if len(saved_games) > 0:
             for game in saved_games:
                 list_games_string = list_games_string + game + "   "
+            list_games_string += "\n type loadgame <username> to select a game to load."
             return(list_games_string)
         else:
             return(no_games)
