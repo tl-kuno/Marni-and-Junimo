@@ -207,7 +207,7 @@
 
         "flashlight.use":
             "You hold the flashlight with your mouth and turn it on with a loud CLICK. You wave it around, and now you can see better in dark spaces!",
-        "helmet.use":
+        "football helmet.use":
             "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.",
         "wooden spoon.use":
             "You prop the bin open, revealing the tasty Groovy Snacks inside. You load some of the delicious snacks up into your bag.",
@@ -239,7 +239,7 @@
             "You wrap the towel around your neck and use your teeth and paws to tie it into an awesome cape. You look like a superhero!\n",
         "umbrella.wear":
             "You pop the umbrella open and sling it over your shoulder. Sure it's a sunny day outside, but this makes you look very fashionable.\n",
-        "helmet.wear":
+        "football helmet.wear":
             "You put the helmet on and strap it to your head. You feel unstoppable now! No closed doorway can stand in your way now.\n",
         "blanket.wear":
             "This blanket is huge, but you somehow wrap yourself up in it. You look like a giant green blob.\n",
