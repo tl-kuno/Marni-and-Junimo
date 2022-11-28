@@ -310,7 +310,7 @@ class Character:
                       "there waiting for you.\n\nCongratulations!\nYou've completed Picnic Quest!\nYou have brought "
                 msg += str(self.calc_inv())
                 msg += " out of 5 picnic items.\nYou have invited "
-                msg += len(self.invited)
+                msg += str(len(self.invited))
                 msg += " out of 4 guests to the picnic. Well done!\n"
                 return {"isPlaying": False, "offMsg": msg}
             return self.messages.get(target.name, f'cant look at {target.name}')
