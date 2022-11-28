@@ -311,7 +311,7 @@ class Character:
                 msg += str(self.calc_inv())
                 msg += " out of 5 picnic items.\nAnd you invited "
                 msg += str(len(self.invited))
-                msg += " out of 4 friends!\nWell done!\n"
+                msg += " out of 4 friends!\n\nWell done!\n"
                 return {"isPlaying": False, "offMsg": msg}
             return self.messages.get(target.name, f'cant look at {target.name}')
         return f"cant find {target_name}"
