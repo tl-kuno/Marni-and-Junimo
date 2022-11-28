@@ -28,7 +28,6 @@ def load_game(identifier):
                 'location': player.location.room_name,
                 'output': player.location.long_description,
                 'userName': player.key,
-                'inventory': player.inventory,
                 }
     json_dump = json.dumps(data_set)
     return json_dump
