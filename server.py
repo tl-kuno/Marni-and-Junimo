@@ -98,7 +98,7 @@ def handle_interaction():
                     'location': player.location.room_name}
         json_dump = json.dumps(data_set)
     else:
-        json_dump = load_game(identifier)
+        json_dump = load_game(output.identifier)
     return json_dump
 
 
