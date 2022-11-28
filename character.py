@@ -381,6 +381,7 @@ class Character:
         if target.name == "wooden spoon":
             self.treats = self.retrieve_object_from_game('dog treats')
             if self.treats is not None:
+                self.inventory.append(Item("dog treats", self.messages['dog treats']))
                 return self.messages.get('wooden spoon.use')
         # Using soap on raccoon
         if target.name == "soap":
@@ -446,6 +447,7 @@ class Character:
             return f"There is no {target_name} here to wear."
         if target.name == 'football helmet':
             self.helmet = True
+            return self.messages["football helmet.use"]
         return self.messages.get(f"{target.name}.wear", "You can't wear that, unfortunately.")
 
     def listen(self, target_name):
