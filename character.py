@@ -193,7 +193,7 @@ class Character:
             list_games_string += "\n\nType 'loadgame username' to select a game to load..."
             return(list_games_string)
         elif noun in saved_games:
-            print("loading game " + noun)
+            return("loaded " + noun)
         else:
             return(no_games)
 
