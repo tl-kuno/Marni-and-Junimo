@@ -4,7 +4,7 @@ import json
 from flask import Flask
 from flask import request
 from flask_cors import CORS
-from character import Character
+from character import Character, create_load_name_array
 from messages import messages
 
 
@@ -15,18 +15,6 @@ CORS(app)
 home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
 game_instances = {}
-
-
-def create_load_name_array(ip_address):
-    load_games = []
-    for filename in os.listdir(users_dir):
-        split_file_ext = filename.split(".p")
-        identifiers = split_file_ext[0].split("-")
-        print(identifiers)
-        if identifiers[1] == ip_address:
-            load_games.append(identifiers[0])
-    return load_games
-
 
 @app.route('/start', methods=["GET"])
 def handle_start():
