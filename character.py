@@ -14,12 +14,10 @@ home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
 
 def create_load_name_array(ip_address):
-    print("at create array")
     load_games = []
     for filename in os.listdir(users_dir):
         split_file_ext = filename.split(".p")
         identifiers = split_file_ext[0].split("-")
-        print(identifiers)
         if identifiers[1] == ip_address:
             load_games.append(identifiers[0])
     return load_games
@@ -183,19 +181,19 @@ class Character:
         return "Saved your game!"
 
     def loadgame(self, noun=""):
-        
-        print(noun)
-        
+               
         list_games_string = "Be careful, your current progress will not be saved!\nTo abort enter any command."\
                             "\n\nWhich username would you like to load?\n"
         no_games = "Hmm, it looks like there are no games to load."
         saved_games = create_load_name_array(self.ip_address)
         
-        if len(saved_games) > 0:
+        if len(saved_games) > 0 and noun == "":
             for game in saved_games:
-                list_games_string = list_games_string  + "   " + game
+                list_games_string = list_games_string  + "\n  " + game
             list_games_string += "\nType 'loadgame username' to select a game to load..."
             return(list_games_string)
+        elif noun in list_games_string:
+            print("loading game " + noun)
         else:
             return(no_games)
 
