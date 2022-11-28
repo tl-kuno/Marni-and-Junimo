@@ -10,12 +10,9 @@ from character import Character
 
 app = Flask(__name__)
 CORS(app)
-# Initialize messages
-dir = os.path.dirname(__file__)
-file_path = os.path.join(dir, "game_data/messages.json")
-message_instance = open(file_path, "r+")
-temp = json.load(message_instance)
-messages = temp['messages'][0]
+
+# Initialize message
+welcome = "Welcome to Picnic Quest!\nI'm Junimo the cat, and it's so good that you're here!\nYou are now Marni, the adorable german shepard. You are all bark, and no bite, easily scared, but fierce when it comes to defending your crew! We live in a well-loved, one-story house in the suburbs with two humans who are off at their day jobs. As usual, you took this opportunity to take a nice long mid-day nap. I left you a letter, please read it when you wake up!\nEnter a name and select \"New\" to begin a new game, or choose a saved game and select \"Load\" to continue!\n",
 
 home_dir = os.path.dirname(__file__)
 users_dir = os.path.join(home_dir, "game_data/users")
@@ -43,7 +40,7 @@ def handle_start():
     """
     ip_address = request.args.get('ip_address')
     load_games = create_load_name_array(ip_address)
-    data_set = {'output': messages["welcome"], "loadGames": load_games}
+    data_set = {'output': welcome, "loadGames": load_games}
     json_dump = json.dumps(data_set)
     return json_dump
 
