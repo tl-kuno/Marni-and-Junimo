@@ -372,6 +372,9 @@ class Character:
             return self.messages.get("football helmet.use")
         # Using spoon
         if target.name == "wooden spoon":
+            if self.location.room_name != "Pantry":
+                return "There's nothing to use the wooden spoon at the moment."
+            
             self.treats = self.retrieve_object_from_game('dog treats')
             if self.treats is not None:
                 self.inventory.append(Item("dog treats", self.messages['dog treats']))
