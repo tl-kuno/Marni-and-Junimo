@@ -376,7 +376,7 @@ class Character:
                 return "There's nothing to use the wooden spoon at the moment."
             
             self.treats = self.retrieve_object_from_game('dog treats')
-            if self.treats is not None:
+            if self.treats is None:
                 self.inventory.append(Item("dog treats", self.messages['dog treats']))
                 return self.messages.get('wooden spoon.use')
         # Using soap on raccoon
