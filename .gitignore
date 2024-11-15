@@ -51,6 +51,7 @@ docs/_build/
 
 # Virtual Environment
 .venv
+venv
 
 # Linting
 ./.vscode
