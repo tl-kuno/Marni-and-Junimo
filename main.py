@@ -1,3 +1,4 @@
+from flask import Flask
 # from room import Room
 # from item import Item
 from character import Character
@@ -6,7 +7,9 @@ from character import Character
 # from nav import Direction
 # from verb import VerbClass, verb_dict
 
+app = Flask(__name__)
 
+@app.route('/')
 def main():
     """
     Main function
@@ -31,4 +34,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True, host='0.0.0.0', port=5000)
