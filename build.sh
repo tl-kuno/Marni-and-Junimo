@@ -17,6 +17,9 @@ apt-get update && apt-get install -y \
     libxslt1-dev \
     zlib1g-dev
 
+# Upgrade pip first
+pip install --upgrade pip
+
 # Install core dependencies first
 pip install -r requirements-first.txt
 
@@ -24,8 +27,8 @@ pip install -r requirements-first.txt
 pip cache purge
 rm -rf build/ dist/ *.egg-info
 
-# Install lxml separately with specific options
-pip install lxml==4.8.0 --no-cache-dir
+# Try to install lxml using a pre-built wheel
+pip install --only-binary :all: lxml==4.9.3
 
 # Install the rest of the requirements
 pip install -r requirements.txt
