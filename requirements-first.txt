@@ -1,0 +1,4 @@
+Cython==0.29.33
+numpy==1.23.3
+setuptools
+wheel
